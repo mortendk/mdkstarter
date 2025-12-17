@@ -1,0 +1,10 @@
+title: 'Teaser / Manchet'
+fields:
+  -
+    handle: teaser
+    field:
+      buttons:
+        - bold
+        - italic
+      type: markdown
+      display: teaser

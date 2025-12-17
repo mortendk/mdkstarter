@@ -1,0 +1,35 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/forhand;er.antlers.html -->{{ /if }}
+
+<article class="pagewidth text-amber-950 mt-8 ">
+
+  <h1 class="text-7xl lg:text-8xl font-display text-balance break-all pb-12">{{ title }}</h1>
+
+  <div class="flex gap-8 max-w-3xl mx-auto">
+
+    {{ if primary_image }}
+    <div class="pb-4 drop-shadow-lg w-96 border-8 border-white rotate-2">
+      <img src="{{ glide :src="primary_image" w="400" fit="crop_focal" }}" alt="{{ primary_image:alt }}" class="w-full h-full object-cover" loading="eager" />
+    </div>
+    {{ /if }}
+
+    {{ if markdown }}
+    <div class="wysiwyg max-w-prose mx-auto text-4xl">
+      {{ markdown }}
+    </div>
+    {{ /if}}
+  </div>
+
+</article>
+
+
+<section class="pagewidth py-4 hidden">
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+    {{ collection:forhandler sort="title" }}
+
+    {{ partial:cards/card-forhandler }}
+
+
+    {{ /collection:forhandler }}
+    {{ partial:paginate }}
+  </div>
+</section>

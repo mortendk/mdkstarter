@@ -1,0 +1,32 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/advent.antlers.html -->{{ /if }}
+
+<article class="pagewidth text-amber-950 mt-8 ">
+
+  <h1 class="text-7xl lg:text-8xl font-display text-balance break-all pb-12">{{ title }}</h1>
+
+  {{ if video}}
+  <div class="bg-slate-950 w-full lg:aspect-video">
+
+    {{ if video | is_embeddable }}
+    <!-- Youtube and Vimeo -->
+    <iframe src="{{ video | embed_url }}" class="w-full  aspect-9/16 lg:aspect-16/9"></iframe>
+    {{ else }}
+    <!-- Other HTML5 video types -->
+    <video src="{{ video | embed_url }}" class="aspect-video></video>
+    {{ /if }}
+  </div>
+  {{ /if}}
+
+</article>
+
+<section class=" pagewidth py-4">
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {{ collection:advent sort="title:asc" }}
+
+        {{ partial:cards/card-advent }}
+
+
+        {{ /collection:advent }}
+      </div>
+      </section>

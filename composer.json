@@ -1,0 +1,9 @@
+{
+    "name": "mdk/mdkstarter",
+    "description": "Statamic starter kit based on Vesterbrojul",
+    "type": "statamic-starter-kit",
+    "require": {
+        "php": "^8.2",
+        "statamic/cms": "^5.0"
+    }
+}

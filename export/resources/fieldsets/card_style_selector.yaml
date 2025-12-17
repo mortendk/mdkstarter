@@ -1,0 +1,24 @@
+title: 'Card Style Selector'
+fields:
+  -
+    handle: card_partial
+    field:
+      type: select
+      display: 'Card Style'
+      options:
+        -
+          key: cards/card
+          value: Default
+        -
+          key: cards/card-advent
+          value: 'Advents kalender'
+        -
+          key: cards/card-kalender
+          value: Kalender
+        -
+          key: cards/card-forhandler
+          value: Forhandler
+        -
+          key: cards/card-sponsor
+          value: Sponsorer
+      default: cards/card

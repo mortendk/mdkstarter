@@ -1,0 +1,36 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/files.antlers.html -->{{ /if }}
+{{#
+    FILE LIST:
+    This partial expects an asset field variable (e.g., `files_to_show`)
+    to be passed to it. It will then loop through the assets and display them.
+#}}
+
+<section class="{{ section_width ?? 'pagewidth' }} {{ style:color_themes[color_theme] ?? '' }} py-4 lg:py-8">
+  <div class="pagewidth">
+
+    {{ if title or text }}
+    <article class="text-center max-w-prose mx-auto pb-4">
+      {{ if title }}
+      <h2 class="text-5xl lg:text-7xl font-display"> {{ title }}</h2>
+      {{ /if }}
+      {{ if text }}
+      <div class="text-base max-w-prose mt-4"> {{ text }}</div>
+      {{ /if }}
+    </article>
+    {{ /if }}
+
+    {{ if files }}
+    <div class="my-6 bg-white border p-4">
+
+      {{ files }}
+      <div class="flex gap-2 items-center border-b border-amber-100">
+        {{ svg src="download" class="size-6 fill-red-400" }}
+        <a href="{{ url }}" class="block">{{ title ?? filename }} <span class="text-sm">({{ size }})</span></a>
+      </div>
+
+      {{ /files }}
+
+    </div>
+    {{ /if }}
+  </div>
+</section>

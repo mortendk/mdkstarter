@@ -1,0 +1,63 @@
+title: Kalender
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: event_date
+            field:
+              time_enabled: true
+              type: date
+              display: 'event date'
+          -
+            import: content_markdown
+  card:
+    display: card
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: card
+  settings:
+    display: settings
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            import: primary_image
+          -
+            handle: author
+            field:
+              type: users
+              display: Author
+              default: current
+              localizable: true
+              max_items: 1

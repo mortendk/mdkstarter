@@ -1,0 +1,24 @@
+title: 'Hero Box'
+fields:
+  -
+    handle: hero_box_intruction
+    field:
+      type: section
+      display: 'Hero box intruction'
+      instructions: 'A layout of 4 cards'
+  -
+    handle: primary
+    field:
+      max_items: 1
+      type: entries
+      display: 'Primary Cards'
+  -
+    handle: secondary
+    field:
+      max_items: 4
+      type: entries
+      display: 'Secondary Cards'
+  -
+    import: layout_section
+  -
+    import: color_scheme

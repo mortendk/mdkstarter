@@ -1,0 +1,21 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: navn
+            field:
+              type: text
+              display: navn
+          -
+            handle: besked
+            field:
+              type: textarea
+              display: Besked
+          -
+            handle: email
+            field:
+              type: text
+              display: email

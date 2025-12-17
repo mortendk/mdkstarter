@@ -1,0 +1,272 @@
+title: Cards
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: text
+    field:
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+        - image
+        - table
+        - asset
+        - strikethrough
+      type: markdown
+      display: Text
+  -
+    handle: show_more_link
+    field:
+      type: link
+      display: 'Show More Link'
+      instructions: 'Optionally, add a link to a page with more items (e.g., /articles).'
+  -
+    handle: show_more_link_text
+    field:
+      type: text
+      display: 'Show More Link Text'
+      instructions: 'The text for the link button. Defaults to "Show More".'
+      width: 50
+      if:
+        show_more_link: 'not empty'
+  -
+    handle: show_show_more_link
+    field:
+      type: toggle
+      display: "Show 'Show More' Link"
+      instructions: 'Enable to display the link at the bottom of the component.'
+      default: true
+      width: 50
+      if:
+        show_more_link: 'not empty'
+  -
+    handle: entries
+    field:
+      create: false
+      type: entries
+      display: Entries
+      collections:
+        - articles
+        - pages
+        - persons
+        - sessions
+        - rpg_rules
+  -
+    handle: collections
+    field:
+      type: section
+      display: Collections
+  -
+    handle: selected_collection
+    field:
+      mode: select
+      type: collections
+      display: collections
+  -
+    handle: selected_category
+    field:
+      type: terms
+      display: Category
+      width: 50
+      mode: select
+      taxonomies:
+        - category
+  -
+    handle: selected_tag
+    field:
+      mode: select
+      taxonomies:
+        - tags
+      type: terms
+      display: Tags
+      width: 50
+  -
+    handle: number_of_entries
+    field:
+      default: '10'
+      type: integer
+      display: number
+      width: 33
+  -
+    handle: sorting
+    field:
+      options:
+        -
+          key: date
+          value: Date
+        -
+          key: updated_at
+          value: Modified
+        -
+          key: title
+          value: Title
+        -
+          key: event_date
+          value: 'Event Date'
+      default: created_at
+      type: button_group
+      display: Sorting
+      width: 33
+  -
+    handle: direction
+    field:
+      options:
+        -
+          key: asc
+          value: asc
+        -
+          key: desc
+          value: desc
+      default: desc
+      type: button_group
+      display: Direction
+      width: 33
+  -
+    import: card_style_selector
+  -
+    handle: mobile_layout_section
+    field:
+      type: section
+      display: 'Layout (Mobile)'
+  -
+    handle: layout_type_mobile
+    field:
+      type: button_group
+      display: 'Layout Type'
+      options:
+        grid: Grid
+        scroll: Scroll
+      default: grid
+      width: 50
+  -
+    handle: show_pagination_mobile
+    field:
+      type: toggle
+      display: 'Show Pagination'
+      default: true
+      width: 50
+  -
+    handle: columns_mobile
+    field:
+      options:
+        -
+          key: grid-cols-1
+          value: '1'
+        -
+          key: grid-cols-2
+          value: '2'
+        -
+          key: grid-cols-3
+          value: '3'
+        -
+          key: grid-cols-4
+          value: '4'
+      default: grid-cols-1
+      type: button_group
+      display: Columns
+      width: 50
+      if:
+        layout_type_mobile: 'equals grid'
+  -
+    handle: card_width_mobile
+    field:
+      type: button_group
+      display: 'Card Width'
+      options:
+        '': 'None (auto)'
+        w-32: w-32
+        w-64: w-64
+        w-96: w-96
+      width: 50
+      if:
+        layout_type_mobile: 'equals scroll'
+  -
+    handle: desktop_layout_section
+    field:
+      type: section
+      display: 'Layout (Desktop)'
+  -
+    handle: layout_type_desktop
+    field:
+      type: button_group
+      display: 'Layout Type'
+      options:
+        grid: Grid
+        scroll: Scroll
+      default: grid
+      width: 50
+  -
+    handle: show_pagination_desktop
+    field:
+      type: toggle
+      display: 'Show Pagination'
+      default: true
+      width: 50
+  -
+    handle: columns
+    field:
+      options:
+        -
+          key: 'lg:grid-cols-1'
+          value: '1'
+        -
+          key: 'lg:grid-cols-2'
+          value: '2'
+        -
+          key: 'lg:grid-cols-3'
+          value: '3'
+        -
+          key: 'lg:grid-cols-4'
+          value: '4'
+        -
+          key: 'lg:grid-cols-5'
+          value: '5'
+        -
+          key: 'lg:grid-cols-6'
+          value: '6'
+        -
+          key: 'lg:grid-cols-7'
+          value: '7'
+        -
+          key: 'lg:grid-cols-8'
+          value: '8'
+        -
+          key: 'lg:grid-cols-9'
+          value: '9'
+        -
+          key: 'lg:grid-cols-10'
+          value: '10'
+        -
+          key: 'lg:grid-cols-11'
+          value: '11'
+        -
+          key: 'lg:grid-cols-12'
+          value: '12'
+      default: 'lg:grid-cols-4'
+      type: select
+      display: Columns
+      width: 50
+      if:
+        layout_type_desktop: 'equals grid'
+  -
+    handle: card_width_desktop
+    field:
+      type: button_group
+      display: 'Card Width'
+      options:
+        '': 'None (auto)'
+        'lg:w-32': w-32
+        'lg:w-64': w-64
+        'lg:w-96': w-96
+      width: 50
+      if:
+        layout_type_desktop: 'equals scroll'
+  -
+    import: layout_section

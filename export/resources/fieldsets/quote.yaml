@@ -1,0 +1,33 @@
+title: Quote
+fields:
+  -
+    handle: markdown_field
+    field:
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - link
+        - asset
+      type: markdown
+      display: 'Markdown Field'
+  -
+    handle: image
+    field:
+      container: images
+      type: assets
+      display: image
+      max_files: 1
+      mode: grid
+      folder: images
+  -
+    handle: name
+    field:
+      type: text
+      display: Name
+  -
+    handle: position
+    field:
+      type: text
+      display: position

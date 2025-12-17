@@ -1,0 +1,6 @@
+title: 'markdown section'
+fields:
+  -
+    import: content_markdown
+  -
+    import: layout_section

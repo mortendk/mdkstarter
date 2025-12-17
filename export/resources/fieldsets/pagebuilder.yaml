@@ -1,0 +1,53 @@
+title: 'Components Pagebuilder'
+fields:
+  -
+    handle: blocks
+    field:
+      type: replicator
+      display: 'Page Section Blocks'
+      collapse: true
+      button_label: Blocks
+      sets:
+        content:
+          display: Content
+          icon: favorite-heart
+          sets:
+            cards:
+              display: Cards
+              instructions: 'Card view of content'
+              icon: layout-three-columns
+              fields:
+                -
+                  import: cards
+            markdown:
+              display: Text
+              instructions: 'Uses Markdown'
+              icon: text-formatting-paragraph
+              fields:
+                -
+                  import: markdown_section
+            images:
+              display: Images
+              instructions: 'image gallery'
+              icon: media-image-picture-gallery
+              fields:
+                -
+                  import: images
+            responsive_image:
+              display: 'Responsive image'
+              icon: media-image-picture-orientation
+              fields:
+                -
+                  import: responsive_image
+            video:
+              display: Video
+              icon: media-webcam-video
+              fields:
+                -
+                  import: video
+            files:
+              display: Files
+              icon: file-zip
+              fields:
+                -
+                  import: files

@@ -1,0 +1,33 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/kalender.antlers.html -->{{ /if }}
+
+
+<article class="pagewidth text-amber-950 mt-8 ">
+
+  <h1 class="text-7xl lg:text-8xl font-display text-balance break-all pb-12">{{ title }}</h1>
+
+  {{ if primary_image }}
+  <div class="pb-4 drop-shadow-lg">
+    <img src="{{ glide :src="primary_image" w="1200" fit="crop_focal" }}" alt="{{ primary_image:alt }}" class="w-full h-full object-cover" loading="eager" />
+  </div>
+  {{ /if }}
+
+
+  <div class=" max-w-prose mx-auto">
+    <div class="text-2xl font-bold mb-8">
+      {{ event_date iso_format="D MMMM YYYY" }}
+      {{ event_date format="H:m" }}
+    </div>
+
+    {{ if markdown }}
+    <div class="wysiwyg">
+      {{ markdown }}
+    </div>
+    {{ /if}}
+
+  </div>
+
+  {{ blocks }}
+  {{ partial src="components/{type}" }}
+  {{ /blocks }}
+
+</article>

@@ -1,0 +1,66 @@
+title: Advent
+tabs:
+  main:
+    display: Main
+    sections:
+      - fields:
+          - handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          - import: video
+          - handle: content
+            field:
+              type: markdown
+              display: Content
+              localizable: true
+      - display: "New Section"
+  card:
+    display: Card
+    sections:
+      - display: "New Section"
+        fields:
+          - import: card
+  sidebar:
+    display: Sidebar
+    sections:
+      - fields:
+          - handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: "max:200"
+          - handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+              time_enabled: true
+          - handle: kalender
+            field:
+              type: terms
+              taxonomies:
+                - kalender
+              display: kalender
+              mode: select
+  settings:
+    display: Settings
+    sections:
+      - display: "New Section"
+        fields:
+          - handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+          - handle: author
+            field:
+              type: users
+              display: Author
+              default: current
+              localizable: true
+              max_items: 1

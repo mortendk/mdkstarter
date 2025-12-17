@@ -1,0 +1,20 @@
+<div class="flex justify-center gap-4 items-center">
+  {{ paginate }}
+
+  {{ if prev_page }}
+  <a href="{{ prev_page }}" class="p-2"> {{ svg src="arrow-left" class="size-4 " }}</a>
+
+  {{/if}}
+
+  <div class="text-sm">
+    {{ current_page }} / {{ total_pages }} ( {{ total_items }} )
+  </div>
+
+
+  {{ if next_page }}
+  <a href="{{ next_page }}" class="p-2"> {{ svg src="arrow-right" class="size-4 " }}</a>
+  {{ /if }}
+
+
+  {{ /paginate }}
+</div>

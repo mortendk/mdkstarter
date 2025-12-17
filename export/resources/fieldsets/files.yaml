@@ -1,0 +1,27 @@
+title: files
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: title
+  -
+    handle: text
+    field:
+      buttons:
+        - bold
+        - italic
+        - link
+      type: markdown
+      display: text
+  -
+    handle: files
+    field:
+      container: images
+      folder: files
+      type: assets
+      display: files
+  -
+    import: layout_section
+  -
+    import: color_scheme

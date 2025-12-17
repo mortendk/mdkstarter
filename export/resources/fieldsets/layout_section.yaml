@@ -1,0 +1,17 @@
+title: "Layout Section"
+fields:
+  - handle: section_field
+    field:
+      type: section
+      display: "Section Settings"
+  - handle: section_width
+    field:
+      options:
+        - key: w-full
+          value: Fullwidth
+        - key: pagewidth
+          value: Page
+      type: button_group
+      display: "Section width"
+      default: "pagewidth"
+  - import: color_scheme

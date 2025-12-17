@@ -1,0 +1,30 @@
+title: Hero
+fields:
+  -
+    handle: hero_title
+    field:
+      type: text
+      display: Title
+      instructions: 'hero title'
+  -
+    handle: hero_image
+    field:
+      container: images
+      type: assets
+      display: Image
+      mode: grid
+      max_files: 1
+      width: 33
+      folder: images
+  -
+    handle: hero_text
+    field:
+      type: markdown
+      display: Text
+      width: 66
+  -
+    import: buttons
+  -
+    import: layout_alignment
+  -
+    import: layout_section_hero

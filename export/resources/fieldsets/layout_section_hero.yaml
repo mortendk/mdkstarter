@@ -1,0 +1,104 @@
+title: "Layout Section hero"
+fields:
+  - handle: section_field
+    field:
+      type: section
+      display: "Section Settings"
+  - handle: section_width
+    field:
+      options:
+        - key: w-full
+          value: Fullwidth
+        - key: pagewidth
+          value: Page
+      type: button_group
+      display: "Section width"
+      default: pagewidth
+  - handle: section_height_lg
+    field:
+      options:
+        - key: "lg:aspect-2/1"
+          value: 2/1
+        - key: "lg:aspect-3/2"
+          value: 3/2
+        - key: "lg:aspect-16/9"
+          value: 16/9
+        - key: "lg:aspect-4/3"
+          value: 4/3
+        - key: "lg:aspect-square"
+          value: Square
+        - key: "lg:aspect-9/16"
+          value: "video 9-16"
+        - key: "lg:h-screen"
+          value: Full
+        - key: "lg:h-auto"
+          value: auto
+        - key: "lg:h-dvh"
+          value: dvh
+        - key: "lg:h-[50dvh]"
+          value: "50"
+        - key: "lg:h-[75dvh]"
+          value: "75"
+        - key: "lg:h-[80dvh]"
+          value: "80"
+        - key: "lg:h-[90dvh]"
+          value: "90"
+      default: "lg:h-auto"
+      type: select
+      display: "Height Desktop"
+      width: 50
+  - handle: section_height
+    field:
+      options:
+        - key: "aspect-2/1"
+          value: 2/1
+        - key: "aspect-3/2"
+          value: 3/2
+        - key: "aspect-16/9"
+          value: 16/9
+        - key: "aspect-4/3"
+          value: 4/3
+        - key: "aspect-square"
+          value: Square
+        - key: "aspect-9/16"
+          value: "video 9-16"
+        - key: h-screen
+          value: screen
+        - key: h-auto
+          value: null
+        - key: h-dvh
+          value: null
+        - key: "h-[50dvh]"
+          value: 50
+        - key: "h-[75dvh]"
+          value: 75
+        - key: "h-[80dvh]"
+          value: 80
+        - key: "h-[90dvh]"
+          value: 90
+      default: aspect-4/3
+      type: select
+      display: Height
+      width: 50
+  - handle: crop_width
+    field:
+      type: float
+      display: "crop width"
+      width: 33
+  - handle: crop_height
+    field:
+      type: float
+      display: "crop height"
+      width: 33
+  - handle: crop
+    field:
+      options:
+        - key: crop_focal
+          value: "Focal Crop"
+        - key: crop
+          value: Crop
+      default: crop_focal
+      type: button_group
+      display: crop
+      width: 33
+  - import: color_scheme

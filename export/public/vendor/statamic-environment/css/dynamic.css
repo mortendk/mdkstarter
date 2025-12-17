@@ -1,0 +1,131 @@
+/* Statamic Environment Indicator - Global Styles */
+/* Fix for global search background in both light and dark modes */
+.global-search {
+    background: white;
+}
+
+html.dark .global-search {
+    background: #2B2D30 !important;
+}
+
+/* Light Mode - Local Environment */
+body.env_type_local .global-header,
+body.env_local .global-header {
+    background: repeating-linear-gradient(
+        -55deg,
+        #ffffff,
+        #ffffff 10px,
+        rgba(211, 255, 201, 0.8) 10px,
+        rgba(211, 255, 201, 0.8) 20px
+    );
+}
+
+/* Dark Mode - Local Environment */
+html.dark body.env_type_local .global-header,
+html.dark html.dark body.env_local .global-header {
+    background: repeating-linear-gradient(
+        -55deg,
+        #1a1a1a,
+        #1a1a1a 10px,
+        rgba(41, 82, 32, 0.8) 10px,
+        rgba(41, 82, 32, 0.8) 20px
+    );
+}
+
+/* Light Mode - Staging Environment */
+body.env_type_staging .global-header,
+body.env_staging .global-header,
+body.env_dev .global-header {
+    background: repeating-linear-gradient(
+        -55deg,
+        #ffffff,
+        #ffffff 10px,
+        rgba(255, 201, 201, 0.8) 10px,
+        rgba(255, 201, 201, 0.8) 20px
+    );
+}
+
+/* Dark Mode - Staging Environment */
+html.dark body.env_type_staging .global-header,
+html.dark html.dark body.env_staging .global-header,
+html.dark html.dark body.env_dev .global-header {
+    background: repeating-linear-gradient(
+        -55deg,
+        #1a1a1a,
+        #1a1a1a 10px,
+        rgba(82, 32, 32, 0.8) 10px,
+        rgba(82, 32, 32, 0.8) 20px
+    );
+}
+
+/* Light Mode - Production Environment */
+body.env_type_production .global-header,
+body.env_production .global-header,
+body.env_prod .global-header,
+body.env_live .global-header {
+    background: #ffffff;
+}
+
+/* Dark Mode - Production Environment */
+html.dark body.env_type_production .global-header,
+html.dark html.dark body.env_production .global-header,
+html.dark html.dark body.env_prod .global-header,
+html.dark html.dark body.env_live .global-header {
+    background: #1a1a1a;
+}
+
+/* Local Environment Badge */
+body.env_type_local .global-header .hidden.md\:block.shrink-0.v-popper--has-tooltip::after,
+body.env_local .global-header .hidden.md\:block.shrink-0.v-popper--has-tooltip::after {
+    content: 'Local';
+    position: relative;
+    right: -11px;
+    top: -3.5px;
+    font-weight: 600;
+    font-size: 9px;
+    text-transform: uppercase;
+    background: rgb(39, 145, 16);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 100px;
+    z-index: 50;
+}
+
+/* Staging Environment Badge */
+body.env_type_staging .global-header .hidden.md\:block.shrink-0.v-popper--has-tooltip::after,
+body.env_staging .global-header .hidden.md\:block.shrink-0.v-popper--has-tooltip::after,
+body.env_dev .global-header .hidden.md\:block.shrink-0.v-popper--has-tooltip::after {
+    content: 'Staging';
+    position: relative;
+    right: -11px;
+    top: -3.5px;
+    font-weight: 600;
+    font-size: 9px;
+    text-transform: uppercase;
+    background: rgb(153, 0, 0);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 100px;
+    z-index: 50;
+}
+
+/* Live Environment Badge */
+body.env_type_production .global-header .hidden.md\:block.shrink-0.v-popper--has-tooltip::after,
+body.env_production .global-header .hidden.md\:block.shrink-0.v-popper--has-tooltip::after,
+body.env_prod .global-header .hidden.md\:block.shrink-0.v-popper--has-tooltip::after,
+body.env_live .global-header .hidden.md\:block.shrink-0.v-popper--has-tooltip::after {
+    content: 'Live';
+    position: relative;
+    right: -11px;
+    top: -3.5px;
+    font-weight: 600;
+    font-size: 9px;
+    text-transform: uppercase;
+    background: rgb(43, 45, 48);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 100px;
+    z-index: 50;
+    border: 1px solid white;
+}
+

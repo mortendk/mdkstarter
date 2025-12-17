@@ -1,0 +1,40 @@
+post_install:
+  - 'php artisan key:generate'
+  - 'php artisan statamic:assets:generate'
+  - 'npm install'
+  - 'npm run build'
+export_paths:
+  - app/
+  - bootstrap/
+  - config/
+  - content/
+  - database/
+  - public/
+  - resources/
+  - routes/
+  - storage/
+  - tests/
+  - .env.example
+  - .gitignore
+  - README.md
+  - artisan
+  - please
+  - package.json
+  - vite.config.js
+  - phpunit.xml
+dependencies:
+  aryehraber/statamic-logbook: ^3.3
+  daun/statamic-widget-collection-count: ^1.3
+  heidkaemper/statamic-toolbar: ^1.4
+  league/flysystem-aws-s3-v3: ^3.0
+  marcorieser/tailwind-merge-statamic: ^1.1
+  mikomagni/statamic-environment: ^1.0
+  mitydigital/feedamic: ^3.0
+  mitydigital/sitemapamic: ^3.4
+  pecotamic/sitemap: ^1.4
+  samosadlaker/statamic-maintenance: ^1.2
+  spatie/statamic-responsive-images: ^5.2
+  stoffelio/statamic-404-logger: ^1.1
+  teamnovu/statamic-unused-assets: ^2.0
+  webographen/statamic-admin-log: ^1.1
+  webographen/statamic-widget-continue-editing: ^1.3

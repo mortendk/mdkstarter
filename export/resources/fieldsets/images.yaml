@@ -1,0 +1,46 @@
+title: 'Image Gallery'
+fields:
+  -
+    handle: images
+    field:
+      mode: grid
+      container: images
+      type: assets
+      display: Images
+      folder: images
+  -
+    handle: layout
+    field:
+      options:
+        -
+          key: grid
+          value: null
+        -
+          key: flow
+          value: null
+        -
+          key: gallery
+          value: null
+      default: grid
+      type: select
+      display: 'Images Layout'
+      width: 50
+      instructions: 'Select a layout for the images'
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: text
+    field:
+      buttons:
+        - bold
+        - italic
+        - quote
+      type: markdown
+      display: text
+  -
+    import: layout_section
+  -
+    import: color_scheme

@@ -1,0 +1,12 @@
+maintenance_enabled: false
+maintenance_page: null
+maintenance_title: 'Julemanden bygger'
+maintenance_message:
+  -
+    type: paragraph
+    attrs:
+      textAlign: left
+    content:
+      -
+        type: text
+        text: 'Julemanden bygger'
