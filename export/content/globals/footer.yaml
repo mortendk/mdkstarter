@@ -1,8 +1,5 @@
 title: 'Footer Content'
 data:
-  text: |-
-    My Site Footer
-    Lyrskovsgade 4, 4 sal
-    1758 København V
-    Denmark
-    36149647
+  text: 'lorem ...'
+  copyright: copy
+  flair: flair

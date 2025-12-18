@@ -5,7 +5,7 @@
 
     {{ collection:articles
         :limit="limit"
-        taxonomy:category="{category | pluck:slug | join('|')}"
+        taxonomy:category="{category:slug}"
         where="id:isnt:{id}"
         sort="date:desc" }}
 

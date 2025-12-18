@@ -62,14 +62,22 @@ tabs:
         display: Meta
         fields:
           -
-            handle: calendar
+            handle: category
             field:
               type: terms
               taxonomies:
-                - calendar
-              display: calendar
+                - category
+              display: Category
               mode: select
               max_items: 1
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
           -
             handle: author
             field:
@@ -87,19 +95,3 @@ tabs:
               validate:
                 - required
               inline: true
-          -
-            handle: category
-            field:
-              type: terms
-              taxonomies:
-                - category
-              display: Category
-              mode: select
-          -
-            handle: tags
-            field:
-              type: terms
-              taxonomies:
-                - tags
-              display: Tags
-              mode: select

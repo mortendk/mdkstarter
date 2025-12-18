@@ -1,0 +1,4 @@
+title: files
+disk: hetzner
+allow_uploads: true
+create_folders: true
