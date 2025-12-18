@@ -1,13 +1,8 @@
-title: Articles
-template: articles/article
+title: Calendar
+template: calendar
 layout: layout
-taxonomies:
-  1: category
-  2: tags
-  3: calendar
 revisions: false
-route: 'artikler/{calendar}/{slug}'
-date: true
+route: 'calendar/{{event_date}}/{slug}'
 sort_dir: asc
 date_behavior:
   past: public

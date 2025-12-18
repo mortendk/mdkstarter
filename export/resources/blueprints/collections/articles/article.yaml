@@ -62,12 +62,12 @@ tabs:
         display: Meta
         fields:
           -
-            handle: kalender
+            handle: calendar
             field:
               type: terms
               taxonomies:
-                - kalender
-              display: kalender
+                - calendar
+              display: calendar
               mode: select
               max_items: 1
           -

@@ -2,14 +2,14 @@ tree:
   -
     id: e7cab99f-f415-4992-8610-943e71f10232
     entry: home
-    title: 'vesterbro jul'
+    title: 'Home'
   -
     id: 109ca7a2-d25a-4af5-9077-dc42941d2f08
     entry: e2dd4857-e78e-4252-b399-052f30b7a062
   -
     id: da9ad68f-278f-412e-b20f-1c43ba3e9b64
     entry: ee360f8d-f768-4c1c-a08b-cf444a31226a
-    title: 'Advent Kalender'
+    title: 'Advent Calendar'
   -
     id: c5dfbdb0-39a8-494d-94cd-627159df3c8a
     entry: fa5d9bef-9317-43e2-9b61-ad7ab4bdcd12

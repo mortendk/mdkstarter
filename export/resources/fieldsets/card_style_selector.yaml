@@ -10,15 +10,6 @@ fields:
           key: cards/card
           value: Default
         -
-          key: cards/card-advent
-          value: 'Advents kalender'
-        -
-          key: cards/card-kalender
-          value: Kalender
-        -
-          key: cards/card-forhandler
-          value: Forhandler
-        -
-          key: cards/card-sponsor
-          value: Sponsorer
+          key: cards/card-calendar
+          value: Calendar
       default: cards/card

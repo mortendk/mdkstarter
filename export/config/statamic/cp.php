@@ -71,16 +71,6 @@ return [
       'width' => '25'
     ],
     [
-      'type' => 'collection_count',
-      'collection' => 'sponsor',
-      'width' => '25'
-    ],
-    [
-      'type' => 'collection_count',
-      'collection' => 'forhandler',
-      'width' => '25'
-    ],
-    [
       'type' => 'continue_editing',
       'width' => 100,
     ]
