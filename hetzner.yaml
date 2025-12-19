@@ -1,0 +1,7 @@
+ # Hetzner Object Storage
+  HETZNER_ACCESS_KEY_ID="769F5TOHMVRPHYV3BPSB"
+  HETZNER_SECRET_ACCESS_KEY="oKFbxNYk4zMYKYvOWuZ1oYVNOjxwNBAxZJmrdhhN"
+  HETZNER_DEFAULT_REGION="eu-central" # Or your bucket's region
+  HETZNER_BUCKET="mdkstarterkit"
+  HETZNER_ENDPOINT="https://fsn1.your-objectstorage.com" # Use your endpoint
+  HETZNER_URL="https://mdkstarterkit.fsn1.your-objectstorage.com" # Public URL

@@ -28,6 +28,14 @@ tabs:
         fields:
           -
             import: card
+  seo:
+    display: SEO
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: seo
   settings:
     display: settings
     sections:

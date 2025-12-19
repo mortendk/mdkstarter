@@ -1,44 +1,43 @@
-# MDK Starter Kit
+<p align="center"><img src="https://statamic.com/assets/branding/Statamic-Logo+Wordmark-Rad.svg" width="400" alt="Statamic Logo" /></p>
 
-This is a Statamic Starter Kit containing a pre-configured setup with Hetzner S3 Object Storage, generic content structures, and essential addons.
+## About Statamic
 
-## Local Development Workflow
+Statamic is the flat-first, Laravel + Git powered CMS designed for building beautiful, easy to manage websites.
 
-The best way to work on the kit is to make changes in a live Statamic site (like `mdktestlocal`) and then sync them back here.
+> [!NOTE]
+> This repository contains the code for a fresh Statamic project that is installed via the Statamic CLI tool.
+>
+> The code for the Statamic Composer package itself can be found at the [Statamic core package repository][cms-repo].
 
-### 1. Make changes in your test site
-Work on your Blueprints, Templates, and Content inside your local test project (e.g. `mdktestlocal`).
 
-### 2. Export changes back to this repository
-Run this command from inside your test project directory:
-```bash
-php please starter-kit:export ../mdkstarter
-```
+## Learning Statamic
 
-### 3. Commit and Push
-Go to the `mdkstarter` directory and commit your changes to GitHub.
+Statamic has extensive [documentation][docs]. We dedicate a significant amount of time and energy every day to improving them, so if something is unclear, feel free to open issues for anything you find confusing or incomplete. We are happy to consider anything you feel will make the docs and CMS better.
 
----
+## Support
 
-## Testing Locally
+We provide official developer support on [Statamic Pro](https://statamic.com/pricing) projects. Community-driven support is available on the [forum](https://statamic.com/forum) and in [Discord][discord].
 
-To test this starter kit locally without registering it on Packagist, use the following commands.
 
-### The "One-Liner" Test Command
-This command will delete `mdktestlocal`, create a fresh Statamic project, and install this starter kit using a local Composer path repository.
+## Contributing
 
-```bash
-rm -rf mdktestlocal && statamic new mdktestlocal --no-interaction && cd mdktestlocal && composer config repositories.local '{"type": "path", "url": "/Users/mdk/Herd/mdkstarter"}' && composer require mdk/mdkstarter:@dev --no-interaction && php please starter-kit:install mdk/mdkstarter --no-interaction && npm install && npm run build
-```
+Thank you for considering contributing to Statamic! We simply ask that you review the [contribution guide][contribution] before you open issues or send pull requests.
 
-### Manual Steps
-1. **Create Project:** `statamic new my-project`
-2. **Link Kit:** `composer config repositories.local '{"type": "path", "url": "/Users/mdk/Herd/mdkstarter"}'`
-3. **Require Kit:** `composer require mdk/mdkstarter:@dev`
-4. **Install Kit:** `php please starter-kit:install mdk/mdkstarter`
 
-## Features Included
-- **Asset Containers:** `images` and `files` configured for Hetzner S3 (see `.env.example`).
-- **Collections:** `articles`, `calendar`, `pages`.
-- **Pre-created User:** `mortendk@gmail.com` / `foobar123`.
-- **Addons:** Statamic Logbook, Toolbar, Responsive Images, Feedamic, etc.
+## Code of Conduct
+
+In order to ensure that the Statamic community is welcoming to all and generally a rad place to belong, please review and abide by the [Code of Conduct](https://github.com/statamic/cms/wiki/Code-of-Conduct).
+
+
+## Important Links
+
+- [Statamic Main Site](https://statamic.com)
+- [Statamic Documentation][docs]
+- [Statamic Core Package Repo][cms-repo]
+- [Statamic Migrator](https://github.com/statamic/migrator)
+- [Statamic Discord][discord]
+
+[docs]: https://statamic.dev/
+[discord]: https://statamic.com/discord
+[contribution]: https://github.com/statamic/cms/blob/master/CONTRIBUTING.md
+[cms-repo]: https://github.com/statamic/cms
