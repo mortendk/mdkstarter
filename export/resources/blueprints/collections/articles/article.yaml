@@ -13,8 +13,6 @@ tabs:
               validate:
                 - required
           -
-            import: primary_image
-          -
             import: teaser
           -
             import: content_markdown
@@ -62,6 +60,8 @@ tabs:
         display: Meta
         fields:
           -
+            import: primary_image
+          -
             handle: category
             field:
               type: terms
@@ -95,3 +95,11 @@ tabs:
               validate:
                 - required
               inline: true
+          -
+            handle: calendar
+            field:
+              type: terms
+              taxonomies:
+                - calendar
+              display: calendar
+              mode: select

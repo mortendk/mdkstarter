@@ -19,9 +19,11 @@ tabs:
               type: date
               display: 'event date'
           -
+            import: teaser
+          -
             import: content_markdown
   card:
-    display: CArd
+    display: Card
     sections:
       -
         display: 'New Section'
