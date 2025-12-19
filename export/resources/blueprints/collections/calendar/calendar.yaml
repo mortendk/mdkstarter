@@ -21,7 +21,7 @@ tabs:
           -
             import: content_markdown
   card:
-    display: Card
+    display: CArd
     sections:
       -
         display: 'New Section'
