@@ -17,6 +17,7 @@ export_paths:
   - users/
   - .env.example
   - .gitignore
+  - hetzner.yaml
   - README.md
   - artisan
   - please
