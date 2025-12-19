@@ -13,7 +13,3 @@ tabs:
             handle: copyright
             field:
               type: text
-          -
-            handle: flair
-            field:
-              type: text

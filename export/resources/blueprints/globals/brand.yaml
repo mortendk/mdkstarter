@@ -10,6 +10,11 @@ tabs:
               type: text
               display: Name
           -
+            handle: flair
+            field:
+              type: text
+              display: Flair
+          -
             handle: logo
             field:
               max_files: 1

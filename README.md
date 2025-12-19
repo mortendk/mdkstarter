@@ -4,13 +4,21 @@ This is a Statamic Starter Kit containing a pre-configured setup with Hetzner S3
 
 ## Local Development Workflow
 
-To make changes to this starter kit, work inside your master project (`mdkstarterkitbase`) and export the changes back here.
+The best way to work on the kit is to make changes in a live Statamic site (like `mdktestlocal`) and then sync them back here.
 
-### Export changes from Master Project
-Run this command from inside the `mdkstarterkitbase` directory:
+### 1. Make changes in your test site
+Work on your Blueprints, Templates, and Content inside your local test project (e.g. `mdktestlocal`).
+
+### 2. Export changes back to this repository
+Run this command from inside your test project directory:
 ```bash
 php please starter-kit:export ../mdkstarter
 ```
+
+### 3. Commit and Push
+Go to the `mdkstarter` directory and commit your changes to GitHub.
+
+---
 
 ## Testing Locally
 
