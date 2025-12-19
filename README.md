@@ -25,3 +25,11 @@ If you are developing the starter kit locally and it's not yet on Packagist:
 ```bash
 statamic new my-site --no-interaction && cd my-site && composer config repositories.mdkstarter path ../mdkstarter && php please starter:install mdk/mdkstarter --no-interaction && sed 's/^[[:space:]]*//' hetzner.yaml >> .env
 ```
+
+### Updating the Starter Kit
+
+To export changes from your development site back to the starter kit repository:
+
+```bash
+php please starter:export ../mdkstarter
+```
