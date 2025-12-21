@@ -18,10 +18,6 @@ tabs:
             import: content_markdown
           -
             import: pagebuilder
-          -
-            import: content_markdown_advanced
-          -
-            import: content
   card:
     display: Card
     sections:
@@ -46,6 +42,14 @@ tabs:
         display: Settings
         fields:
           -
+            handle: author
+            field:
+              type: users
+              display: Author
+              default: current
+              localizable: true
+              max_items: 1
+          -
             handle: slug
             field:
               type: slug
@@ -64,8 +68,6 @@ tabs:
         display: Meta
         fields:
           -
-            import: primary_image
-          -
             handle: category
             field:
               type: terms
@@ -83,13 +85,7 @@ tabs:
               display: Tags
               mode: select
           -
-            handle: author
-            field:
-              type: users
-              display: Author
-              default: current
-              localizable: true
-              max_items: 1
+            import: primary_image
           -
             handle: date
             field:

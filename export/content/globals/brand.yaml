@@ -1,7 +1,6 @@
 title: Brand
 data:
-  name: 'My Site Name'
-  flair: flair
-  ident: site/559940279_1296001512567747_6486179360954530007_n.jpg
+  name: 'Site Name'
+  flair: 'flair text'
   slogan: 'My Site Slogan'
-  opengraph_description: 'My Site Slogan'
+  opengraph_description: 'opengraph text'
