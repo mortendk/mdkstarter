@@ -2,17 +2,13 @@ tree:
   -
     id: e7cab99f-f415-4992-8610-943e71f10232
     entry: home
-    title: 'Home'
-  -
-    id: 109ca7a2-d25a-4af5-9077-dc42941d2f08
-    entry: e2dd4857-e78e-4252-b399-052f30b7a062
-  -
-    id: da9ad68f-278f-412e-b20f-1c43ba3e9b64
-    entry: ee360f8d-f768-4c1c-a08b-cf444a31226a
-    title: 'Calendar'
-  -
-    id: c5dfbdb0-39a8-494d-94cd-627159df3c8a
-    entry: fa5d9bef-9317-43e2-9b61-ad7ab4bdcd12
+    title: Home
   -
     id: 19592561-8d8b-4f29-99e2-ba1b4e467c91
+    entry: 90ff2c57-a449-4826-807d-b8552737286a
+  -
+    id: 785a934d-dc51-47b5-92d0-73aef231e738
+    entry: c157588d-31d6-46b1-a469-acf1f03c20c9
+  -
+    id: 93244869-bd35-4848-b3a8-eee112a1dabd
     entry: 90ff2c57-a449-4826-807d-b8552737286a

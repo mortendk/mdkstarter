@@ -4,16 +4,14 @@ layout: layout
 taxonomies:
   1: category
   2: tags
-  3: calendar
 revisions: false
-route: 'artikler/{calendar}/{slug}'
+route: "artikler/{category}/{slug}"
 date: true
 sort_dir: asc
 date_behavior:
   past: public
   future: private
 preview_targets:
-  -
-    label: Entry
-    url: '{permalink}'
+  - label: Entry
+    url: "{permalink}"
     refresh: true
