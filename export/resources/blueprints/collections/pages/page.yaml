@@ -54,6 +54,11 @@ tabs:
       -
         fields:
           -
+            handle: date
+            field:
+              type: date
+              display: date
+          -
             handle: author
             field:
               type: users

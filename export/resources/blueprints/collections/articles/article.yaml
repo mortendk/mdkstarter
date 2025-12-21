@@ -18,6 +18,10 @@ tabs:
             import: content_markdown
           -
             import: pagebuilder
+          -
+            import: content_markdown_advanced
+          -
+            import: content
   card:
     display: Card
     sections:
@@ -95,11 +99,3 @@ tabs:
               validate:
                 - required
               inline: true
-          -
-            handle: calendar
-            field:
-              type: terms
-              taxonomies:
-                - calendar
-              display: calendar
-              mode: select

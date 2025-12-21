@@ -18,6 +18,14 @@ tabs:
               time_enabled: true
               type: date
               display: 'event date'
+              width: 50
+          -
+            handle: event_date_end
+            field:
+              time_enabled: true
+              type: date
+              display: 'event date end'
+              width: 50
           -
             import: teaser
           -
@@ -71,3 +79,8 @@ tabs:
               default: current
               localizable: true
               max_items: 1
+          -
+            handle: date
+            field:
+              type: date
+              display: date

@@ -1,0 +1,24 @@
+title: 'Content Markdown Advanced'
+fields:
+  -
+    handle: markdown
+    field:
+      container: images
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+        - table
+        - strikethrough
+        - asset
+        - code
+        - codeblock
+      automatic_links: true
+      escape_markup: true
+      heading_anchors: true
+      table_of_contents: true
+      type: markdown
+      display: Markdown

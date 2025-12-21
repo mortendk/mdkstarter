@@ -15,6 +15,7 @@ export_paths:
   - storage/
   - tests/
   - users/
+  - .vscode/
   - .env.example
   - .gitignore
   - hetzner.yaml

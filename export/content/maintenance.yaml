@@ -1,6 +1,6 @@
 maintenance_enabled: false
 maintenance_page: null
-maintenance_title: 'Julemanden bygger'
+maintenance_title: 'under construction'
 maintenance_message:
   -
     type: paragraph
@@ -9,4 +9,4 @@ maintenance_message:
     content:
       -
         type: text
-        text: 'Julemanden bygger'
+        text: 'were building'
