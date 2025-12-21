@@ -102,9 +102,6 @@ fields:
           key: date
           value: Date
         -
-          key: updated_at
-          value: Modified
-        -
           key: title
           value: Title
         -

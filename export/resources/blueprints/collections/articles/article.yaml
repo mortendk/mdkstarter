@@ -95,3 +95,4 @@ tabs:
               validate:
                 - required
               inline: true
+              time_enabled: true
