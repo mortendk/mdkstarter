@@ -2,55 +2,55 @@
 
 <article class="@container group {{ card_width_mobile }} {{ card_width_desktop }} shrink-0 snap-center bg-white hover:bg-amber-50 text-amber-900 rounded-lg overflow-hidden shadow h-full">
 
-    <div class="h-full flex flex-col justify-between">
-        <div>
-            {{# image #}}
-            <a href="{{ url }}" class="block w-full aspect-video rounded-t-lg overflow-hidden">
-                {{ if image_card ?? primary_image }}
-                <img src="{{ glide :src="image_card ?? primary_image" w="400" fit="crop_focal" }}" alt="{{ image_card:alt ?? primary_image:alt }}" class="w-full h-full object-cover" loading="lazy" />
-                {{ else }}
-                <div
-                    class="text-white/5 bg-radial from-red-800 to-red-950 transition-all duration-300 hover:from-red-800 w-full aspect-video text-9xl flex items-center justify-center font-display text-nowrap">
-                    {{ title | truncate:8 }}
-                </div>
-                {{ /if }}
-            </a>
-
-            <div class="p-2">
-                <h2 class="text-lg leading-5 lg:text-2xl/6 font-semibold pb-2 text-red-950">
-                    <a href="{{ url }}">{{ title_card ?? title }}</a>
-                </h2>
-
-
-                {{# teaser #}}
-                {{ if  (teaser_card ?? teaser ?? markdown) }}
-                <div class="text-sm lg:text-base/tight text-slate-800">{{ (teaser_card ?? teaser ?? markdown) | truncate:200 | strip_tags }}</div>
-                {{ /if }}
-
-            </div>
+  <div class="h-full flex flex-col justify-between">
+    <div>
+      {{# image #}}
+      <a href="{{ url }}" class="block w-full aspect-video rounded-t-lg overflow-hidden">
+        {{ if image_card ?? primary_image }}
+        <img src="{{ glide :src="image_card ?? primary_image" w="400" fit="crop_focal" }}" alt="{{ image_card:alt ?? primary_image:alt }}" class="w-full h-full object-cover" loading="lazy" />
+        {{ else }}
+        <div
+          class="text-white/5 bg-radial from-red-800 to-red-950 transition-all duration-300 hover:from-red-800 w-full aspect-video text-9xl flex items-center justify-center font-display text-nowrap">
+          {{ title | truncate:8 }}
         </div>
-        {{# date #}}
-        <div class="p-2">
-            {{ if category }}
-            <div class="flex flex-wrap gap-1 mb-2">
-                {{ category }}
-                <a href="/category/{{ slug }}" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 px-1.5 py-0.5 rounded transition-colors">{{ title }}</a>
-                {{ /category }}
-            </div>
-            {{ /if }}
-            {{ if tags }}
-            <div class="flex flex-wrap gap-1 mb-2">
-                {{ tags }}
-                <a href="/tags/{{ slug }}" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-1.5 py-0.5 rounded transition-colors">#{{ title }}</a>
-                {{ /tags }}
-            </div>
-            {{ /if }}
-            {{ unless hide_date }}
-            <time class="text-xs">{{ date format="F j, Y H:i" }}</time>
-            {{ /unless }}
-        </div>
+        {{ /if }}
+      </a>
+
+      <div class="p-2">
+        <h2 class="text-lg leading-5 lg:text-2xl/6 font-semibold pb-2 text-red-950">
+          <a href="{{ url }}">{{ title_card ?? title }}</a>
+        </h2>
 
 
+        {{# teaser #}}
+        {{ if  (teaser_card ?? teaser ?? markdown) }}
+        <div class="text-sm lg:text-base/tight text-slate-800">{{ (teaser_card ?? teaser ?? markdown) | truncate:200 | strip_tags }}</div>
+        {{ /if }}
 
+      </div>
     </div>
+    {{# date #}}
+    <div class="p-2">
+      {{ if category }}
+      <div class="flex flex-wrap gap-1 mb-2">
+        {{ category }}
+        <a href="/category/{{ slug }}" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 px-1.5 py-0.5 rounded transition-colors">{{ title }}</a>
+        {{ /category }}
+      </div>
+      {{ /if }}
+      {{ if tags }}
+      <div class="flex flex-wrap gap-1 mb-2">
+        {{ tags }}
+        <a href="/tags/{{ slug }}" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-1.5 py-0.5 rounded transition-colors">#{{ title }}</a>
+        {{ /tags }}
+      </div>
+      {{ /if }}
+      {{ unless hide_date }}
+      <time class="text-xs">{{ date format="F j, Y H:i" }}</time>
+      {{ /unless }}
+    </div>
+
+
+
+  </div>
 </article>

@@ -1,7 +1,7 @@
 ---
 id: home
 blueprint: pages
-title: 'Welcome to your new site'
+title: Home
 template: home
 author: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
 blocks:
@@ -41,5 +41,5 @@ opengraph:
 seo_index: true
 seo_follow: true
 updated_by: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
-updated_at: 1766412752
+updated_at: 1766425816
 ---
