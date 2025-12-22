@@ -1,4 +1,4 @@
-title: Gallery
+title: Event
 tabs:
   main:
     display: Main
@@ -13,13 +13,21 @@ tabs:
               validate:
                 - required
           -
-            handle: images
+            handle: event_date
             field:
-              mode: grid
-              container: images
-              type: assets
-              display: images
-              instructions: 'Images are put in a seperate folder'
+              time_enabled: true
+              type: date
+              display: 'event date'
+              width: 50
+          -
+            handle: event_date_end
+            field:
+              time_enabled: true
+              type: date
+              display: 'event date end'
+              width: 50
+          -
+            import: teaser
           -
             import: content_markdown
   card:
@@ -39,10 +47,23 @@ tabs:
           -
             import: seo
   settings:
-    display: Settings
+    display: settings
     sections:
       -
         display: 'New Section'
+        fields:
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
   sidebar:
     display: Sidebar
     sections:
@@ -50,20 +71,6 @@ tabs:
         fields:
           -
             import: primary_image
-          -
-            handle: tags
-            field:
-              type: terms
-              taxonomies:
-                - tags
-              display: Tags
-              mode: select
-          -
-            handle: slug
-            field:
-              type: slug
-              localizable: true
-              validate: 'max:200'
           -
             handle: author
             field:
@@ -76,14 +83,4 @@ tabs:
             handle: date
             field:
               type: date
-              required: true
-              default: now
-              validate:
-                - required
-              time_enabled: true
-          -
-            handle: template
-            field:
-              type: template
-              display: Template
-              localizable: true
+              display: date

@@ -1,11 +1,8 @@
-title: Gallery
-template: default
+title: Events
+template: event
 layout: layout
-taxonomies:
-  - tags
 revisions: false
-route: 'gallery/{slug}'
-date: true
+route: 'events/{{ event_date format="Y-m-d" }}/{slug}'
 sort_dir: asc
 date_behavior:
   past: public

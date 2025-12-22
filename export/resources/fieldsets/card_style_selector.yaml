@@ -10,6 +10,6 @@ fields:
           key: cards/card
           value: Default
         -
-          key: cards/card-calendar
+          key: cards/card-event
           value: Calendar
       default: cards/card

@@ -3,47 +3,53 @@
 
 <article class="pagewidth text-amber-950 mt-8 ">
 
-  <h1 class="text-7xl lg:text-8xl font-display text-balance break-all pb-12">{{ title }}</h1>
+    <h1 class="text-7xl lg:text-8xl font-display text-balance break-all pb-12">{{ title }}</h1>
 
-  {{ if teaser }}
-  <div class="text-3xl lg:text-5xl mx-auto mb-4 text-amber-800 font-serif max-w-3xl">
-    {{ teaser }}
-  </div>
-  {{ /if}}
-
-  {{ if primary_image }}
-  <div class="pb-4 drop-shadow-lg">
-    <img src="{{ glide :src="primary_image" w="1200" fit="crop_focal" }}" alt="{{ primary_image:alt }}" class="w-full h-full object-cover" loading="eager" />
-  </div>
-  {{ /if }}
-
-  {{ if markdown }}
-  <div class="wysiwyg max-w-prose mx-auto">
-    {{ markdown }}
-  </div>
-  {{ /if}}
-
-  {{ blocks }}
-  {{ partial src="components/{type}" }}
-  {{ /blocks }}
-
-
-  <aside class="flex flex-row gap-2 max-w-prose">
-    <time datetime="">
-      {{ date iso_format="D MMMM YYYY" }}
-      {{ date format="H:m" }}
-    </time>
-
-    {{ if author }}
-    af
-    {{ author }}
-    <div>{{ name }}</div>
-    {{ /author }}
-    {{ /if }}
+    {{ if teaser }}
+    <div class="text-3xl lg:text-5xl mx-auto mb-4 text-amber-800 font-serif max-w-3xl">
+        {{ teaser }}
     </div>
+    {{ /if}}
+
+    {{ if primary_image }}
+    <div class="pb-4 drop-shadow-lg">
+        <img src="{{ glide :src="primary_image" w="1200" fit="crop_focal" }}" alt="{{ primary_image:alt }}" class="w-full h-full object-cover" loading="eager" />
+    </div>
+    {{ /if }}
+
+    {{ if markdown }}
+    <div class="wysiwyg max-w-prose mx-auto">
+        {{ markdown }}
+    </div>
+    {{ /if}}
+
+    {{ if markdown_advanced }}
+    <div class="wysiwyg max-w-prose mx-auto">
+        {{ markdown_advanced }}
+    </div>
+    {{ /if}}
+
+    {{ blocks }}
+    {{ partial src="components/{type}" }}
+    {{ /blocks }}
 
 
-  </aside>
+    <aside class="flex flex-row gap-2 max-w-prose">
+        <time datetime="">
+            {{ date iso_format="D MMMM YYYY" }}
+            {{ date format="H:m" }}
+        </time>
+
+        {{ if author }}
+        af
+        {{ author }}
+        <div>{{ name }}</div>
+        {{ /author }}
+        {{ /if }}
+        </div>
+
+
+    </aside>
 
 </article>
 

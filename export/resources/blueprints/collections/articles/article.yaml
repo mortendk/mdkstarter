@@ -17,6 +17,8 @@ tabs:
           -
             import: content_markdown
           -
+            import: content_markdown_advanced
+          -
             import: pagebuilder
   card:
     display: Card
