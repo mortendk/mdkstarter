@@ -11,10 +11,10 @@
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {{ collection:events taxonomy:event_type="{slug}" sort="event_date:asc" query_scope="future" paginate="12" as="events" }}
+        {{ collection:events taxonomy:event_type="{slug}" sort="event_date:asc" paginate="12" as="events" }}
             {{ if no_results }}
                 <div class="col-span-full text-center text-gray-500 py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-200">
-                    <p class="text-xl">No upcoming events found for this type.</p>
+                    <p class="text-xl">No events found for this type.</p>
                 </div>
             {{ /if }}
 

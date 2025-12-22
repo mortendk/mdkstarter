@@ -5,12 +5,9 @@ taxonomies:
   - tags
   - event_type
 revisions: false
-route: 'calendar/{slug}'
+route: 'calendar/{ event_date }/{slug}'
 date: true
 sort_dir: asc
-date_behavior:
-  past: public
-  future: public
 preview_targets:
   -
     label: Entry
