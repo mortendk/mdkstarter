@@ -27,16 +27,6 @@ fields:
       width: 50
       instructions: 'Optional: Only show events ending before this date.'
   -
-    handle: event_type
-    field:
-      type: terms
-      taxonomies:
-        - event_type
-      display: 'Filter by Event Type'
-      mode: select
-      max_items: 1
-      instructions: 'Optional: Only show events of this type.'
-  -
     handle: section_width
     field:
       type: select

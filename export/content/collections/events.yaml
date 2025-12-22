@@ -3,7 +3,7 @@ template: events/event
 layout: layout
 taxonomies:
   - tags
-  - event_type
+  - event_tag
 revisions: false
 route: 'calendar/{ event_date }/{slug}'
 date: true

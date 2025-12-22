@@ -62,15 +62,6 @@ tabs:
       -
         fields:
           -
-            handle: event_type
-            field:
-              type: terms
-              taxonomies:
-                - event_type
-              display: 'Event Type'
-              max_items: 1
-              mode: select
-          -
             import: primary_image
           -
             handle: tags
