@@ -25,6 +25,6 @@ preferences:
         - event_date
         - event_date_end
         - is_all_day
-        - slug
-        - date
         - status
+        - slug
+        - event_type

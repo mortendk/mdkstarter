@@ -8,7 +8,7 @@ seo_index: true
 seo_follow: true
 author: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
 updated_by: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
-updated_at: 1766438875
+updated_at: 1766439998
 blocks:
   -
     id: mjhnrllx
