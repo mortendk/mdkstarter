@@ -20,7 +20,6 @@ preferences:
         - status
       after_save: continue_editing
     events:
-      after_save: continue_editing
       columns:
         - title
         - event_date

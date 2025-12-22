@@ -74,6 +74,15 @@ tabs:
               display: Tags
               mode: select
           -
+            handle: event_type
+            field:
+              type: terms
+              taxonomies:
+                - event_type
+              display: 'Event Type'
+              mode: select
+              max_items: 1
+          -
             handle: author
             field:
               type: users

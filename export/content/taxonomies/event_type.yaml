@@ -1,0 +1,4 @@
+title: 'Event Type'
+route: 'event-type/{slug}'
+template: event_type/show
+layout: layout
