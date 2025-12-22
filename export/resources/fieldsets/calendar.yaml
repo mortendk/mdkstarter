@@ -1,4 +1,4 @@
-title: Calendar
+title: 'Visual Calendar'
 fields:
   -
     handle: title
@@ -12,6 +12,20 @@ fields:
       max_items: 1
       default: events
       display: Collection
+  -
+    handle: start_date
+    field:
+      type: date
+      display: 'Start Date'
+      width: 50
+      instructions: 'Optional: Only show events starting from this date.'
+  -
+    handle: end_date
+    field:
+      type: date
+      display: 'End Date'
+      width: 50
+      instructions: 'Optional: Only show events ending before this date.'
   -
     handle: section_width
     field:

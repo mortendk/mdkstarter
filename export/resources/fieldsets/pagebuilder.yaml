@@ -1,10 +1,9 @@
-title: 'Components Pagebuilder'
+title: "Components Pagebuilder"
 fields:
-  -
-    handle: blocks
+  - handle: blocks
     field:
       type: replicator
-      display: 'Page Section Blocks'
+      display: "Page Section Blocks"
       collapse: true
       button_label: Blocks
       sets:
@@ -16,67 +15,56 @@ fields:
               display: Video
               icon: media-webcam-video
               fields:
-                -
-                  import: video
+                - import: video
             files:
               display: Files
               icon: file-zip
               fields:
-                -
-                  import: files
+                - import: files
             cards:
               display: Cards
-              instructions: 'Listing of content in card format'
+              instructions: "Listing of content in card format"
               icon: layout-three-columns
               fields:
-                -
-                  import: cards
+                - import: cards
             image_text:
-              display: 'Image & Text'
+              display: "Image & Text"
               icon: align-right
               fields:
-                -
-                  import: image_text
+                - import: image_text
             responsive_image:
-              display: 'Responsive image'
+              display: "Responsive image"
               icon: media-image-picture-orientation
               fields:
-                -
-                  import: responsive_image
+                - import: responsive_image
             markdown:
               display: Text
-              instructions: 'Uses Markdown'
+              instructions: "Uses Markdown"
               icon: text-formatting-paragraph
               fields:
-                -
-                  import: markdown_section
+                - import: markdown_section
             images:
               display: Images
-              instructions: 'image gallery'
+              instructions: "image gallery"
               icon: media-image-picture-gallery
               fields:
-                -
-                  import: images
+                - import: images
             hero:
               display: Hero
               icon: align-object-top
               fields:
-                -
-                  import: hero
+                - import: hero
             hero_box:
-              display: 'hero box'
+              display: "hero box"
               fields:
-                -
-                  import: hero_box
+                - import: hero_box
             usp:
               display: USP
               icon: dashboard-layout
               fields:
-                -
-                  import: usp
-            visual_calendar:
-              display: 'Visual Calendar'
+                - import: usp
+            calendar:
+              display: "Calendar"
               icon: calendar-date
               fields:
-                -
-                  import: visual_calendar
+                - import: calendar
