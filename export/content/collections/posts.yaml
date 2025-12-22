@@ -1,8 +1,11 @@
-title: Events
-template: events/event
+title: Posts
+template: posts/post
 layout: layout
+taxonomies:
+  1: category
+  2: tags
 revisions: false
-route: 'events/{{ event_date format="Y-m-d" }}/{slug}'
+route: '{category}/{slug}'
 date: true
 sort_dir: asc
 date_behavior:

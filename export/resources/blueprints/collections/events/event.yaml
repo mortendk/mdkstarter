@@ -17,15 +17,17 @@ tabs:
             field:
               time_enabled: true
               type: date
-              display: 'event date'
+              display: 'Start Date'
               width: 50
+              inline: true
           -
             handle: event_date_end
             field:
               time_enabled: true
               type: date
-              display: 'event date end'
+              display: 'End Date'
               width: 50
+              inline: true
           -
             import: teaser
           -
@@ -51,19 +53,6 @@ tabs:
     sections:
       -
         display: 'New Section'
-        fields:
-          -
-            handle: template
-            field:
-              type: template
-              display: Template
-              localizable: true
-          -
-            handle: slug
-            field:
-              type: slug
-              localizable: true
-              validate: 'max:200'
   sidebar:
     display: Sidebar
     sections:
@@ -83,4 +72,25 @@ tabs:
             handle: date
             field:
               type: date
+              required: true
+              default: now
               display: date
+              inline: true
+              validate:
+                - required
+              time_enabled: true
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+              replicator_preview: false
+      -
+        display: 'New Section'

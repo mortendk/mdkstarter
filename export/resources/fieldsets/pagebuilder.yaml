@@ -12,13 +12,37 @@ fields:
           display: Content
           icon: favorite-heart
           sets:
+            video:
+              display: Video
+              icon: media-webcam-video
+              fields:
+                -
+                  import: video
+            files:
+              display: Files
+              icon: file-zip
+              fields:
+                -
+                  import: files
             cards:
               display: Cards
-              instructions: 'Card view of content'
+              instructions: 'Listing of content in card format'
               icon: layout-three-columns
               fields:
                 -
                   import: cards
+            image_text:
+              display: 'Image & Text'
+              icon: align-right
+              fields:
+                -
+                  import: image_text
+            responsive_image:
+              display: 'Responsive image'
+              icon: media-image-picture-orientation
+              fields:
+                -
+                  import: responsive_image
             markdown:
               display: Text
               instructions: 'Uses Markdown'
@@ -33,21 +57,20 @@ fields:
               fields:
                 -
                   import: images
-            responsive_image:
-              display: 'Responsive image'
-              icon: media-image-picture-orientation
+            hero:
+              display: Hero
+              icon: align-object-top
               fields:
                 -
-                  import: responsive_image
-            video:
-              display: Video
-              icon: media-webcam-video
+                  import: hero
+            hero_box:
+              display: 'hero box'
               fields:
                 -
-                  import: video
-            files:
-              display: Files
-              icon: file-zip
+                  import: hero_box
+            usp:
+              display: USP
+              icon: dashboard-layout
               fields:
                 -
-                  import: files
+                  import: usp

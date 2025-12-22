@@ -1,7 +1,7 @@
-title: Gallery
+title: Posts
 tabs:
   main:
-    display: Main
+    display: Content
     sections:
       -
         fields:
@@ -13,20 +13,13 @@ tabs:
               validate:
                 - required
           -
-            handle: images
-            field:
-              mode: grid
-              container: images
-              type: assets
-              display: images
-              instructions: 'Images are put in a seperate folder'
-          -
             import: content_markdown
   card:
     display: Card
     sections:
       -
-        display: 'New Section'
+        display: Card
+        instructions: 'Preview for cards'
         fields:
           -
             import: card
@@ -34,7 +27,7 @@ tabs:
     display: SEO
     sections:
       -
-        display: 'New Section'
+        display: 'Seo Settings'
         fields:
           -
             import: seo
@@ -42,9 +35,21 @@ tabs:
     display: Sidebar
     sections:
       -
+        display: Meta
         fields:
           -
             import: primary_image
+          -
+            handle: category
+            field:
+              type: terms
+              taxonomies:
+                - category
+              display: Category
+              mode: select
+              max_items: 1
+              validate:
+                - required
           -
             handle: tags
             field:
@@ -54,22 +59,6 @@ tabs:
               display: Tags
               mode: select
           -
-            handle: slug
-            field:
-              type: slug
-              localizable: true
-              validate: 'max:200'
-          -
-            handle: date
-            field:
-              type: date
-              required: true
-              default: now
-              validate:
-                - required
-              time_enabled: true
-              inline: true
-          -
             handle: author
             field:
               type: users
@@ -78,8 +67,25 @@ tabs:
               localizable: true
               max_items: 1
           -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+              inline: true
+              time_enabled: true
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
             handle: template
             field:
               type: template
               display: Template
               localizable: true
+              folder: posts

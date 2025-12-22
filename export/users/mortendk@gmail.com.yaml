@@ -9,3 +9,13 @@ preferences:
       after_save: continue_editing
     gallery:
       after_save: continue_editing
+    posts:
+      columns:
+        - title
+        - date
+        - slug
+        - author
+        - category
+        - tags
+        - status
+      after_save: continue_editing

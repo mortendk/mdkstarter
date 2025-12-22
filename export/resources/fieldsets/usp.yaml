@@ -1,0 +1,37 @@
+title: usp
+fields:
+  -
+    handle: replicator_field
+    field:
+      type: replicator
+      display: 'Replicator Field'
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: title
+                -
+                  handle: icon
+                  field:
+                    type: icon
+                    display: icon
+                -
+                  handle: link
+                  field:
+                    type: link
+                    display: link
+                -
+                  handle: markdown
+                  field:
+                    buttons:
+                      - bold
+                      - italic
+                    type: markdown
+                    display: markdown

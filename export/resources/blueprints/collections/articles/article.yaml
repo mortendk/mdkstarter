@@ -15,8 +15,6 @@ tabs:
           -
             import: teaser
           -
-            import: content_markdown
-          -
             import: content_markdown_advanced
           -
             import: pagebuilder
@@ -70,6 +68,8 @@ tabs:
         display: Meta
         fields:
           -
+            import: primary_image
+          -
             handle: category
             field:
               type: terms
@@ -86,8 +86,6 @@ tabs:
                 - tags
               display: Tags
               mode: select
-          -
-            import: primary_image
           -
             handle: date
             field:
