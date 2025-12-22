@@ -5,3 +5,7 @@ preferences:
   collections:
     pages:
       after_save: continue_editing
+    articles:
+      after_save: continue_editing
+    gallery:
+      after_save: continue_editing
