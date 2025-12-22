@@ -46,46 +46,48 @@
     </div>
     {{ /if }}
 
+    {{ partial:pagebuilder }}
+
     <footer class="mt-12 pt-8 border-t border-gray-200">
-      {{#  #}}
       {{ if event_type }}
-      <div class="flex flex-wrap gap-2 mb-4">
+      <div class="flex flex-wrap gap-2 mb-4 items-center">
+        <span class="text-gray-600 font-medium">Type:</span>
         {{ event_type }}
-        <a href="/calendar/{{ slug }}" class="bg-gray-100 hover:bg-primary-100 hover:text-primary-700 text-gray-700 px-3 py-1 rounded-md text-sm font-medium transition-colors">
+        <a href="{{ url }}" class="bg-gray-100 hover:bg-primary-100 hover:text-primary-700 text-gray-700 px-3 py-1 rounded-md text-sm font-medium transition-colors">
           {{ title }}
         </a>
         {{ /event_type }}
       </div>
       {{ /if }}
 
-      {{# tags #}}
       {{ if tags }}
-      <div class="flex flex-wrap gap-2">
+      <div class="flex flex-wrap gap-2 mb-8 items-center">
+        <span class="text-gray-600 font-medium">Tags:</span>
         {{ tags }}
-        <a href="/tags/{{ slug }}" class="bg-gray-100 hover:bg-primary-100 hover:text-primary-700 text-gray-700 px-3 py-1 rounded-md text-sm font-medium transition-colors">
+        <a href="{{ url }}" class="bg-gray-100 hover:bg-primary-100 hover:text-primary-700 text-gray-700 px-3 py-1 rounded-md text-sm font-medium transition-colors">
           #{{ title }}
         </a>
         {{ /tags }}
       </div>
       {{ /if }}
+
+      {{# Define variables for Google's specific format (YYYYMMDDTHHMMSSZ) #}}
+      {{ $start = event_date | format('Ymd\THis\Z') }}
+      {{ $end = (event_date_end ?? event_date) | format('Ymd\THis\Z') }}
+      {{ $details = teaser | urlencode }}
+      {{ $title_encoded = title | urlencode }}
+
+      <div class="flex gap-4 pt-6 border-t border-gray-100">
+        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{ $title_encoded }}&dates={{ $start }}/{{ $end }}&details={{ $details }}&sf=true&output=xml" target="_blank"
+          rel="nofollow" class="inline-flex items-center text-sm font-semibold text-gray-700 hover:text-primary-600">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+          Add to Google Calendar
+        </a>
+        <a href="#" class="inline-flex items-center text-sm font-semibold text-gray-700 hover:text-primary-600">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Subscribe (ICS)
+        </a>
+      </div>
     </footer>
   </article>
-
-
-  {{# Define variables for Google's specific format (YYYYMMDDTHHMMSSZ) #}}
-  {{ $start = event_start_date | format('Ymd\THis\Z') }}
-  {{ $end = event_end_date | format('Ymd\THis\Z') }}
-  {{ $details = summary | urlencode }}
-  {{ $location = location | urlencode }}
-  {{ $title = title | urlencode }}
-
-  <a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{ $title }}&dates={{ $start }}/{{ $end }}&details={{ $details }}&location={{ $location }}&sf=true&output=xml" target="_blank"
-    rel="nofollow">
-    Add to Google Calendar
-  </a>
-  <a href="https://www.google.com/calendar/render?cid={{ 'https://website.com/calendar/feed.ics' | urlencode }}" target="_blank">
-    Subscribe via Google Calendar
-  </a>
-
-
 </section>

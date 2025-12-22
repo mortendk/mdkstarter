@@ -1,32 +1,33 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/event_type/show.antlers.html -->{{ /if }}
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <header class="mb-12 text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4">
-            Events: <span class="text-primary-600">{{ title }}</span>
-        </h1>
-        {{ if content }}
-            <div class="prose prose-lg mx-auto text-gray-500">
-                {{ content }}
-            </div>
-        {{ /if }}
-    </header>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {{ collection:events taxonomy:event_type="{slug}" sort="event_date:asc" paginate="12" as="events" }}
-            {{ if no_results }}
-                <div class="col-span-full text-center text-gray-500 py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-200">
-                    <p class="text-xl">No events found for this type.</p>
-                </div>
-            {{ /if }}
-
-            {{ events }}
-                {{ partial:cards/card-event }}
-            {{ /events }}
-
-            {{ paginate }}
-                <div class="col-span-full mt-12">
-                    {{ partial:_paginate }}
-                </div>
-            {{ /paginate }}
-        {{ /collection:events }}
+  <header class="mb-12 text-center">
+    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4">
+      Events: <span class="text-primary-600">{{ title }}</span>
+    </h1>
+    {{ if content }}
+    <div class="prose prose-lg mx-auto text-gray-500">
+      {{ content }}
     </div>
+    {{ /if }}
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    {{ collection:events taxonomy:event_type="{slug}" sort="event_date:asc" paginate="12" as="events" }}
+    {{ if no_results }}
+    <div class="col-span-full text-center text-gray-500 py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-200">
+      <p class="text-xl">No events found for this type.</p>
+    </div>
+    {{ /if }}
+
+    {{ events }}
+    {{ partial:cards/card-event }}
+    {{ /events }}
+
+    {{ paginate }}
+    <div class="col-span-full mt-12">
+      {{ partial:_paginate }}
+    </div>
+    {{ /paginate }}
+    {{ /collection:events }}
+  </div>
 </div>
