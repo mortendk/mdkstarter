@@ -24,7 +24,7 @@ blocks:
     layout_type_desktop: grid
     show_pagination_desktop: true
 updated_by: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
-updated_at: 1766407211
+updated_at: 1766429634
 opengraph:
   og_type: article
 seo_index: true

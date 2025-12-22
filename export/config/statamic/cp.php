@@ -72,7 +72,18 @@ return [
     ],
     [
       'type' => 'collection_count',
-      'collection' => 'calendar',
+      'collection' => 'posts',
+      'width' => '25'
+    ],
+
+    [
+      'type' => 'collection_count',
+      'collection' => 'events',
+      'width' => '25'
+    ],
+    [
+      'type' => 'collection_count',
+      'collection' => 'gallery',
       'width' => '25'
     ],
     [

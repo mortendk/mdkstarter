@@ -13,21 +13,31 @@ tabs:
               validate:
                 - required
           -
+            handle: is_all_day
+            field:
+              type: toggle
+              display: 'All Day Event'
+              instructions: 'Enable if this is a full-day event without specific start/end times.'
+              width: 100
+              default: false
+          -
             handle: event_date
             field:
               time_enabled: true
               type: date
-              display: 'Start Date'
+              display: 'Start Date & Time'
               width: 50
               inline: true
+              instructions: 'When does the event or festival begin?'
           -
             handle: event_date_end
             field:
               time_enabled: true
               type: date
-              display: 'End Date'
+              display: 'End Date & Time'
               width: 50
               inline: true
+              instructions: 'When does it end?'
           -
             import: teaser
           -
@@ -77,11 +87,12 @@ tabs:
               type: date
               required: true
               default: now
-              display: date
+              display: 'Publish Date'
               inline: true
               validate:
                 - required
               time_enabled: true
+              instructions: 'The date this entry is considered "published".'
           -
             handle: slug
             field:
@@ -95,5 +106,4 @@ tabs:
               display: Template
               localizable: true
               replicator_preview: false
-      -
-        display: 'New Section'
+              folder: events

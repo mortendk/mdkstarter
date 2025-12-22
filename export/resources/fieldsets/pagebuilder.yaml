@@ -74,3 +74,9 @@ fields:
               fields:
                 -
                   import: usp
+            visual_calendar:
+              display: 'Visual Calendar'
+              icon: calendar-date
+              fields:
+                -
+                  import: visual_calendar

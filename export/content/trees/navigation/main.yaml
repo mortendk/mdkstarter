@@ -12,3 +12,6 @@ tree:
   -
     id: 0e200889-5485-480e-83d0-d87f3c91fd78
     entry: a374091d-0397-49c4-851d-abeea7c5ce01
+  -
+    id: 8ac8da03-a8be-4186-b425-f8eb738b6ba4
+    entry: calendar-page-id

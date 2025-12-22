@@ -8,7 +8,7 @@ seo_index: true
 seo_follow: true
 author: 1de18103-586c-4e95-958d-e020043fc639
 updated_by: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
-updated_at: 1766338876
+updated_at: 1766429627
 blocks:
   -
     id: mi0xqyr7

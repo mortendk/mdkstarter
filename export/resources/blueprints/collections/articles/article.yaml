@@ -61,6 +61,7 @@ tabs:
               type: template
               display: Template
               localizable: true
+              folder: articles
   sidebar:
     display: Sidebar
     sections:

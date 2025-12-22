@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Website//NONSGML Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:My Website Events
+{{ collection:events }}
+BEGIN:VEVENT
+UID:{{ id }}@yourwebsite.com
+DTSTAMP:{{ date format="Ymd\THis\Z" }}
+DTSTART:{{ event_start_date format="Ymd\THis\Z" }}
+DTEND:{{ event_end_date format="Ymd\THis\Z" }}
+SUMMARY:{{ title }}
+DESCRIPTION:{{ summary | strip_tags }}
+LOCATION:{{ location }}
+URL:{{ permalink }}
+END:VEVENT
+{{ /collection:events }}
+END:VCALENDAR
