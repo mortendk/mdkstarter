@@ -1,4 +1,4 @@
-title: 'Event Type'
-route: 'event-type/{slug}'
+title: "Event Type"
+route: "calendar/{slug}"
 template: event_type/show
 layout: layout

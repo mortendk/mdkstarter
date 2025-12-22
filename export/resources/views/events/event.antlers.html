@@ -1,51 +1,37 @@
-<div class="max-w-4xl mx-auto px-4 py-12">
+<section class="pagewidth">
   <article>
-    <header class="mb-8">
-      <h1 class="text-4xl font-extrabold text-gray-900 mb-4">{{ title }}</h1>
 
-      {{# Define variables for Google's specific format (YYYYMMDDTHHMMSSZ) #}}
-      {{ $start = event_start_date | format('Ymd\THis\Z') }}
-      {{ $end = event_end_date | format('Ymd\THis\Z') }}
-      {{ $details = summary | urlencode }}
-      {{ $location = location | urlencode }}
-      {{ $title = title | urlencode }}
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-4">{{ title }}</h1>
 
-      <a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{ $title }}&dates={{ $start }}/{{ $end }}&details={{ $details }}&location={{ $location }}&sf=true&output=xml"
-        target="_blank" rel="nofollow">
-        Add to Google Calendar
-      </a>
-      <a href="https://www.google.com/calendar/render?cid={{ 'https://website.com/calendar/feed.ics' | urlencode }}" target="_blank">
-        Subscribe via Google Calendar
-      </a>
-      <div class="flex items-center text-lg text-primary-600 font-medium mb-6">
-        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-        </svg>
+    <div class="flex items-center text-lg text-primary-600 font-medium mb-6">
+      <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+      </svg>
 
-        {{ if is_all_day }}
-        {{ event_date format="F j, Y" }}
-        {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
-        - {{ event_date_end format="F j, Y" }}
-        {{ /if }}
-        <span class="ml-2 text-sm bg-primary-100 text-primary-700 px-2 py-0.5 rounded-full uppercase tracking-wider">All Day</span>
-        {{ else }}
-        {{ event_date format="F j, Y @ H:i" }}
-        {{ if event_date_end }}
-        {{ if event_date | format('Y-m-d') == event_date_end | format('Y-m-d') }}
-        - {{ event_date_end format="H:i" }}
-        {{ else }}
-        - {{ event_date_end format="F j, Y @ H:i" }}
-        {{ /if }}
-        {{ /if }}
-        {{ /if }}
-      </div>
-
-      {{ if primary_image }}
-      <div class="rounded-2xl overflow-hidden shadow-xl mb-8">
-        {{ responsive_image:primary_image class="w-full h-auto" }}
-      </div>
+      {{ if is_all_day }}
+      {{ event_date format="F j, Y" }}
+      {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
+      - {{ event_date_end format="F j, Y" }}
       {{ /if }}
-    </header>
+      <span class="ml-2 text-sm bg-primary-100 text-primary-700 px-2 py-0.5 rounded-full uppercase tracking-wider">All Day</span>
+      {{ else }}
+      {{ event_date format="F j, Y @ H:i" }}
+      {{ if event_date_end }}
+      {{ if event_date | format('Y-m-d') == event_date_end | format('Y-m-d') }}
+      - {{ event_date_end format="H:i" }}
+      {{ else }}
+      - {{ event_date_end format="F j, Y @ H:i" }}
+      {{ /if }}
+      {{ /if }}
+      {{ /if }}
+    </div>
+
+    {{ if primary_image }}
+    <div class="rounded-2xl overflow-hidden shadow-xl mb-8">
+      {{ responsive_image:primary_image class="w-full h-auto" }}
+    </div>
+    {{ /if }}
+
 
     {{ if teaser }}
     <p class="text-xl text-gray-600 mb-8 leading-relaxed italic border-l-4 border-primary-500 pl-6">
@@ -53,18 +39,52 @@
     </p>
     {{ /if }}
 
+    {{ if markdown }}
+    <div class="wysiwyg max-w-prose mx-auto mb-8">
+      {{ markdown }}
+    </div>
+    {{ /if }}
 
-
-    {{ if tags }}
     <footer class="mt-12 pt-8 border-t border-gray-200">
+      {{#  #}}
+      {{ if event_type }}
+      <div class="flex flex-wrap gap-2 mb-4">
+        {{ event_type }}
+        <a href="/calendar/{{ slug }}" class="bg-gray-100 hover:bg-primary-100 hover:text-primary-700 text-gray-700 px-3 py-1 rounded-md text-sm font-medium transition-colors">
+          {{ title }}
+        </a>
+        {{ /event_type }}
+      </div>
+      {{ /if }}
+
+      {{# tags #}}
+      {{ if tags }}
       <div class="flex flex-wrap gap-2">
         {{ tags }}
-        <a href="{{ url }}" class="bg-gray-100 hover:bg-primary-100 hover:text-primary-700 text-gray-700 px-3 py-1 rounded-md text-sm font-medium transition-colors">
+        <a href="/tags/{{ slug }}" class="bg-gray-100 hover:bg-primary-100 hover:text-primary-700 text-gray-700 px-3 py-1 rounded-md text-sm font-medium transition-colors">
           #{{ title }}
         </a>
         {{ /tags }}
       </div>
+      {{ /if }}
     </footer>
-    {{ /if }}
   </article>
-</div>
+
+
+  {{# Define variables for Google's specific format (YYYYMMDDTHHMMSSZ) #}}
+  {{ $start = event_start_date | format('Ymd\THis\Z') }}
+  {{ $end = event_end_date | format('Ymd\THis\Z') }}
+  {{ $details = summary | urlencode }}
+  {{ $location = location | urlencode }}
+  {{ $title = title | urlencode }}
+
+  <a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{ $title }}&dates={{ $start }}/{{ $end }}&details={{ $details }}&location={{ $location }}&sf=true&output=xml" target="_blank"
+    rel="nofollow">
+    Add to Google Calendar
+  </a>
+  <a href="https://www.google.com/calendar/render?cid={{ 'https://website.com/calendar/feed.ics' | urlencode }}" target="_blank">
+    Subscribe via Google Calendar
+  </a>
+
+
+</section>
