@@ -4,7 +4,7 @@ layout: layout
 taxonomies:
   - tags
 revisions: false
-route: 'events/{{ event_date format="Y-m-d" }}/{slug}'
+route: 'calendar/{{ event_date format="d-m-Y" }}/{slug}'
 date: true
 sort_dir: asc
 date_behavior:

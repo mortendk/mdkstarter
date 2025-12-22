@@ -2,7 +2,7 @@
 
 return [
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Control Panel
     |--------------------------------------------------------------------------
@@ -11,11 +11,11 @@ return [
     |
     */
 
-    'enabled' => env('CP_ENABLED', true),
+  'enabled' => env('CP_ENABLED', true),
 
-    'route' => env('CP_ROUTE', 'cp'),
+  'route' => env('CP_ROUTE', 'cp'),
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Authentication
     |--------------------------------------------------------------------------
@@ -25,12 +25,12 @@ return [
     |
     */
 
-    'auth' => [
-        'enabled' => true,
-        'redirect_to' => null,
-    ],
+  'auth' => [
+    'enabled' => true,
+    'redirect_to' => null,
+  ],
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Start Page
     |--------------------------------------------------------------------------
@@ -40,9 +40,9 @@ return [
     |
     */
 
-    'start_page' => 'dashboard',
+  'start_page' => 'dashboard',
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Dashboard Widgets
     |--------------------------------------------------------------------------
@@ -52,38 +52,38 @@ return [
     |
     */
 
-    'widgets' => [
+  'widgets' => [
 
-        [
-            'type' => 'updater',
-            'width' => 100,
-            'sites' => ['en', 'dk'],
-        ],
-        [
-            'type' => 'collection_count',
-            'collection' => 'pages',
-            'width' => '25'
-        ],
-
-        [
-            'type' => 'collection_count',
-            'collection' => 'articles',
-            'width' => '25'
-        ],
-        [
-            'type' => 'collection_count',
-            'collection' => 'calendar',
-            'width' => '25'
-        ],
-        [
-            'type' => 'continue_editing',
-            'width' => 100,
-        ]
-
-
+    [
+      'type' => 'updater',
+      'width' => 100,
+      'sites' => ['en', 'dk'],
+    ],
+    [
+      'type' => 'collection_count',
+      'collection' => 'pages',
+      'width' => '25'
     ],
 
-    /*
+    [
+      'type' => 'collection_count',
+      'collection' => 'articles',
+      'width' => '25'
+    ],
+    [
+      'type' => 'collection_count',
+      'collection' => 'calendar',
+      'width' => '25'
+    ],
+    [
+      'type' => 'continue_editing',
+      'width' => 100,
+    ]
+
+
+  ],
+
+  /*
     |--------------------------------------------------------------------------
     | Date Format
     |--------------------------------------------------------------------------
@@ -98,9 +98,9 @@ return [
     |
     */
 
-    'date_format' => 'Y-m-d',
+  'date_format' => 'd.m Y',
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Pagination
     |--------------------------------------------------------------------------
@@ -110,11 +110,11 @@ return [
     |
     */
 
-    'pagination_size' => 50,
+  'pagination_size' => 50,
 
-    'pagination_size_options' => [10, 25, 50, 100, 500],
+  'pagination_size_options' => [10, 25, 50, 100, 500],
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Links to Documentation
     |--------------------------------------------------------------------------
@@ -123,9 +123,9 @@ return [
     |
     */
 
-    'link_to_docs' => env('STATAMIC_LINK_TO_DOCS', true),
+  'link_to_docs' => env('STATAMIC_LINK_TO_DOCS', true),
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Support Link
     |--------------------------------------------------------------------------
@@ -135,9 +135,9 @@ return [
     |
     */
 
-    'support_url' => env('STATAMIC_SUPPORT_URL', 'https://statamic.com/support'),
+  'support_url' => env('STATAMIC_SUPPORT_URL', 'https://statamic.com/support'),
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Theme
     |--------------------------------------------------------------------------
@@ -147,9 +147,9 @@ return [
     |
     */
 
-    'theme' => env('STATAMIC_THEME', 'rad'),
+  'theme' => env('STATAMIC_THEME', 'rad'),
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | White Labeling
     |--------------------------------------------------------------------------
@@ -160,19 +160,19 @@ return [
     |
     */
 
-    'custom_cms_name' => env('STATAMIC_CUSTOM_CMS_NAME', 'Statamic'),
+  'custom_cms_name' => env('STATAMIC_CUSTOM_CMS_NAME', 'Statamic'),
 
-    'custom_logo_url' => env('STATAMIC_CUSTOM_LOGO_URL', null),
+  'custom_logo_url' => env('STATAMIC_CUSTOM_LOGO_URL', null),
 
-    'custom_dark_logo_url' => env('STATAMIC_CUSTOM_DARK_LOGO_URL', null),
+  'custom_dark_logo_url' => env('STATAMIC_CUSTOM_DARK_LOGO_URL', null),
 
-    'custom_logo_text' => env('STATAMIC_CUSTOM_LOGO_TEXT', null),
+  'custom_logo_text' => env('STATAMIC_CUSTOM_LOGO_TEXT', null),
 
-    'custom_favicon_url' => env('STATAMIC_CUSTOM_FAVICON_URL', null),
+  'custom_favicon_url' => env('STATAMIC_CUSTOM_FAVICON_URL', null),
 
-    'custom_css_url' => env('STATAMIC_CUSTOM_CSS_URL', null),
+  'custom_css_url' => env('STATAMIC_CUSTOM_CSS_URL', null),
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Thumbnails
     |--------------------------------------------------------------------------
@@ -181,7 +181,7 @@ return [
     |
     */
 
-    'thumbnail_presets' => [
-        // 'medium' => 800,
-    ],
+  'thumbnail_presets' => [
+    // 'medium' => 800,
+  ],
 ];

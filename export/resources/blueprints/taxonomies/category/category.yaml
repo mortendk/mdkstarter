@@ -1,4 +1,4 @@
-title: Tags
+title: Category
 tabs:
   main:
     display: Main
@@ -12,13 +12,13 @@ tabs:
               required: true
               validate:
                 - required
+          -
+            import: content_markdown
   sidebar:
     display: Sidebar
     sections:
       -
         fields:
-          -
-            import: primary_image
           -
             handle: slug
             field:
@@ -28,6 +28,12 @@ tabs:
                 - required
                 - 'max:200'
           -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+          -
             handle: author
             field:
               type: users
@@ -36,8 +42,4 @@ tabs:
               localizable: true
               max_items: 1
           -
-            handle: template
-            field:
-              type: template
-              display: Template
-              localizable: true
+            import: primary_image
