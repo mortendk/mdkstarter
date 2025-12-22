@@ -5,9 +5,7 @@ taxonomies:
   - tags
   - event_type
 revisions: false
-structure:
-  root: true
-route: 'events/{parent_uri}/{slug}'
+route: 'calendar/{{ event_date format="d-m-Y" }}/{slug}'
 date: true
 sort_dir: asc
 date_behavior:
