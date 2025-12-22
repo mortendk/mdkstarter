@@ -1,10 +1,10 @@
 <div class="{{ section_width == 'pagewidth' ?= 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' }} py-12">
-    {{ if title }}
-        <h2 class="text-3xl font-bold mb-8 text-gray-900">{{ title }}</h2>
-    {{ /if }}
+  {{ if title }}
+  <h2 class="text-3xl font-bold mb-8 text-gray-900">{{ title }}</h2>
+  {{ /if }}
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {{ collection:events
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    {{ collection:events
             sort="event_date:asc"
             event_date:gte="{start_date ?? now}"
             event_date:lte="{end_date}"
@@ -12,88 +12,94 @@
             paginate="12"
             as="events"
         }}
-            {{ events }}
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col h-full">
-                    <div class="relative h-48">
-                        {{ if primary_image }}
-                            {{ responsive_image:primary_image class="w-full h-full object-cover" }}
-                        {{ else }}
-                            <div class="w-full h-full bg-primary-100 flex items-center justify-center text-primary-500">
-                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                            </div>
-                        {{ /if }}
-                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm text-center min-w-[4rem] border border-gray-200">
-                            <span class="block text-xs font-bold text-gray-500 uppercase leading-none mb-1">{{ event_date format="M" }}</span>
-                            <span class="block text-2xl font-extrabold text-primary-600 leading-none">
-                                {{ event_date format="j" }}
-                                {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
-                                    <span class="text-gray-300 text-lg font-normal mx-0.5">-</span>
-                                    <span class="text-primary-400">{{ event_date_end format="j" }}</span>
-                                {{ /if }}
-                            </span>
-                            {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
-                                 <span class="block text-[10px] font-bold text-gray-400 uppercase leading-none mt-1">{{ event_date_end format="M" }}</span>
-                            {{ /if }}
-                        </div>
-                    </div>
-                    <div class="p-5 flex-grow flex flex-col justify-between">
-                        <div>
-                            {{ if event_type }}
-                                <div class="mb-2">
-                                    {{ event_type }}
-                                        <span class="text-[10px] font-bold uppercase tracking-widest text-primary-500 bg-primary-50 px-2 py-0.5 rounded">
-                                            {{ title }}
-                                        </span>
-                                    {{ /event_type }}
-                                </div>
-                            {{ /if }}
-                            <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">
-                                <a href="{{ url }}" class="hover:text-primary-600 transition-colors">
-                                    {{ title }}
-                                </a>
-                            </h3>
-                            <div class="flex items-center text-sm text-gray-500 mb-3">
-                                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                {{ if is_all_day }}
-                                    <span class="font-medium text-primary-600">All Day</span>
-                                {{ else }}
-                                    {{ event_date format="H:i" }}
-                                    {{ if event_date_end }}
-                                        {{ if event_date | format('Y-m-d') == event_date_end | format('Y-m-d') }}
-                                            - {{ event_date_end format="H:i" }}
-                                        {{ else }}
-                                            - {{ event_date_end format="M j, H:i" }}
-                                        {{ /if }}
-                                    {{ /if }}
-                                {{ /if }}
-                                
-                                {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
-                                    <span class="ml-1 text-xs text-gray-400">(Multi-day)</span>
-                                {{ /if }}
-                            </div>
-                            {{ if teaser }}
-                                <p class="text-gray-600 text-sm line-clamp-3">{{ teaser }}</p>
-                            {{ /if }}
-                        </div>
-                        <a href="{{ url }}" class="mt-4 inline-flex items-center text-sm font-medium text-primary-600 hover:text-primary-700">
-                            View Details
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            {{ /events }}
-            
-            {{ if no_results }}
-                <div class="col-span-full text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-200">
-                    <p class="text-gray-500 text-lg font-medium">No upcoming events found.</p>
-                </div>
+    {{ events }}
+    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col h-full">
+      <div class="relative h-48">
+        {{ if primary_image }}
+        {{ responsive_image:primary_image class="w-full h-full object-cover" }}
+        {{ else }}
+        <div class="w-full h-full bg-primary-100 flex items-center justify-center text-primary-500">
+          <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        {{ /if }}
+        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm text-center min-w-[4rem] border border-gray-200">
+          <span class="block text-xs font-bold text-gray-500 uppercase leading-none mb-1">{{ event_date format="M" }}</span>
+          <span class="block text-2xl font-extrabold text-primary-600 leading-none">
+            {{ event_date format="j" }}
+            {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
+            <span class="text-gray-300 text-lg font-normal mx-0.5">-</span>
+            <span class="text-primary-400">{{ event_date_end format="j" }}</span>
+            {{ /if }}
+          </span>
+          {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
+          <span class="block text-[10px] font-bold text-gray-400 uppercase leading-none mt-1">{{ event_date_end format="M" }}</span>
+          {{ /if }}
+        </div>
+      </div>
+      <div class="p-5 flex-grow flex flex-col justify-between">
+        <div>
+          {{ if event_type }}
+          <div class="mb-2">
+            {{ event_type }}
+            <span class="text-[10px] font-bold uppercase tracking-widest text-primary-500 bg-primary-50 px-2 py-0.5 rounded">
+              {{ title }}
+            </span>
+            {{ /event_type }}
+          </div>
+          {{ /if }}
+          <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">
+            <a href="{{ url }}" class="hover:text-primary-600 transition-colors">
+              {{ title }}
+            </a>
+          </h3>
+          <div class="flex items-center text-sm text-gray-500 mb-3">
+            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            {{ if is_all_day }}
+            <span class="font-medium text-primary-600">All Day</span>
+            {{ else }}
+            {{ event_date format="H:i" }}
+            {{ if event_date_end }}
+            {{ if event_date | format('Y-m-d') == event_date_end | format('Y-m-d') }}
+            - {{ event_date_end format="H:i" }}
+            {{ else }}
+            - {{ event_date_end format="M j, H:i" }}
+            {{ /if }}
+            {{ /if }}
             {{ /if }}
 
-            {{ paginate }}
-                <div class="col-span-full mt-12">
-                    {{ partial:_paginate }}
-                </div>
-            {{ /paginate }}
-        {{ /collection:events }}
+            {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
+            <span class="ml-1 text-xs text-gray-400">(Multi-day)</span>
+            {{ /if }}
+          </div>
+          {{ if teaser }}
+          <p class="text-gray-600 text-sm line-clamp-3">{{ teaser }}</p>
+          {{ /if }}
+        </div>
+        <a href="{{ url }}" class="mt-4 inline-flex items-center text-sm font-medium text-primary-600 hover:text-primary-700">
+          View Details
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
     </div>
+    {{ /events }}
+
+    {{ if no_results }}
+    <div class="col-span-full text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-200">
+      <p class="text-gray-500 text-lg font-medium">No upcoming events found.</p>
+    </div>
+    {{ /if }}
+
+    {{ paginate }}
+    <div class="col-span-full mt-12">
+      {{ partial:_paginate }}
+    </div>
+    {{ /paginate }}
+    {{ /collection:events }}
+  </div>
 </div>
