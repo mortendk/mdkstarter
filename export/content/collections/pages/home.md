@@ -27,6 +27,8 @@ blocks:
     enabled: true
     selected_collection:
       - articles
+      - events
+      - posts
     title: 'Latest Articles'
     show_pagination: false
     layout_type: grid
@@ -39,5 +41,5 @@ opengraph:
 seo_index: true
 seo_follow: true
 updated_by: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
-updated_at: 1766407201
+updated_at: 1766412752
 ---

@@ -32,12 +32,20 @@
     {{ blocks }}
     {{ partial src="components/{type}" }}
     {{ /blocks }}
-    {{# tags #}}
+
     {{ if tags }}
     <div class="max-w-prose mx-auto mt-8 flex flex-wrap gap-2">
         {{ tags }}
-        <a href="{{ url }}" class="bg-amber-100 hover:bg-amber-200 text-amber-900 px-2 py-1 rounded text-sm transition-colors">{{ title }}</a>
+        <a href="/tags/{{ slug }}" class="bg-amber-100 hover:bg-amber-200 text-amber-900 px-2 py-1 rounded text-sm transition-colors">{{ title }}</a>
         {{ /tags }}
+    </div>
+    {{ /if }}
+    {{# cate #}}
+    {{ if category }}
+    <div class="max-w-prose mx-auto mt-8 flex flex-wrap gap-2">
+        {{ category }}
+        <a href="/category/{{ slug }}" class="bg-amber-100 hover:bg-amber-200 text-amber-900 px-2 py-1 rounded text-sm transition-colors">{{ title }}</a>
+        {{ /category }}
     </div>
     {{ /if }}
 

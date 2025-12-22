@@ -48,11 +48,6 @@ tabs:
         fields:
           -
             import: seo
-  settings:
-    display: settings
-    sections:
-      -
-        display: 'New Section'
   sidebar:
     display: Sidebar
     sections:
@@ -60,6 +55,14 @@ tabs:
         fields:
           -
             import: primary_image
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
           -
             handle: author
             field:

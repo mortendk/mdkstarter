@@ -1,6 +1,8 @@
 title: Events
 template: events/event
 layout: layout
+taxonomies:
+  - tags
 revisions: false
 route: 'events/{{ event_date format="Y-m-d" }}/{slug}'
 date: true

@@ -6,7 +6,7 @@
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {{ collection from="*" taxonomy:tags="{slug}" paginate="12" as="posts" }}
+        {{ collection from="*" taxonomy:category="{slug}" paginate="12" as="posts" }}
         {{ if no_results }}
         <div class="col-span-full text-center text-gray-500 py-12">
             <p class="text-xl">No content found in this category.</p>

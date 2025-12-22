@@ -19,3 +19,5 @@ preferences:
         - tags
         - status
       after_save: continue_editing
+    events:
+      after_save: continue_editing
