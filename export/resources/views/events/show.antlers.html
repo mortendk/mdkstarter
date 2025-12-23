@@ -50,7 +50,7 @@
                     </p>
                 {{ /if }}
 
-                <div class="prose prose-xl prose-primary max-w-none">
+                <div class="prose prose-xl prose-primary max-w-none mb-16">
                     {{ blocks }}
                         {{ partial src="components/{type}" }}
                     {{ /blocks }}
@@ -59,6 +59,21 @@
                         {{ partial src="components/{type}" }}
                     {{ /bard }}
                 </div>
+
+                {{ if calendar }}
+                    {{ collection:events taxonomy:calendar="{calendar:slug}" limit="3" id:isnt="{id}" sort="event_start:asc" as="related_events" }}
+                        {{ if related_events }}
+                            <div class="border-t border-gray-100 pt-16">
+                                <h2 class="text-3xl font-black text-gray-900 mb-8">More from {{ calendar:title }}</h2>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    {{ related_events }}
+                                        {{ partial src="cards/card-event" }}
+                                    {{ /related_events }}
+                                </div>
+                            </div>
+                        {{ /if }}
+                    {{ /collection:events }}
+                {{ /if }}
             </div>
 
             <aside class="lg:col-span-4">
