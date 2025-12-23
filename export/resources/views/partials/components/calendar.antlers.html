@@ -7,29 +7,31 @@
         <h2 class="text-4xl lg:text-6xl font-bold mb-12 text-center text-gray-900">{{ title }}</h2>
     {{ /if }}
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-      {{# Logic: What's happening next #}}
-      {{ $query_start = start_date ?: (hide_past_events ? (now | format('Y-m-d H:i')) : '1900-01-01') }}
-      {{ $query_end   = end_date   ?: '2100-01-01' }}
+    {{# Logic setup #}}
+    {{ $now = now | format('Y-m-d H:i') }}
+    {{ $query_start = start_date ? (start_date | format('Y-m-d H:i')) : (hide_past_events ? $now : '1900-01-01 00:00') }}
+    {{ $query_end   = end_date   ? (end_date   | format('Y-m-d 23:59')) : '2100-01-01 23:59' }}
 
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
       {{ collection:events
             sort="event_start:asc"
-            event_start:lte="{ $query_end }"
-            as="events"
+            taxonomy:tags="{ selected_tags | pluck:slug | join('|') }"
+            as="entries"
       }}
-        {{ events }}
-            {{# Overlap Logic: (End Date >= Query Start) #}}
-            {{# We use event_end if available, otherwise event_start #}}
-            {{ $actual_end = (event_end ?? event_start) | format('Y-m-d H:i') }}
+        {{ entries }}
+            {{# Determine when the event effectively starts and ends #}}
+            {{ $e_start = event_start | format('Y-m-d H:i') }}
+            {{ $e_end   = (event_end ?? event_start) | format('Y-m-d 23:59') }}
 
-            {{ if $actual_end >= $query_start }}
+            {{# Overlap Logic: (Start <= QueryEnd) AND (End >= QueryStart) #}}
+            {{ if ($e_start <= $query_end) && ($e_end >= $query_start) }}
                 {{ partial src="{ card_partial ?? 'cards/card-event'}" }}
             {{ /if }}
-        {{ /events }}
+        {{ /entries }}
 
         {{ if no_results }}
             <div class="col-span-full text-center py-16 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
-                <p class="text-gray-500 text-xl font-medium">No upcoming events found.</p>
+                <p class="text-gray-500 text-xl font-medium">No events found in collection.</p>
             </div>
         {{ /if }}
       {{ /collection:events }}

@@ -35,6 +35,15 @@ fields:
       width: 50
       instructions: 'Optional: Manually set an end date for the query.'
   -
+    handle: selected_tags
+    field:
+      type: terms
+      taxonomies:
+        - tags
+      display: 'Filter by Tags'
+      mode: select
+      instructions: 'Optional: Only show events with these tags.'
+  -
     import: card_style_selector
   -
     import: layout_section

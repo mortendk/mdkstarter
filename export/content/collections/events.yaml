@@ -2,7 +2,10 @@ title: Events
 template: events/show
 layout: layout
 revisions: false
-route: 'calendar/{{ event_start format="Y-m-d" }}/{slug}'
+taxonomies:
+  - tags
+route:
+ 'calendar/{{ event_start format="Y-m-d" }}/{slug}'
 date: true
 sort_dir: asc
 date_behavior:
