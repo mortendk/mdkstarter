@@ -18,8 +18,6 @@ tabs:
               type: toggle
               display: 'All Day Event'
               instructions: 'Enable if this is a full-day event.'
-              width: 100
-              default: false
           -
             handle: event_start
             field:
@@ -28,7 +26,6 @@ tabs:
               display: 'Start Date & Time'
               width: 50
               inline: true
-              required: true
               validate:
                 - required
           -
@@ -63,6 +60,15 @@ tabs:
       -
         fields:
           -
+            handle: calendar
+            field:
+              type: terms
+              taxonomies:
+                - calendar
+              display: Calendar
+              mode: select
+              max_items: 1
+          -
             import: primary_image
           -
             handle: tags
@@ -72,15 +78,6 @@ tabs:
                 - tags
               display: Tags
               mode: select
-          -
-            handle: calendar
-            field:
-              type: terms
-              taxonomies:
-                - calendar
-              display: Calendar
-              mode: select
-              max_items: 1
           -
             handle: author
             field:
@@ -94,3 +91,11 @@ tabs:
               type: slug
               localizable: true
               validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required

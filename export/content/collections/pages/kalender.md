@@ -8,7 +8,7 @@ seo_index: true
 seo_follow: true
 author: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
 updated_by: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
-updated_at: 1766510497
+updated_at: 1766510769
 blocks:
   -
     id: mjhnrllx
@@ -34,4 +34,5 @@ blocks:
     date_range:
       start: '2025-12-01'
       end: '2025-12-01'
+    end_date: '2025-12-24'
 ---

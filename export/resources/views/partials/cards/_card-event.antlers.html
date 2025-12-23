@@ -23,6 +23,16 @@
              <span class="block text-[9px] font-bold text-gray-400 uppercase leading-none mt-1">{{ event_end format="M" }}</span>
         {{ /if }}
     </div>
+
+    {{ if calendar }}
+        <div class="absolute bottom-4 left-4">
+            {{ calendar }}
+                <span class="bg-gray-900/80 backdrop-blur-xs text-white text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded shadow-sm">
+                    {{ title }}
+                </span>
+            {{ /calendar }}
+        </div>
+    {{ /if }}
   </div>
 
   <div class="p-6 flex-grow flex flex-col">
