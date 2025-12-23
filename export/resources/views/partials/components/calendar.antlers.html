@@ -36,43 +36,43 @@
             paginate="{ number_of_entries ?? 12 }"
             as="entries"
       }}
-        {{ entries }}
-            {{# Determine when the event effectively starts and ends #}}
-            {{ $e_start = event_start | format('Y-m-d H:i') }}
-            {{ $e_end   = (event_end ?? event_start) | format('Y-m-d 23:59') }}
+      {{ entries }}
+      {{# Determine when the event effectively starts and ends #}}
+      {{ $e_start = event_start | format('Y-m-d H:i') }}
+      {{ $e_end   = (event_end ?? event_start) | format('Y-m-d 23:59') }}
 
-            {{# Overlap Logic #}}
-            {{ if ($e_start <= $query_end) && ($e_end >= $query_start) }}
-                {{ partial src="{ card_partial ?? 'cards/card-event'}" 
-                   card_width_mobile="{card_width_mobile}" 
-                   card_width_desktop="{card_width_desktop ?? 'lg:w-full'}" 
+      {{# Overlap Logic #}}
+      {{ if ($e_start <= $query_end) && ($e_end >= $query_start) }}
+      {{ partial src="{ card_partial ?? 'cards/card-event'}"
+                   card_width_mobile="{card_width_mobile}"
+                   card_width_desktop="{card_width_desktop ?? 'lg:w-full'}"
                 }}
-            {{ /if }}
-        {{ /entries }}
+      {{ /if }}
+      {{ /entries }}
 
-        {{ if no_results }}
-            <div class="col-span-full text-center py-16 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
-                <p class="text-gray-500 text-xl font-medium">No events found.</p>
-            </div>
-        {{ /if }}
+      {{ if no_results }}
+      <div class="col-span-full text-center py-16 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
+        <p class="text-gray-500 text-xl font-medium">No events found.</p>
+      </div>
+      {{ /if }}
 
-        {{# Pagination #}}
-        {{ if paginate.total_pages > 1 }}
-            <div class="col-span-full justify-center items-center gap-4 mt-4
-                {{# Hide on mobile if disabled #}}
-                {{ if show_pagination_mobile }}flex{{ else }}hidden{{ /if }}
-                {{# Hide on desktop if disabled, or show if enabled #}}
-                {{ if show_pagination_desktop }}lg:flex{{ else }}lg:hidden{{ /if }}">
+      {{# Pagination #}}
+      {{ if paginate.total_pages > 1 }}
+      <div class="col-span-full justify-center items-center gap-4 mt-4
+        {{# Hide on mobile if disabled #}}
+        {{ if show_pagination_mobile }}flex{{ else }}hidden{{ /if }}
+        {{# Hide on desktop if disabled, or show if enabled #}}
+        {{ if show_pagination_desktop }}lg:flex{{ else }}lg:hidden{{ /if }}">
 
-                {{ paginate }}
-                    <a href="{{ prev_page }}" class="p-2 {{ if !prev_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-left" class="size-4 " }} </a>
-                    <div class="text-sm">
-                        {{ current_page }} : {{ total_pages }}
-                    </div>
-                    <a href="{{ next_page }}" class="p-2 {{ if !next_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-right" class="size-4 " }}</a>
-                {{ /paginate }}
-            </div>
-        {{ /if }}
+        {{ paginate }}
+        <a href="{{ prev_page }}" class="p-2 {{ if !prev_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-left" class="size-4 " }} </a>
+        <div class="text-sm">
+          {{ current_page }} : {{ total_pages }}
+        </div>
+        <a href="{{ next_page }}" class="p-2 {{ if !next_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-right" class="size-4 " }}</a>
+        {{ /paginate }}
+      </div>
+      {{ /if }}
 
       {{ /collection:events }}
     </div>
