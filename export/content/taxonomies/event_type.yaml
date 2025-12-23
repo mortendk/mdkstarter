@@ -1,9 +1,0 @@
-title: 'Event Type'
-route: '/event-type/{slug}'
-preview_targets:
-  -
-    label: Term
-    url: '{permalink}'
-    refresh: true
-template: event_type/show
-layout: layout
