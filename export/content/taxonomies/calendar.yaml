@@ -1,8 +1,4 @@
 title: Calendar
-preview_targets:
-  -
-    label: Term
-    url: '{permalink}'
-    refresh: true
+route: 'calendar-group/{slug}'
 template: calendar/show
 layout: layout

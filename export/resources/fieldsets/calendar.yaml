@@ -44,6 +44,16 @@ fields:
       mode: select
       instructions: 'Optional: Only show events with these tags.'
   -
+    handle: selected_calendar
+    field:
+      type: terms
+      taxonomies:
+        - calendar
+      display: 'Filter by Calendar'
+      mode: select
+      max_items: 1
+      instructions: 'Optional: Only show events from this calendar group.'
+  -
     import: card_style_selector
   -
     import: layout_section

@@ -4,6 +4,7 @@ layout: layout
 revisions: false
 taxonomies:
   - tags
+  - calendar
 route:
  'calendar/{{ event_start format="Y-m-d" }}/{slug}'
 date: true

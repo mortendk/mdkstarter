@@ -73,6 +73,15 @@ tabs:
               display: Tags
               mode: select
           -
+            handle: calendar
+            field:
+              type: terms
+              taxonomies:
+                - calendar
+              display: Calendar
+              mode: select
+              max_items: 1
+          -
             handle: author
             field:
               type: users
