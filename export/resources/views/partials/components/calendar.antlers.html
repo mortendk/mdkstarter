@@ -1,23 +1,32 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/calendar.antlers.html -->{{ /if }}
 
-<section class="{{ section_width ?? 'w-full' }} py-12">
+<section class="{{ section_width ?? 'w-full' }} py-4 lg:py-8">
   <div class="pagewidth">
 
-    {{ if title }}
-        <h2 class="text-4xl lg:text-6xl font-bold mb-12 text-center text-gray-900">{{ title }}</h2>
+    {{ if title or text }}
+    <article class="mb-8 lg:mb-12">
+        {{ if title }} <h2 class="font-display text-4xl lg:text-7xl text-center mb-4"> {{ title }}</h2>{{ /if}}
+        {{ if text }}<div class="mt-4 max-w-prose mx-auto text-gray-600 mb-4 lg:text-xl text-center"> {{ text }}</div>{{ /if}}
+    </article>
     {{ /if }}
 
-    {{# Logic setup #}}
-    {{ $now = now | format('Y-m-d H:i') }}
-    {{ $query_start = start_date ? (start_date | format('Y-m-d H:i')) : (hide_past_events ? $now : '1900-01-01 00:00') }}
-    {{ $query_end   = end_date   ? (end_date   | format('Y-m-d 23:59')) : '2100-01-01 23:59' }}
+    <div class="
+        {{# Mobile layout classes #}}
+        {{ if (layout_type_mobile ?? 'grid') == 'scroll' }}flex gap-4 flex-nowrap overflow-x-auto snap-x relative pb-4{{ else }}grid {{ columns_mobile ?? 'grid-cols-1' }} gap-6{{ /if }}
+        {{# Desktop layout classes #}}
+        {{ if (layout_type_desktop ?? 'grid') == 'scroll' }}lg:flex lg:gap-6 lg:flex-nowrap lg:overflow-x-auto lg:snap-x lg:relative lg:px-4{{ else }}lg:grid {{ columns ?? 'lg:grid-cols-4' }} lg:gap-8{{ /if }}
+      ">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-      
+      {{# Logic setup #}}
+      {{ $now = now | format('Y-m-d H:i') }}
+      {{ $query_start = start_date ? (start_date | format('Y-m-d H:i')) : (hide_past_events ? $now : '1900-01-01 00:00') }}
+      {{ $query_end   = end_date   ? (end_date   | format('Y-m-d 23:59')) : '2100-01-01 23:59' }}
+
       {{ collection:events
             sort="event_start:asc"
             taxonomy:tags="{ selected_tags ? (selected_tags | pluck:slug | join('|')) : '' }"
             taxonomy:calendar="{ selected_calendar ? (selected_calendar:slug ?? (selected_calendar | pluck:slug | join('|'))) : '' }"
+            limit="{ number_of_entries ?? 12 }"
             as="entries"
       }}
         {{ entries }}
@@ -25,9 +34,12 @@
             {{ $e_start = event_start | format('Y-m-d H:i') }}
             {{ $e_end   = (event_end ?? event_start) | format('Y-m-d 23:59') }}
 
-            {{# Overlap Logic: (Start <= QueryEnd) AND (End >= QueryStart) #}}
+            {{# Overlap Logic #}}
             {{ if ($e_start <= $query_end) && ($e_end >= $query_start) }}
-                {{ partial src="{ card_partial ?? 'cards/card-event'}" }}
+                {{ partial src="{ card_partial ?? 'cards/card-event'}" 
+                   card_width_mobile="{card_width_mobile}" 
+                   card_width_desktop="{card_width_desktop ?? 'lg:w-full'}" 
+                }}
             {{ /if }}
         {{ /entries }}
 

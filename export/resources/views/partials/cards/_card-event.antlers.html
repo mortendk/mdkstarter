@@ -1,6 +1,6 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/partials/cards/_card-event.antlers.html -->{{ /if }}
 
-<article class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full group">
+<article class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full group {{ card_width_mobile }} {{ card_width_desktop }} shrink-0 snap-center">
   <div class="relative h-52 overflow-hidden rounded-t-xl">
     {{ if primary_image }}
         {{ responsive_image:primary_image class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" }}
