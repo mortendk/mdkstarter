@@ -26,7 +26,7 @@
             sort="event_start:asc"
             taxonomy:tags="{ selected_tags ? (selected_tags | pluck:slug | join('|')) : '' }"
             taxonomy:calendar="{ selected_calendar ? (selected_calendar:slug ?? (selected_calendar | pluck:slug | join('|'))) : '' }"
-            limit="{ number_of_entries ?? 12 }"
+            paginate="{ number_of_entries ?? 12 }"
             as="entries"
       }}
         {{ entries }}
@@ -48,6 +48,25 @@
                 <p class="text-gray-500 text-xl font-medium">No events found.</p>
             </div>
         {{ /if }}
+
+        {{# Pagination #}}
+        {{ if paginate.total_pages > 1 }}
+            <div class="col-span-full justify-center items-center gap-4 mt-8
+                {{# Hide on mobile if disabled #}}
+                {{ if show_pagination_mobile }}flex{{ else }}hidden{{ /if }}
+                {{# Hide on desktop if disabled, or show if enabled #}}
+                {{ if show_pagination_desktop }}lg:flex{{ else }}lg:hidden{{ /if }}">
+
+                {{ paginate }}
+                    <a href="{{ prev_page }}" class="p-2 {{ if !prev_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-left" class="size-4 " }} </a>
+                    <div class="text-sm font-bold text-gray-500">
+                        {{ current_page }} of {{ total_pages }}
+                    </div>
+                    <a href="{{ next_page }}" class="p-2 {{ if !next_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-right" class="size-4 " }}</a>
+                {{ /paginate }}
+            </div>
+        {{ /if }}
+
       {{ /collection:events }}
     </div>
 
