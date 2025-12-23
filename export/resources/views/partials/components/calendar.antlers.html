@@ -13,10 +13,11 @@
     {{ $query_end   = end_date   ? (end_date   | format('Y-m-d 23:59')) : '2100-01-01 23:59' }}
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      
       {{ collection:events
             sort="event_start:asc"
-            taxonomy:tags="{ selected_tags | pluck:slug | join('|') }"
-            taxonomy:calendar="{ selected_calendar | pluck:slug | join('|') }"
+            taxonomy:tags="{ selected_tags ? (selected_tags | pluck:slug | join('|')) : '' }"
+            taxonomy:calendar="{ selected_calendar ? (selected_calendar:slug ?? (selected_calendar | pluck:slug | join('|'))) : '' }"
             as="entries"
       }}
         {{ entries }}
@@ -24,7 +25,7 @@
             {{ $e_start = event_start | format('Y-m-d H:i') }}
             {{ $e_end   = (event_end ?? event_start) | format('Y-m-d 23:59') }}
 
-            {{# Overlap Logic #}}
+            {{# Overlap Logic: (Start <= QueryEnd) AND (End >= QueryStart) #}}
             {{ if ($e_start <= $query_end) && ($e_end >= $query_start) }}
                 {{ partial src="{ card_partial ?? 'cards/card-event'}" }}
             {{ /if }}

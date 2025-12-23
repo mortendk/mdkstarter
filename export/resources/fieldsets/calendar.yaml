@@ -12,37 +12,28 @@ fields:
       display: 'Hide Past Events'
       instructions: 'Enable to only show events that haven’t finished yet.'
       default: true
-      width: 50
-  -
-    handle: number_of_entries
-    field:
-      type: integer
-      display: 'Number of Entries'
-      default: 12
-      width: 50
+      width: 25
   -
     handle: start_date
     field:
       type: date
       display: 'Filter: From Date'
-      width: 50
+      width: 25
       instructions: 'Optional: Manually set a start date for the query.'
   -
     handle: end_date
     field:
       type: date
       display: 'Filter: To Date'
-      width: 50
+      width: 25
       instructions: 'Optional: Manually set an end date for the query.'
   -
-    handle: selected_tags
+    handle: number_of_entries
     field:
-      type: terms
-      taxonomies:
-        - tags
-      display: 'Filter by Tags'
-      mode: select
-      instructions: 'Optional: Only show events with these tags.'
+      type: integer
+      display: 'Number of Entries'
+      default: 12
+      width: 25
   -
     handle: selected_calendar
     field:
@@ -53,6 +44,17 @@ fields:
       mode: select
       max_items: 1
       instructions: 'Optional: Only show events from this calendar group.'
+      width: 50
+  -
+    handle: selected_tags
+    field:
+      type: terms
+      taxonomies:
+        - tags
+      display: 'Filter by Tags'
+      mode: select
+      instructions: 'Optional: Only show events with these tags.'
+      width: 50
   -
     import: card_style_selector
   -

@@ -23,8 +23,8 @@ preferences:
       columns:
         - title
         - calendar
-        - event_date
-        - event_date_end
+        - event_end
+        - event_start
         - is_all_day
         - slug
         - status
