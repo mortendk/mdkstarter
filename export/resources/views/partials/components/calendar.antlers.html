@@ -1,32 +1,81 @@
-<section class="pagewidth">
-  {{ if title }}
-  <h2 class="text-3xl font-bold mb-8 text-gray-900">{{ title }}</h2>
-  {{ /if }}
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/calendar.antlers.html -->{{ /if }}
 
+<section class="{{ section_width ?? 'w-full' }} {{ style:color_themes[color_theme] ?? '' }}  py-4 lg:py-4">
+  <div class="pagewidth">
 
-  <div class="
-      {{# Mobile layout classes #}}
-      {{ if (layout_type_mobile ?? 'grid') == 'scroll' }}flex gap-2 flex-nowrap overflow-y-scroll snap-x relative{{ else }}grid {{ columns_mobile ?? 'grid-cols-1' }} gap-2{{ /if }}
-      {{# Desktop layout classes #}}
-      {{ if (layout_type_desktop ?? 'grid') == 'scroll' }}lg:flex lg:gap-2 lg:flex-nowrap lg:overflow-y-scroll lg:snap-x lg:relative lg:px-4{{ else }}lg:grid {{ columns ?? 'lg:grid-cols-3' }} lg:gap-4{{ /if }}
-    ">
+    {{ if title or text }}
+    <article class="mb-4 lg:mb-8">
+      {{ if show_more_link }}
+      <a href="{{ show_more_link }}">
+        {{ /if }}
+        {{ if title }} <h2 class=" font-display text-4xl lg:text-7xl text-center"> {{ title }}</h2>{{ /if}}
+        {{ if show_more_link }}
+      </a>
+      {{ /if }}
 
-    {{ collection:events
-            sort="event_date:asc"
+      {{ if text }}<div class="mt-4 max-w-prose mx-auto text-amber-100 mb-4 lg:text-xl border-l-4 border-amber-800 pl-4"> {{ text }}</div>{{ /if}}
+    </article>
+    {{ /if }}
+
+    <div class="
+        {{# Mobile layout classes #}}
+        {{ if (layout_type_mobile ?? 'grid') == 'scroll' }}flex gap-2 flex-nowrap overflow-y-scroll snap-x relative{{ else }}grid {{ columns_mobile ?? 'grid-cols-1' }} gap-2{{ /if }}
+        {{# Desktop layout classes #}}
+        {{ if (layout_type_desktop ?? 'grid') == 'scroll' }}lg:flex lg:gap-2 lg:flex-nowrap lg:overflow-y-scroll lg:snap-x lg:relative lg:px-4{{ else }}lg:grid {{ columns ?? 'lg:grid-cols-3' }} lg:gap-4{{ /if }}
+      ">
+
+      {{# hand picket Entries #}}
+      {{ if entries}}
+      {{ entries | scope('entries') }}
+      {{ partial src="{ card_partial ?? site:card_partial ?? 'cards/card-event'}" card_width_mobile="{card_width_mobile}" card_width_desktop="{card_width_desktop}" }}
+      {{ /entries }}
+      {{ /if }}
+
+      {{ collection from="events"
+            taxonomy:calendar="{ selected_calendar | pluck:slug | join('|') ?? false }"
+            taxonomy:tags="{ selected_tag | pluck:slug | join('|') ?? false }"
+            paginate="{ number_of_entries ?? 12 }"
+            sort="{sorting ?? 'event_date'}:{direction ?? 'asc'}"
             event_date:gte="{start_date ?? now}"
             event_date:lte="{end_date}"
-            paginate="12"
-            as="events"
-        }}
-    {{ events }}
-    {{ partial:cards/card-event }}
-    {{ /events }}
+            as="paginated_entries"
+      }}
+
+      {{ paginated_entries }}
+      {{ partial src="{ card_partial ?? site:card_partial ?? 'cards/card-event'}" card_width_mobile="{card_width_mobile}" card_width_desktop="{card_width_desktop ?? 'lg:w-full'}" }}
+      {{ /paginated_entries }}
 
 
-    {{ paginate }}
-    {{ partial:_paginate }}
-    {{ /paginate }}
+      {{# Pagination #}}
+      {{ if paginate.total_pages > 1 }}
+      <div class="col-span-full justify-center items-center gap-4 mt-4
+        {{# Hide on mobile if disabled #}}
+        {{ if show_pagination }}flex{{ else }}hidden{{ /if }}
+        {{# Hide on desktop if disabled, or show if enabled #}}
+        {{ if show_pagination_desktop }}lg:flex{{ else }}lg:hidden{{ /if }}">
 
-    {{ /collection:events }}
+        {{ paginate }}
+        <a href="{{ prev_page }}" class="p-2 {{ if !prev_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-left" class="size-4 " }} </a>
+        <div class="text-sm">
+          {{ current_page }} : {{ total_pages }}
+        </div>
+        <a href="{{ next_page }}" class="p-2 {{ if !next_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-right" class="size-4 " }}</a>
+        {{ /paginate }}
+      </div>
+      {{ /if }}
+      {{ /collection }}
+    </div>
+
+    {{# Show More Link #}}
+    {{ if show_show_more_link && show_more_link }}
+    <div class="mt-4 lg:mt-8 text-center">
+      <a href="{{ show_more_link }}" class="inline-flex gap-4 items-center">
+        <span>{{ show_more_link_text ?? 'Show More' }}</span>
+        {{ svg src="arrow-right" class="size-4 fill-pink-900" }}
+      </a>
+    </div>
+    {{ /if }}
+
+  </div>
 
 </section>
