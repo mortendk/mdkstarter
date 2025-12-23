@@ -62,6 +62,15 @@ tabs:
       -
         fields:
           -
+            handle: calendar
+            field:
+              type: terms
+              taxonomies:
+                - calendar
+              display: calendar
+              mode: select
+              max_items: 1
+          -
             import: primary_image
           -
             handle: tags

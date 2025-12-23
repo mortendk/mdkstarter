@@ -22,12 +22,12 @@ preferences:
     events:
       columns:
         - title
+        - calendar
         - event_date
         - event_date_end
         - is_all_day
-        - status
         - slug
-        - event_type
+        - status
   taxonomies:
     event_type:
       columns:

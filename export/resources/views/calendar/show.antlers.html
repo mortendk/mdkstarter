@@ -1,0 +1,28 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/calendar/show.antlers.html -->{{ /if }}
+<div class="pagewidth">
+  <header class="mb-12 text-center">
+    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4">
+      Calendar: <span class="text-primary-600">{{ title }}</span>
+    </h1>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pagewidth">
+    {{ collection:events taxonomy:calendar="{slug}" sort="event_date:asc" paginate="12" as="events" }}
+    {{ if no_results }}
+    <div class="col-span-full text-center text-gray-500 py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-200">
+      <p class="text-xl">No events found for this calendar.</p>
+    </div>
+    {{ /if }}
+
+    {{ events }}
+    {{ partial:cards/card-event }}
+    {{ /events }}
+
+    {{ paginate }}
+    <div class="col-span-full mt-12">
+      {{ partial:_paginate }}
+    </div>
+    {{ /paginate }}
+    {{ /collection:events }}
+  </div>
+</div>

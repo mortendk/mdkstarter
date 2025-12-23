@@ -2,14 +2,8 @@ tree:
   -
     entry: home
   -
-    entry: e2dd4857-e78e-4252-b399-052f30b7a062
-  -
     entry: a374091d-0397-49c4-851d-abeea7c5ce01
   -
-    entry: fa5d9bef-9317-43e2-9b61-ad7ab4bdcd12
-  -
-    entry: ee360f8d-f768-4c1c-a08b-cf444a31226a
-  -
-    entry: 90ff2c57-a449-4826-807d-b8552737286a
-  -
     entry: c157588d-31d6-46b1-a469-acf1f03c20c9
+  -
+    entry: calendar-page-id
