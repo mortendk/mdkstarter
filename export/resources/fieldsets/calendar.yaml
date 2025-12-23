@@ -22,6 +22,31 @@ fields:
       type: markdown
       display: Text
   -
+    handle: show_more_link
+    field:
+      type: link
+      display: 'Show More Link'
+      instructions: 'Optionally, add a link to a page with more items (e.g., /events).'
+  -
+    handle: show_more_link_text
+    field:
+      type: text
+      display: 'Show More Link Text'
+      instructions: 'The text for the link button. Defaults to "Show More".'
+      width: 50
+      if:
+        show_more_link: 'not empty'
+  -
+    handle: show_show_more_link
+    field:
+      type: toggle
+      display: "Show 'Show More' Link"
+      instructions: 'Enable to display the link at the bottom of the component.'
+      default: true
+      width: 50
+      if:
+        show_more_link: 'not empty'
+  -
     handle: hide_past_events
     field:
       type: toggle

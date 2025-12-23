@@ -34,7 +34,7 @@
             {{ $e_start = event_start | format('Y-m-d H:i') }}
             {{ $e_end   = (event_end ?? event_start) | format('Y-m-d 23:59') }}
 
-            {{# Overlap Logic #}}
+            {{# Overlap Logic: (Start <= QueryEnd) AND (End >= QueryStart) #}}
             {{ if ($e_start <= $query_end) && ($e_end >= $query_start) }}
                 {{ partial src="{ card_partial ?? 'cards/card-event'}" 
                    card_width_mobile="{card_width_mobile}" 
@@ -69,6 +69,16 @@
 
       {{ /collection:events }}
     </div>
+
+    {{# Show More Link #}}
+    {{ if show_show_more_link && show_more_link }}
+    <div class="mt-12 text-center">
+      <a href="{{ show_more_link }}" class="inline-flex items-center gap-3 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-primary-200 transition-all hover:-translate-y-0.5">
+        <span>{{ show_more_link_text ?? 'Show More' }}</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+      </a>
+    </div>
+    {{ /if }}
 
   </div>
 </section>
