@@ -49,7 +49,7 @@ fields:
     field:
       type: integer
       display: 'Number of Entries'
-      default: 12
+      instructions: 'How many events to show. Leave blank for unlimited.'
       width: 50
   -
     handle: start_date
