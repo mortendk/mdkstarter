@@ -1,5 +1,5 @@
 title: Events
-template: events/show
+template: events/event
 layout: layout
 revisions: false
 taxonomies:
