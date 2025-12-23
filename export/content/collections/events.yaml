@@ -1,13 +1,13 @@
 title: Events
-template: events/event
+template: events/show
 layout: layout
-taxonomies:
-  - tags
-  - calendar
 revisions: false
-route: 'calendar/{ event_date }/{slug}'
+route: 'calendar/{{ event_start format="Y-m-d" }}/{slug}'
 date: true
 sort_dir: asc
+date_behavior:
+  past: public
+  future: public
 preview_targets:
   -
     label: Entry

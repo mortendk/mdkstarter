@@ -17,25 +17,28 @@ tabs:
             field:
               type: toggle
               display: 'All Day Event'
-              instructions: 'Enable if this is a full-day event without specific start/end times.'
+              instructions: 'Enable if this is a full-day event.'
+              width: 100
+              default: false
           -
-            handle: event_date
+            handle: event_start
             field:
               time_enabled: true
               type: date
               display: 'Start Date & Time'
               width: 50
               inline: true
-              instructions: 'When does the event or festival begin?'
+              required: true
+              validate:
+                - required
           -
-            handle: event_date_end
+            handle: event_end
             field:
               time_enabled: true
               type: date
               display: 'End Date & Time'
               width: 50
               inline: true
-              instructions: 'When does it end?'
           -
             import: teaser
           -
@@ -44,7 +47,6 @@ tabs:
     display: Card
     sections:
       -
-        display: 'New Section'
         fields:
           -
             import: card
@@ -52,7 +54,6 @@ tabs:
     display: SEO
     sections:
       -
-        display: 'New Section'
         fields:
           -
             import: seo
@@ -61,15 +62,6 @@ tabs:
     sections:
       -
         fields:
-          -
-            handle: calendar
-            field:
-              type: terms
-              taxonomies:
-                - calendar
-              display: calendar
-              mode: select
-              max_items: 1
           -
             import: primary_image
           -
@@ -86,31 +78,10 @@ tabs:
               type: users
               display: Author
               default: current
-              localizable: true
               max_items: 1
-          -
-            handle: date
-            field:
-              type: date
-              required: true
-              default: now
-              display: 'Publish Date'
-              inline: true
-              validate:
-                - required
-              time_enabled: true
-              instructions: 'The date this entry is considered "published".'
           -
             handle: slug
             field:
               type: slug
               localizable: true
               validate: 'max:200'
-          -
-            handle: template
-            field:
-              type: template
-              display: Template
-              localizable: true
-              replicator_preview: false
-              folder: events

@@ -1,47 +1,56 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/partials/cards/_card-event.antlers.html -->{{ /if }}
 
-<article class="@container group {{ card_width_mobile }} {{ card_width_desktop }} shrink-0 snap-center bg-white hover:bg-amber-50 text-amber-900 rounded-lg overflow-hidden shadow h-full">
-
-  <span class="block text-xs font-bold text-gray-500 uppercase leading-none mb-1">{{ event_date format="M" }}</span>
-
-  {{ event_date format="j" }}
-  {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
-  <span class="text-primary-400">{{ event_date_end format="j" }}</span>
-  {{ /if }}
-  </span>
-  {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
-  <span class="block text-[10px] font-bold text-gray-400 uppercase leading-none mt-1">{{ event_date_end format="M" }}</span>
-  {{ /if }}
-
-
-  <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">
-    <a href="{{ url }}" class="hover:text-primary-600 transition-colors">
-      {{ title }}
-    </a>
-  </h3>
-
-  <div class="flex items-center text-sm text-gray-500 mb-3">
-    <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-    </svg>
-    {{ if is_all_day }}
-    <span class="font-medium text-primary-600">All Day</span>
+<article class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full group">
+  <div class="relative h-52 overflow-hidden rounded-t-xl">
+    {{ if primary_image }}
+        {{ responsive_image:primary_image class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" }}
     {{ else }}
-    {{ event_date format="H:i" }}
-    {{ if event_date_end }}
-    {{ if event_date | format('Y-m-d') == event_date_end | format('Y-m-d') }}
-    - {{ event_date_end format="H:i" }}
-    {{ else }}
-    - {{ event_date_end format="M j, H:i" }}
+        <div class="w-full h-full bg-primary-50 flex items-center justify-center text-primary-200">
+            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        </div>
     {{ /if }}
-    {{ /if }}
-    {{ /if }}
-
-    {{ if event_date_end && (event_date | format('Y-m-d') != event_date_end | format('Y-m-d')) }}
-    <span class="ml-1 text-xs text-gray-400">(Multi-day)</span>
-    {{ /if }}
+    
+    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm text-center min-w-[3.5rem]">
+        <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-wider leading-none mb-1">{{ event_start format="M" }}</span>
+        <span class="block text-2xl font-black text-primary-600 leading-none">
+            {{ event_start format="j" }}
+        </span>
+    </div>
   </div>
 
+  <div class="p-6 flex-grow flex flex-col">
+    <div class="flex items-center gap-2 mb-3">
+        {{ if is_all_day }}
+            <span class="text-[10px] font-bold uppercase tracking-widest text-primary-600 bg-primary-50 px-2 py-0.5 rounded">All Day</span>
+        {{ else }}
+            <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
+                {{ event_start format="H:i" }}
+                {{ if event_end && (event_start | format('Y-m-d') == event_end | format('Y-m-d')) }}
+                    - {{ event_end format="H:i" }}
+                {{ /if }}
+            </span>
+        {{ /if }}
+        
+        {{ if event_end && (event_start | format('Y-m-d') != event_end | format('Y-m-d')) }}
+            <span class="text-[10px] font-bold uppercase tracking-widest text-amber-600 bg-amber-50 px-2 py-0.5 rounded">Multi-day</span>
+        {{ /if }}
+    </div>
 
+    <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary-600 transition-colors">
+      <a href="{{ url }}">
+        {{ title }}
+      </a>
+    </h3>
 
+    {{ if teaser }}
+        <p class="text-gray-600 text-sm line-clamp-2 mb-4 flex-grow">{{ teaser }}</p>
+    {{ /if }}
+    
+    <div class="mt-auto pt-4 border-t border-gray-50 flex items-center justify-between">
+        <a href="{{ url }}" class="text-sm font-bold text-primary-600 hover:text-primary-700 inline-flex items-center">
+            Learn More
+            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+        </a>
+    </div>
+  </div>
 </article>

@@ -22,6 +22,8 @@ tabs:
               instructions: 'Images are put in a seperate folder'
           -
             import: content_markdown
+      -
+        display: 'New Section'
   card:
     display: Card
     sections:
@@ -54,12 +56,6 @@ tabs:
               display: Tags
               mode: select
           -
-            handle: slug
-            field:
-              type: slug
-              localizable: true
-              validate: 'max:200'
-          -
             handle: date
             field:
               type: date
@@ -69,6 +65,12 @@ tabs:
                 - required
               time_enabled: true
               inline: true
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
           -
             handle: author
             field:

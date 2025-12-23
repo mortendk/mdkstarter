@@ -64,7 +64,7 @@ fields:
               fields:
                 - import: usp
             calendar:
-              display: "Calendar"
+              display: Calendar
               icon: calendar-date
               fields:
                 - import: calendar
