@@ -1,14 +1,5 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/cards.antlers.html -->{{ /if }}
 
-{{#
-CARDS:
-    The component can display entries in two ways:
-    1. Manually selected entries via an `entries` field.
-    2. Dynamically fetched entries from one or more collections.
-    We'll prioritize manual entries first.
-#}}
-{{#https://statamic.dev/tags/collection  #}}
-
 <section class="{{ section_width ?? 'w-full' }} {{ style:color_themes[color_theme] ?? '' }}  py-4 lg:py-4">
   <div class="pagewidth">
 
@@ -29,7 +20,6 @@ CARDS:
 
     {{ if entries or selected_collection }}
 
-    {{# The container div changes based on the selected layout type #}}
     <div class="
         {{# Mobile layout classes #}}
         {{ if (layout_type_mobile ?? 'grid') == 'scroll' }}flex gap-2 flex-nowrap overflow-y-scroll snap-x relative{{ else }}grid {{ columns_mobile ?? 'grid-cols-1' }} gap-2{{ /if }}
@@ -39,26 +29,21 @@ CARDS:
 
       {{# hand picket Entries #}}
       {{ if entries}}
-
       {{ entries | scope('entries') }}
       {{ partial src="{ card_partial ?? site:card_partial ?? 'cards/card'}" card_width_mobile="{card_width_mobile}" card_width_desktop="{card_width_desktop}" }}
       {{ /entries }}
-
       {{ /if }}
 
       {{# Collection #}}
       {{ if selected_collection }}
-
       {{ collection from="{ selected_collection | join('|') }"
             taxonomy:category="{ selected_category | pluck:slug | join('|') ?? false }"
             taxonomy:tags="{ selected_tag | pluck:slug | join('|') ?? false }"
             paginate="{ number_of_entries ?? 10 }"
             sort="{sorting ?? 'date'}:{direction ?? 'desc'}"
             as="paginated_entries"
+      }}
 
-    }}
-
-      {{# cards  #}}
       {{ paginated_entries }}
       {{ partial src="{ card_partial ?? site:card_partial ?? 'cards/card'}" card_width_mobile="{card_width_mobile}" card_width_desktop="{card_width_desktop ?? 'lg:w-full'}" }}
       {{ /paginated_entries }}
@@ -82,14 +67,12 @@ CARDS:
       </div>
       {{ /if }}
       {{ /collection }}
-
       {{ /if }}
-
 
     </div>
 
-    {{# Show More Link #}}
-    {{ if show_show_more_link && show_more_link }}
+    {{# Show More Link (Simplified) #}}
+    {{ if show_more_link }}
     <div class="mt-4 lg:mt-8 text-center">
       <a href="{{ show_more_link }}" class="inline-flex gap-4 items-center">
         <span>{{ show_more_link_text ?? 'Show More' }}</span>

@@ -37,16 +37,6 @@ fields:
       if:
         show_more_link: 'not empty'
   -
-    handle: show_show_more_link
-    field:
-      type: toggle
-      display: "Show 'Show More' Link"
-      instructions: 'Enable to display the link at the bottom of the component.'
-      default: true
-      width: 50
-      if:
-        show_more_link: 'not empty'
-  -
     handle: entries
     field:
       create: false
