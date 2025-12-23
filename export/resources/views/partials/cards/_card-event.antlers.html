@@ -10,11 +10,18 @@
         </div>
     {{ /if }}
     
-    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm text-center min-w-[3.5rem]">
+    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm text-center min-w-[3.5rem] border border-gray-100/50">
         <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-wider leading-none mb-1">{{ event_start format="M" }}</span>
         <span class="block text-2xl font-black text-primary-600 leading-none">
             {{ event_start format="j" }}
+            {{ if event_end && (event_start | format('Y-m-d') != event_end | format('Y-m-d')) }}
+                <span class="text-gray-300 text-lg font-light mx-0.5">-</span>
+                <span class="text-primary-400">{{ event_end format="j" }}</span>
+            {{ /if }}
         </span>
+        {{ if event_end && (event_start | format('Y-m-d') != event_end | format('Y-m-d')) && (event_start | format('M') != event_end | format('M')) }}
+             <span class="block text-[9px] font-bold text-gray-400 uppercase leading-none mt-1">{{ event_end format="M" }}</span>
+        {{ /if }}
     </div>
   </div>
 
