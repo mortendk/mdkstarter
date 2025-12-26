@@ -19,6 +19,8 @@
 
   <body class="flex flex-col h-screen bg-linear-to-r from-amber-100 to-white text-amber-800" x-data="{ openmenu: false }" :class="openmenu ? 'overflow-y-hidden' : ''">
 
+  {{ partial:notification/banner }}
+
   {{ partial:header }}
 
   <main id="main" tabindex="-1" class="flex flex-col flex-grow focus-visible:outline-0 lg:mt-0 mt-16">
