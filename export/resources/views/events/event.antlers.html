@@ -35,22 +35,17 @@
   {{ if tags || calendar }}
   <footer class="border-t pt-8">
     {{ if calendar }}
-    <div class="mb-4">
-      <strong>Calendar:</strong>
-      {{ calendar }}
-      <a href="/calendar/{{ slug }}" class="text-primary-600 hover:underline">{{ title }}</a>
-      {{ /calendar }}
-    </div>
+    {{ calendar }}
+    {{ partial:taxonomy/calendar }}
+    {{ /calendar }}
     {{ /if }}
 
     {{ if tags }}
-    <div>
-      <strong>Tags:</strong>
-      {{ tags }}
-      <a href="/tags/{{ slug }}" class="inline-block bg-gray-100 rounded px-2 py-1 text-sm mr-2 hover:bg-gray-200">#{{ title }}</a>
-      {{ /tags }}
-    </div>
+    {{ tags }}
+    {{ partial:taxonomy/tag }}
+    {{ /tags }}
     {{ /if }}
+
   </footer>
   {{ /if }}
 

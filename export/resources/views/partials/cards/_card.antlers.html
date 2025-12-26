@@ -34,14 +34,14 @@
       {{ if category }}
       <div class="flex flex-wrap gap-1 mb-2">
         {{ category }}
-        <a href="/category/{{ slug }}" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 px-1.5 py-0.5 rounded transition-colors">{{ title }}</a>
+        {{ partial:taxonomy/category }}
         {{ /category }}
       </div>
       {{ /if }}
       {{ if tags }}
       <div class="flex flex-wrap gap-1 mb-2">
         {{ tags }}
-        <a href="/tags/{{ slug }}" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-1.5 py-0.5 rounded transition-colors">#{{ title }}</a>
+        {{ partial:taxonomy/tag }}
         {{ /tags }}
       </div>
       {{ /if }}

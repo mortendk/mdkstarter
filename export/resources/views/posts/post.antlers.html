@@ -1,4 +1,4 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/articles/article.antlers.html -->{{ /if }}
+{{ if config:app:debug is true }}<!-- 👋 resources/views/posts/post.antlers.html -->{{ /if }}
 
 
 <article class="pagewidth text-amber-950 mt-8 ">
@@ -33,44 +33,36 @@
   {{ partial src="components/{type}" }}
   {{ /blocks }}
 
-  {{ if tags }}
-  <div class="max-w-prose mx-auto mt-8 flex flex-wrap gap-2">
-    {{ tags }}
-    <a href="/tags/{{ slug }}" class="bg-amber-100 hover:bg-amber-200 text-amber-900 px-2 py-1 rounded text-sm transition-colors">{{ title }}</a>
-    {{ /tags }}
-  </div>
-  {{ /if }}
+  <footer class="mt-12 pt-8 border-t border-amber-100">
+    {{ if tags }}
+    <div class="flex flex-wrap gap-2 mb-4">
+        {{ tags }}
+            {{ partial:taxonomy/tag }}
+        {{ /tags }}
+    </div>
+    {{ /if }}
 
-  {{# category #}}
-  {{ if category }}
-  <div class="max-w-prose mx-auto mt-8 flex flex-wrap gap-2">
-    {{ category }}
-    <a href="/category/{{ slug }}" class="bg-amber-100 hover:bg-amber-200 text-amber-900 px-2 py-1 rounded text-sm transition-colors">{{ title }}</a>
-    {{ /category }}
-  </div>
-  {{ /if }}
+    {{ if category }}
+    <div class="max-w-prose flex flex-wrap gap-2">
+        {{ category }}
+            {{ partial:taxonomy/category }}
+        {{ /category }}
+    </div>
+    {{ /if }}
+  </footer>
 
-  <aside class="flex flex-row gap-2 max-w-prose bg-amber-400">
-    <time datetime="">
+  <aside class="flex flex-row gap-2 max-w-prose bg-amber-400 mt-8 p-4 rounded-lg">
+    <time datetime="{{ date format='Y-m-d' }}">
       {{ date iso_format="D MMMM YYYY" }}
-      {{ date format="H:m" }}
+      {{ date format="H:i" }}
     </time>
 
     {{ if author }}
     af
     {{ author }}
-    <div>{{ name }}</div>
+    <div class="font-bold">{{ name }}</div>
     {{ /author }}
     {{ /if }}
-    </div>
-
-
   </aside>
 
 </article>
-
-
-Listing:
-{{ partial:posts/listing limit="4" }}
-
-{{ /partial:posts/listing }}

@@ -16,7 +16,7 @@
   --font-title: "Montserrat", "sans-serif";
   --font-sans: "Domine", "sans";
   --font-body: "Inter", "sans-serif";
-  --font-mono: "Fira Code", "sans-serif";
+  --font-mono: "Fira Code", "";
 
   --color-tone-50: oklch(0.984 0.003 247.858);
   --color-tone-100: oklch(0.968 0.007 247.896);

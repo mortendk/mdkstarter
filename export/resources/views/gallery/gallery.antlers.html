@@ -38,7 +38,7 @@
       <div class="flex items-center gap-2">
         <span class="text-gray-400 font-bold text-xs uppercase tracking-widest">Group:</span>
         {{ photos }}
-        <a href="{{ url }}" class="bg-primary-50 text-primary-700 px-3 py-1 rounded-lg font-bold text-sm hover:bg-primary-100 transition-colors">{{ title }}</a>
+            {{ partial:taxonomy/photos }}
         {{ /photos }}
       </div>
       {{ /if }}
@@ -46,7 +46,7 @@
       {{ if tags }}
       <div class="flex flex-wrap gap-2">
         {{ tags }}
-        <a href="{{ url }}" class="bg-gray-100 text-gray-600 px-3 py-1 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">#{{ title }}</a>
+            {{ partial:taxonomy/tag }}
         {{ /tags }}
       </div>
       {{ /if }}

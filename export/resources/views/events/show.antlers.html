@@ -1,162 +1,148 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/events/show.antlers.html -->{{ /if }}
 
 <article class="py-12 lg:py-20">
-  <header class="pagewidth mb-12">
-    <div class="max-w-3xl">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="bg-primary-600 text-white rounded-xl px-4 py-2 text-center min-w-[4rem] shadow-lg shadow-primary-200">
-          <span class="block text-xs font-bold uppercase tracking-widest opacity-80">{{ event_start format="M" }}</span>
-          <span class="block text-3xl font-black">{{ event_start format="j" }}</span>
+    <header class="pagewidth mb-12">
+        <div class="max-w-3xl">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-primary-600 text-white rounded-xl px-4 py-2 text-center min-w-[4rem] shadow-lg shadow-primary-200">
+                    <span class="block text-xs font-bold uppercase tracking-widest opacity-80">{{ event_start format="M" }}</span>
+                    <span class="block text-3xl font-black">{{ event_start format="j" }}</span>
+                </div>
+                <div>
+                    <h1 class="text-4xl lg:text-6xl font-black text-gray-900 leading-tight">{{ title }}</h1>
+                    <div class="flex items-center text-lg text-gray-500 font-medium mt-2">
+                        <svg class="w-5 h-5 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        {{ if is_all_day }}
+                            All Day Event
+                            {{ if event_end && (event_start | format('Y-m-d') != event_end | format('Y-m-d')) }}
+                                (Ends {{ event_end format="F j, Y" }})
+                            {{ /if }}
+                        {{ else }}
+                            {{ event_start format="H:i" }}
+                            {{ if event_end }}
+                                {{ if event_start | format('Y-m-d') == event_end | format('Y-m-d') }}
+                                    - {{ event_end format="H:i" }}
+                                {{ else }}
+                                    - {{ event_end format="F j @ H:i" }}
+                                {{ /if }}
+                            {{ /if }}
+                        {{ /if }}
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-          <h1 class="text-4xl lg:text-6xl font-black text-gray-900 leading-tight">{{ title }}</h1>
-          <div class="flex items-center text-lg text-gray-500 font-medium mt-2">
-            <svg class="w-5 h-5 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            {{ if is_all_day }}
-            All Day Event
-            {{ if event_end && (event_start | format('Y-m-d') != event_end | format('Y-m-d')) }}
-            (Ends {{ event_end format="F j, Y" }})
-            {{ /if }}
-            {{ else }}
-            {{ event_start format="H:i" }}
-            {{ if event_end }}
-            {{ if event_start | format('Y-m-d') == event_end | format('Y-m-d') }}
-            - {{ event_end format="H:i" }}
-            {{ else }}
-            - {{ event_end format="F j @ H:i" }}
-            {{ /if }}
-            {{ /if }}
-            {{ /if }}
-          </div>
+    </header>
+
+    {{ if primary_image }}
+        <div class="pagewidth mb-12">
+            <div class="rounded-3xl overflow-hidden shadow-2xl">
+                {{ responsive_image:primary_image class="w-full h-auto aspect-video object-cover" }}
+            </div>
         </div>
-      </div>
+    {{ /if }}
+
+    <div class="pagewidth">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-8">
+                {{ if teaser }}
+                    <p class="text-2xl text-gray-600 mb-12 leading-relaxed font-medium italic">
+                        {{ teaser }}
+                    </p>
+                {{ /if }}
+
+                <div class="prose prose-xl prose-primary max-w-none mb-16">
+                    {{ blocks }}
+                        {{ partial src="components/{type}" }}
+                    {{ /blocks }}
+
+                    {{ bard }}
+                        {{ partial src="components/{type}" }}
+                    {{ /bard }}
+                </div>
+
+                {{ if calendar }}
+                    {{ collection:events taxonomy:calendar="{calendar:slug}" limit="3" id:isnt="{id}" sort="event_start:asc" as="related_events" }}
+                        {{ if related_events }}
+                            <div class="border-t border-gray-100 pt-16">
+                                <h2 class="text-3xl font-black text-gray-900 mb-8">More from {{ calendar:title }}</h2>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    {{ related_events }}
+                                        {{ partial src="cards/card-event" }}
+                                    {{ /related_events }}
+                                </div>
+                            </div>
+                        {{ /if }}
+                    {{ /collection:events }}
+                {{ /if }}
+            </div>
+
+            <aside class="lg:col-span-4">
+                <div class="bg-gray-50 rounded-3xl p-8 sticky top-8">
+                    <h3 class="text-xl font-bold mb-6">Event Details</h3>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex gap-4">
+                            <div class="bg-white p-3 rounded-2xl shadow-sm text-primary-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-bold text-gray-400 uppercase tracking-widest">Date</span>
+                                <span class="font-bold text-gray-900">{{ event_start format="F j, Y" }}</span>
+                            </div>
+                        </div>
+
+                        {{ if !is_all_day }}
+                        <div class="flex gap-4">
+                            <div class="bg-white p-3 rounded-2xl shadow-sm text-primary-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-bold text-gray-400 uppercase tracking-widest">Time</span>
+                                <span class="font-bold text-gray-900">{{ event_start format="H:i" }} {{ if event_end }} - {{ event_end format="H:i" }} {{ /if }}</span>
+                            </div>
+                        </div>
+                        {{ /if }}
+
+                        {{ if calendar }}
+                        <div class="flex gap-4">
+                            <div class="bg-white p-3 rounded-2xl shadow-sm text-primary-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-bold text-gray-400 uppercase tracking-widest">Calendar Group</span>
+                                {{ calendar }}
+                                    {{ partial:taxonomy/calendar }}
+                                {{ /calendar }}
+                            </div>
+                        </div>
+                        {{ /if }}
+                    </div>
+
+                    <div class="space-y-3">
+                        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{ title | urlencode }}&dates={{ event_start | format('Ymd\THis\Z') }}/{{ (event_end ?? event_start) | format('Ymd\THis\Z') }}&details={{ teaser | urlencode }}&sf=true&output=xml" 
+                           target="_blank" 
+                           class="w-full bg-white hover:bg-gray-100 text-gray-900 font-bold py-4 px-6 rounded-2xl shadow-sm transition-colors flex items-center justify-center gap-3">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                            Add to Google
+                        </a>
+                        <a href="#" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg shadow-primary-200 transition-colors flex items-center justify-center gap-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Download ICS
+                        </a>
+                    </div>
+
+                    {{ if tags }}
+                        <div class="mt-10 pt-8 border-t border-gray-200">
+                            <h4 class="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">Tags</h4>
+                            <div class="flex flex-wrap gap-2">
+                                {{ tags }}
+                                    {{ partial:taxonomy/tag }}
+                                {{ /tags }}
+                            </div>
+                        </div>
+                    {{ /if }}
+                </div>
+            </aside>
+        </div>
     </div>
-  </header>
-
-  {{ if primary_image }}
-  <div class="pagewidth mb-12">
-    <div class="rounded-3xl overflow-hidden shadow-2xl">
-      {{ responsive_image:primary_image class="w-full h-auto aspect-video object-cover" }}
-    </div>
-  </div>
-  {{ /if }}
-
-  <div class="pagewidth">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-      <div class="lg:col-span-8">
-        {{ if teaser }}
-        <p class="text-2xl text-gray-600 mb-12 leading-relaxed font-medium italic">
-          {{ teaser }}
-        </p>
-        {{ /if }}
-
-        <div class="prose prose-xl prose-primary max-w-none mb-16">
-          {{ blocks }}
-          {{ partial src="components/{type}" }}
-          {{ /blocks }}
-
-          {{ bard }}
-          {{ partial src="components/{type}" }}
-          {{ /bard }}
-        </div>
-
-        {{ if calendar }}
-        {{ collection:events taxonomy:calendar="{calendar:slug}" limit="3" id:isnt="{id}" sort="event_start:asc" as="related_events" }}
-        {{ if related_events }}
-        <div class="border-t border-gray-100 pt-16">
-          <h2 class="text-3xl font-black text-gray-900 mb-8">More from {{ calendar:title }}</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {{ related_events }}
-            {{ partial src="cards/card-event" }}
-            {{ /related_events }}
-          </div>
-        </div>
-        {{ /if }}
-        {{ /collection:events }}
-        {{ /if }}
-      </div>
-
-      <aside class="lg:col-span-4">
-        <div class="bg-gray-50 rounded-3xl p-8 sticky top-8">
-          <h3 class="text-xl font-bold mb-6">Event Details</h3>
-
-          <div class="space-y-6 mb-8">
-            <div class="flex gap-4">
-              <div class="bg-white p-3 rounded-2xl shadow-sm text-primary-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                </svg>
-              </div>
-              <div>
-                <span class="block text-sm font-bold text-gray-400 uppercase tracking-widest">Date</span>
-                <span class="font-bold text-gray-900">{{ event_start format="F j, Y" }}</span>
-              </div>
-            </div>
-
-            {{ if !is_all_day }}
-            <div class="flex gap-4">
-              <div class="bg-white p-3 rounded-2xl shadow-sm text-primary-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <div>
-                <span class="block text-sm font-bold text-gray-400 uppercase tracking-widest">Time</span>
-                <span class="font-bold text-gray-900">{{ event_start format="H:i" }} {{ if event_end }} - {{ event_end format="H:i" }} {{ /if }}</span>
-              </div>
-            </div>
-            {{ /if }}
-
-            {{ if calendar }}
-            <div class="flex gap-4">
-              <div class="bg-white p-3 rounded-2xl shadow-sm text-primary-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                </svg>
-              </div>
-              <div>
-                <span class="block text-sm font-bold text-gray-400 uppercase tracking-widest">Calendar Group</span>
-                {{ calendar }}
-                <a href="/calendar/{{ slug }}" class="font-bold text-primary-600 hover:underline">{{ title }}</a>
-                {{ /calendar }}
-              </div>
-            </div>
-            {{ /if }}
-          </div>
-
-          <div class="space-y-3">
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{ title | urlencode }}&dates={{ event_start | format('Ymd\THis\Z') }}/{{ (event_end ?? event_start) | format('Ymd\THis\Z') }}&details={{ teaser | urlencode }}&sf=true&output=xml"
-              target="_blank" class="w-full bg-white hover:bg-gray-100 text-gray-900 font-bold py-4 px-6 rounded-2xl shadow-sm transition-colors flex items-center justify-center gap-3">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
-              </svg>
-              Add to Google
-            </a>
-            <a href="#"
-              class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg shadow-primary-200 transition-colors flex items-center justify-center gap-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-              </svg>
-              Download ICS
-            </a>
-          </div>
-
-          {{ if tags }}
-          <div class="mt-10 pt-8 border-t border-gray-200">
-            <h4 class="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">Tags</h4>
-            <div class="flex flex-wrap gap-2">
-              {{ tags }}
-              <a href="{{ url }}"
-                class="bg-white hover:bg-primary-50 text-gray-600 hover:text-primary-600 px-3 py-1.5 rounded-xl text-sm font-bold shadow-sm transition-all border border-gray-100">#{{ title }}</a>
-              {{ /tags }}
-            </div>
-          </div>
-          {{ /if }}
-        </div>
-      </aside>
-    </div>
-  </div>
 </article>
