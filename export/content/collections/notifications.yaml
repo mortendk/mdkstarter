@@ -1,0 +1,14 @@
+title: Notifications
+revisions: false
+route: "/notification/{slug}"
+template: notification/notification
+layout: layout
+date: true
+sort_dir: desc
+date_behavior:
+  past: public
+  future: private
+preview_targets:
+  - label: Entry
+    url: "{permalink}"
+    refresh: true

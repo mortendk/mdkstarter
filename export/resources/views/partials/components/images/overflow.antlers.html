@@ -1,14 +1,16 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/images/overflow.antlers.html -->{{ /if }}
+
 <div class="flex gap-2 flex-nowrap overflow-y-scroll snap-x relative lg:px-4">
 
   {{ images }}
 
   <div class="w-96 shrink-0 snap-center rounded-lg overflow-hidden shadow-lg relative">
-    <img src="{{ glide :src="url" w="600" }} " alt="{{ alt }}" class="w-full h-full object-cover z-0" loading="lazy" />
-    {{ if alt }}
-    <div class="font-bold z-10 bg-black/20 bottom-0 absolute p-2 w-full text-center">
-      {{ alt }}
-    </div>
-    {{/if}}
+  <img src="{{ glide :src="url" w="600" }} " alt="{{ alt }}" class="w-full h-full object-cover z-0" loading="lazy" />
+  {{ if alt }}
+  <div class="font-bold z-10 bg-black/20 bottom-0 absolute p-2 w-full text-center">
+    {{ alt }}
+  </div>
+  {{/if}}
   </div>
 
   {{ /images }}

@@ -1,0 +1,11 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/notification/notification.antlers.html -->{{ /if }}
+
+  <header class="mb-8 border-b border-gray-100 pb-8 text-center">
+  <h1 class="text-4xl lg:text-6xl font-black text-gray-900 leading-tight">{{ title }}</h1>
+  <time class="text-gray-400 text-sm font-bold uppercase tracking-widest mt-4 block">{{ date format="F j, Y" }}</time>
+  </header>
+
+  <div class="prose prose-xl max-w-none">
+  {{ content_markdown }}
+  </div>
+</article>

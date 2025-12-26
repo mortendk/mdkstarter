@@ -1,16 +1,17 @@
-<!-- 👋 resources/views/articles/_listing.antlers.html -->
+{{ if config:app:debug is true }}<!-- 👋 resources/views/posts/_listing.antlers.html -->{{ /if }}
+
 <section class="pagewidth py-4">
   {{ slot }}
   <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
 
-    {{ collection:articles
-        :limit="limit"
-        taxonomy:category="{category:slug}"
-        where="id:isnt:{id}"
-        sort="date:desc" }}
+  {{ collection:posts
+    :limit="limit"
+    taxonomy:category="{category:slug}"
+    where="id:isnt:{id}"
+    sort="date:desc" }}
 
-    {{ partial:cards/card}}
+  {{ partial:cards/card}}
 
-    {{ /collection:articles }}
+  {{ /collection:posts }}
   </div>
 </section>

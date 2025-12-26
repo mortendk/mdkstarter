@@ -1,63 +1,65 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/page-test.antlers.html -->{{ /if }}
+
 <div class="max-w-7xl mx-auto px-4 py-12 space-y-20">
-    <header class="text-center">
-        <h1 class="text-5xl font-black text-gray-900 mb-4">Listing Components Test</h1>
-        <p class="text-xl text-gray-500">A preview of all dynamic list partials available in mdkstarter.</p>
-    </header>
+  <header class="text-center">
+    <h1 class="text-5xl font-black text-gray-900 mb-4">Listing Components Test</h1>
+    <p class="text-xl text-gray-500">A preview of all dynamic list partials available in mdkstarter.</p>
+  </header>
 
-    {{# 1. Events #}}
-    <section>
-        <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Upcoming Events (list_event)</h2>
-        {{ partial:list/list_event limit="3" card_type="card-event" }}
-    </section>
+  {{# 1. Events #}}
+  <section>
+    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Upcoming Events (list_event)</h2>
+    {{ partial:list/list_event limit="3" card_type="card-event" }}
+  </section>
 
-    {{# 2. Articles #}}
-    <section>
-        <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Latest Articles (list_article)</h2>
-        {{ partial:list/list_article limit="3" card_type="card" }}
-    </section>
+  {{# 2. Articles #}}
+  <section>
+    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Latest Articles (list_article)</h2>
+    {{ partial:list/list_article limit="3" card_type="card" }}
+  </section>
 
-    {{# 3. Posts #}}
-    <section>
-        <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Recent Posts (list_post)</h2>
-        {{ partial:list/list_post limit="3" card_type="card" }}
-    </section>
+  {{# 3. Posts #}}
+  <section>
+    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Recent Posts (list_post)</h2>
+    {{ partial:list/list_post limit="3" card_type="card" }}
+  </section>
 
-    {{# 4. Gallery #}}
-    <section>
-        <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Photo Galleries (list_gallery)</h2>
-        {{ partial:list/list_gallery limit="3" card_type="card" }}
-    </section>
+  {{# 4. Gallery #}}
+  <section>
+    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Photo Galleries (list_gallery)</h2>
+    {{ partial:list/list_gallery limit="3" card_type="card" }}
+  </section>
 
-    {{# 5. Categories #}}
-    <section>
-        <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Categories (list_tax_category)</h2>
-        {{ partial:list/list_tax_category card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
-    </section>
+  {{# 5. Categories #}}
+  <section>
+    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Categories (list_tax_category)</h2>
+    {{ partial:list/list_tax_category card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+  </section>
 
-    {{# 6. Calendar Groups #}}
-    <section>
-        <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Calendar Groups (list_tax_calendar)</h2>
-        <div class="space-y-8">
-            <div>
-                <h3 class="text-lg font-semibold mb-2 text-gray-400">All Groups:</h3>
-                {{ partial:list/list_tax_calendar card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-2 text-gray-400">Groups with Upcoming Events only:</h3>
-                {{ partial:list/list_tax_calendar only_upcoming="true" card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
-            </div>
-        </div>
-    </section>
+  {{# 6. Calendar Groups #}}
+  <section>
+    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Calendar Groups (list_tax_calendar)</h2>
+    <div class="space-y-8">
+      <div>
+        <h3 class="text-lg font-semibold mb-2 text-gray-400">All Groups:</h3>
+        {{ partial:list/list_tax_calendar card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-2 text-gray-400">Groups with Upcoming Events only:</h3>
+        {{ partial:list/list_tax_calendar only_upcoming="true" card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+      </div>
+    </div>
+  </section>
 
-    {{# 7. Photos Groups #}}
-    <section>
-        <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Photo Groups (list_tax_photos)</h2>
-        {{ partial:list/list_tax_photos card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
-    </section>
+  {{# 7. Photos Groups #}}
+  <section>
+    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Photo Groups (list_tax_photos)</h2>
+    {{ partial:list/list_tax_photos card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+  </section>
 
-    {{# 8. Tags #}}
-    <section>
-        <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">All Tags (list_tax_tags)</h2>
-        {{ partial:list/list_tax_tags }}
-    </section>
+  {{# 8. Tags #}}
+  <section>
+    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">All Tags (list_tax_tags)</h2>
+    {{ partial:list/list_tax_tags }}
+  </section>
 </div>

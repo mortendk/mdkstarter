@@ -1,22 +1,23 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/hero_box.antlers.html -->{{ /if }}
+
 <section class="{{ section_width ?? 'pagewidth' }} {{ style:color_themes[color_theme] ?? '' }}  {{ section_height ?? '' }} {{ section_height_lg ?? '' }}  pb-4 lg:py-4">
   <div class="pagewidth">
 
 
-    <div class="flex flex-col gap-2 lg:grid lg:grid-cols-12 lg:gap-4">
+  <div class="flex flex-col gap-2 lg:grid lg:grid-cols-12 lg:gap-4">
 
-      {{ primary }}
-      <div class="lg:col-span-8">
-        {{ partial:cards/card-primary }}
-        {{ /primary }}
-      </div>
-
-      <div class="lg:col-span-4 flex flex-col justify-between">
-        {{ secondary }}
-        {{ partial:cards/card-image-text }}
-        {{ /secondary }}
-      </div>
-
+    {{ primary }}
+    <div class="lg:col-span-8">
+    {{ partial:cards/card-primary }}
+    {{ /primary }}
     </div>
+
+    <div class="lg:col-span-4 flex flex-col justify-between">
+    {{ secondary }}
+    {{ partial:cards/card-image-text }}
+    {{ /secondary }}
+    </div>
+
+  </div>
   </div>
 </section>

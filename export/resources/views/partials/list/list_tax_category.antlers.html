@@ -1,16 +1,17 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/partials/list/list_tax_category.antlers.html -->{{ /if }}
 
+
 {{#
-    Example usage:
-    {{ partial:list/list_tax_category card_type="card" }}
-    {{ partial:list/list_tax_category grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+  Example usage:
+  {{ partial:list/list_tax_category card_type="card" }}
+  {{ partial:list/list_tax_category grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
 #}}
 
 {{ taxonomy:category sort="title:asc" as="terms" }}
 {{ if terms }}
 <div class="{{ grid_classes ?? 'grid grid-cols-1 md:grid-cols-3 gap-8' }}">
   {{ terms }}
-    {{ partial src="cards/{card_type ?? 'card'}" }}
+  {{ partial src="cards/{card_type ?? 'card'}" }}
   {{ /terms }}
 </div>
 {{ /if }}

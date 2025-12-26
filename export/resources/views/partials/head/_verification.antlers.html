@@ -1,3 +1,5 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/head/_verification.antlers.html -->{{ /if }}
+
 {{ if settings:site_verification:google_verification }}
 <meta name="google-site-verification" content="{{ settings:site_verification:google_verification }}" />
 {{ /if }}

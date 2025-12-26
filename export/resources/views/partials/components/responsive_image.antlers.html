@@ -1,16 +1,17 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/responsive_image.antlers.html -->{{ /if }}
+
 <section class="{{ section_width ?? 'pagewidth' }} {{ style:color_themes[color_theme] ?? '' }}  {{ section_height ?? '' }} {{ section_height_lg ?? '' }}  pb-4 lg:py-4">
   <div class="pagewidth">
 
-    {{ if link }}
-    <a href="{{ link }}" class="w-full ">
-      {{ responsive:image alt="{title}" class="object-cover w-full" }}
-    </a>
-    {{else }}
-    <div class="w-full">
-      {{ responsive:image alt="{title}" class="object-cover w-full" }}
-    </div>
-    {{/if}}
+  {{ if link }}
+  <a href="{{ link }}" class="w-full ">
+    {{ responsive:image alt="{title}" class="object-cover w-full" }}
+  </a>
+  {{else }}
+  <div class="w-full">
+    {{ responsive:image alt="{title}" class="object-cover w-full" }}
+  </div>
+  {{/if}}
 
   </div>
 </section>

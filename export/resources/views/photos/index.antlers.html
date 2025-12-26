@@ -1,8 +1,10 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-    <header class="mb-16 text-center">
-        <h1 class="text-5xl lg:text-7xl font-black text-gray-900 mb-6">Photos</h1>
-        <p class="text-xl text-gray-500 max-w-3xl mx-auto">Explore our photo galleries by group.</p>
-    </header>
+{{ if config:app:debug is true }}<!-- 👋 resources/views/photos/index.antlers.html -->{{ /if }}
 
-    {{ partial:list/list_tax_photos card_type="card" grid_classes="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" }}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+  <header class="mb-16 text-center">
+    <h1 class="text-5xl lg:text-7xl font-black text-gray-900 mb-6">Photos</h1>
+    <p class="text-xl text-gray-500 max-w-3xl mx-auto">Explore our photo galleries by group.</p>
+  </header>
+
+  {{ partial:list/list_tax_photos card_type="card" grid_classes="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" }}
 </div>

@@ -1,3 +1,5 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/_paginate.antlers.html -->{{ /if }}
+
 <div class="flex justify-center gap-4 items-center">
   {{ paginate }}
 
@@ -7,7 +9,7 @@
   {{/if}}
 
   <div class="text-sm">
-    {{ current_page }} / {{ total_pages }} ( {{ total_items }} )
+  {{ current_page }} / {{ total_pages }} ( {{ total_items }} )
   </div>
 
 

@@ -1,22 +1,23 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/partials/list/list_post.antlers.html -->{{ /if }}
 
+
 {{#
-    Example usage:
-    {{ partial:list/list_post card_type="card" }}
-    {{ partial:list/list_post category="blog" }}
-    {{ partial:list/list_post tags="personal|thoughts" limit="6" }}
-    {{ partial:list/list_post grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+  Example usage:
+  {{ partial:list/list_post card_type="card" }}
+  {{ partial:list/list_post category="blog" }}
+  {{ partial:list/list_post tags="personal|thoughts" limit="6" }}
+  {{ partial:list/list_post grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
 #}}
 
 {{ $filter_tags = tags ? ((tags | is_string) ? tags : (tags | pluck:slug | join('|'))) : null }}
 {{ $filter_category = category ? ((category | is_string) ? category : (category | pluck:slug | join('|'))) : null }}
 
 {{ collection:posts
-    sort="date:desc"
-    :taxonomy:tags="$filter_tags"
-    :taxonomy:category="$filter_category"
-    limit="{ limit ?? 3 }"
-    as="items"
+  sort="date:desc"
+  :taxonomy:tags="$filter_tags"
+  :taxonomy:category="$filter_category"
+  limit="{ limit ?? 3 }"
+  as="items"
 }}
 {{ if items }}
 <div class="{{ grid_classes ?? 'grid grid-cols-1 md:grid-cols-3 gap-8' }}">

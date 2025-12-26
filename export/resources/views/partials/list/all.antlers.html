@@ -1,4 +1,5 @@
-<!-- 👋 resources/views/partials/list/all.antlers.html -->
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/list/all.antlers.html -->{{ /if }}
+
 {{ collection from="articles|program" :paginate="paginate" as="posts" }}
 
 {{ if no_results }}

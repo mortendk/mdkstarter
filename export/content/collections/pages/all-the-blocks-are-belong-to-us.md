@@ -1,7 +1,7 @@
 ---
 id: c157588d-31d6-46b1-a469-acf1f03c20c9
 blueprint: page
-title: 'All the blocks are belong to us'
+title: 'All your stuff are belong to us'
 opengraph:
   og_type: article
 seo_index: true
@@ -75,18 +75,10 @@ blocks:
     text: 'Downloadable files.'
     section_width: pagewidth
     enabled: true
-  -
-    id: mjh5sn7q
-    replicator_field:
-      -
-        id: mjh5so60
-        title: one
-        icon: image-file
-        link: 'entry::hello-world'
-        type: new_set
-        enabled: true
-    type: usp
-    enabled: true
 updated_by: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
-updated_at: 1766408210
+updated_at: 1766753098
+title_card: 'page card'
+image_card: ian-fajardo-jyg-bmemote-unsplash.jpg
+teaser_card: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,'
+template: page/page-test
 ---
