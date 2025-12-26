@@ -71,6 +71,8 @@ tabs:
               display: Calendar
               mode: select
               max_items: 1
+              validate:
+                - required
           -
             import: primary_image
           -

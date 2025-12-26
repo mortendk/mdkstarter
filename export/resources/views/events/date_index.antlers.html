@@ -1,0 +1,34 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/events/date_index.antlers.html -->{{ /if }}
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <header class="mb-16 text-center">
+        <h1 class="text-5xl lg:text-7xl font-black text-gray-900 mb-6">
+            Events on {{ url_date }}
+        </h1>
+        <p class="text-xl text-gray-500">Group: {{ calendar_group }}</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {{# Using a broader query and filtering manually to ensure absolute matching #}}
+        {{ collection from="events" sort="event_start:asc" :taxonomy:calendar="calendar_group" as="items" }}
+            
+            {{# Manual Filter #}}
+            {{ $matched_count = 0 }}
+            {{ items }}
+                {{ $e_iso = event_start | format('Y-m-d') }}
+                {{ $e_euro = event_start | format('d-m-Y') }}
+
+                {{ if ($e_iso == url_date) || ($e_euro == url_date) }}
+                    {{ $matched_count = $matched_count + 1 }}
+                    {{ partial:cards/card-event }}
+                {{ /if }}
+            {{ /items }}
+
+            {{ if $matched_count == 0 }}
+                <div class="col-span-full text-center py-20 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
+                    <p class="text-gray-400 text-xl font-medium">No events found for {{ url_date }} in this group.</p>
+                </div>
+            {{ /if }}
+        {{ /collection }}
+    </div>
+</div>
