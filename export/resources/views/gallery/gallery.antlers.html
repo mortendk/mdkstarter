@@ -1,4 +1,4 @@
-<article class="py-12 lg:py-20">
+{{ if config:app:debug is true }}<!-- 👋 resources/views/gallery/gallery.antlers.html -->{{ /if }}\n<article class="py-12 lg:py-20">
   <header class="pagewidth mb-12 text-center">
     <h1 class="text-4xl lg:text-6xl font-black text-gray-900 mb-6">{{ title }}</h1>
     {{ if content_markdown }}

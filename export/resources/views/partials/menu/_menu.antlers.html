@@ -1,4 +1,4 @@
-<div class="hidden lg:flex h-full w-full justify-between items-center">
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/menu/_menu.antlers.html -->{{ /if }}\n<div class="hidden lg:flex h-full w-full justify-between items-center">
 
   <nav class="flex gap-8 h-full" aria-label="Main Menu">
     {{ nav:main include_home="false" }}

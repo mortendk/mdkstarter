@@ -1,0 +1,66 @@
+title: Notification
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: 'Banner Text'
+              required: true
+              validate:
+                - required
+          -
+            handle: level
+            field:
+              options:
+                info: 'Info (Blue)'
+                alert: 'Alert (Yellow)'
+                danger: 'Danger (Red)'
+              default: info
+              type: select
+              display: Level
+              width: 50
+          -
+            handle: icon
+            field:
+              options:
+                info-circle: Info
+                exclamation-triangle: Warning
+                fire: Urgent
+                bullhorn: Announcement
+              default: info-circle
+              type: select
+              display: Icon
+              width: 50
+          -
+            handle: link
+            field:
+              type: link
+              display: 'Custom Action Link'
+              instructions: 'Optional: Overrides the default link to this notification page.'
+          -
+            import: content_markdown
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: date
+            field:
+              type: date
+              display: Date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

@@ -1,5 +1,4 @@
-<!-- 👋 resources/views/page.antlers.html -->
-
+{{ if config:app:debug is true }}<!-- 👋 resources/views/page/page.antlers.html -->{{ /if }}\n
 {{# Pagebuild stuff #}}
 {{ blocks }}
 {{ partial src="components/{type}" }}

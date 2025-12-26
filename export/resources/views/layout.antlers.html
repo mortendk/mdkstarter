@@ -1,4 +1,4 @@
-<!doctype html>
+{{ if config:app:debug is true }}<!-- 👋 resources/views/layout.antlers.html -->{{ /if }}\n<!doctype html>
 <html lang="{{ site:short_locale }}">
 
   <head>
@@ -16,6 +16,8 @@
   </head>
 
   <body class="flex flex-col h-screen bg-linear-to-r from-amber-100 to-white text-amber-800" x-data="{ openmenu: false }" :class="openmenu ? 'overflow-y-hidden' : ''">
+
+    {{ partial:notification/banner }}
 
     {{ partial:header }}
 

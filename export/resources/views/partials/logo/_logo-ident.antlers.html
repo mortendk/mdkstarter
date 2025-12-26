@@ -1,4 +1,4 @@
-{{ if brand.ident }}
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/logo/_logo-ident.antlers.html -->{{ /if }}\n{{ if brand.ident }}
 <a href="/" class="shrink-0 block">
   <img src="{{ glide :src="brand:ident" w="50" h="50" fit="crop_focal" }}" alt="{{ brand:name }}">
   <h1 class="sr-only">{{ site:name }}</h1>

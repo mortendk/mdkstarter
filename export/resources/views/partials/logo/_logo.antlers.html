@@ -1,4 +1,4 @@
-{{ if brand.logo }}
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/logo/_logo.antlers.html -->{{ /if }}\n{{ if brand.logo }}
 <a href="/">
     <img src="{{ glide :src="brand:logo" w="400" h="400" fit="crop_focal" }}" alt="{{ brand:name }}">
     <h1 class="sr-only">{{ site:name }}</h1>
