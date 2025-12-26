@@ -1,4 +1,4 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/head/_seo.antlers.html -->{{ /if }}\n<title>{{ seo_title ?? seo_title ?? title }} | {{ brand:name }}</title>
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/head/_seo.antlers.html -->{{ /if }}
 
 <meta name="robots" content="{{ seo_description ?? seo_description ?? teaser | strip_tags | entities | trim | safe_truncate:160 }}">
 <meta name="googlebot" content="{{ seo_description ?? seo_description ?? teaser | strip_tags | entities | trim | safe_truncate:160 }}">

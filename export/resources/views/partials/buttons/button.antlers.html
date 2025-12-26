@@ -1,23 +1,23 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/buttons/button.antlers.html -->{{ /if }}\n{{# Define a variable with the style classes #}}
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/buttons/button.antlers.html -->{{ /if }}
 {{ classes = [
   'primary'   => 'bg-linear-to-r from-amber-500 to-amber-900 border-amber-500 text-amber-100 border-1',
   'secondary' => 'bg-linear-to-r from-emerald-500 to-emerald-900 border-emerald-500 text-emerald-100 border-1',
-  'link'      => 'underline'
+  'link'    => 'underline'
 ] }}
 
 <div class="inline-flex">
 
-    <a href="{{ button_link }}" class="px-8 py-2 rounded-sm  flex flex-flow items-center gap-2 {{ classes[button_style] ?? 'primary' }} ">
+  <a href="{{ button_link }}" class="px-8 py-2 rounded-sm  flex flex-flow items-center gap-2 {{ classes[button_style] ?? 'primary' }} ">
 
-        {{ if button_icon}}
-        <div class="size-5 ">
-            {{ button_icon}}
-        </div>
-        {{ /if }}
-        <div class="text-2xl font-bold">
-            {{ button_title }}
-        </div>
+    {{ if button_icon}}
+    <div class="size-5 ">
+      {{ button_icon}}
+    </div>
+    {{ /if }}
+    <div class="text-2xl font-bold">
+      {{ button_title }}
+    </div>
 
-    </a>
+  </a>
 
 </div>

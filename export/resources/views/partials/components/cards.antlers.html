@@ -1,80 +1,80 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/cards.antlers.html -->{{ /if }}\n
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/cards.antlers.html -->{{ /if }}
 <section class="{{ section_width ?? 'w-full' }} {{ style:color_themes[color_theme] ?? '' }}  py-4 lg:py-4">
   <div class="pagewidth">
 
-    {{ if title or text }}
-    <article class="mb-4 lg:mb-8">
-      {{ if show_more_link }}<a href="{{ show_more_link }}">{{ /if }}
-        {{ if title }} <h2 class="font-display text-4xl lg:text-7xl text-center"> {{ title }}</h2>{{ /if}}
-        {{ if show_more_link }}</a>{{ /if }}
-      {{ if text }}<div class="mt-4 max-w-prose mx-auto mb-4 lg:text-xl border-l-6 border-amber-800 pl-4"> {{ text }}</div>{{ /if}}
-    </article>
+  {{ if title or text }}
+  <article class="mb-4 lg:mb-8">
+    {{ if show_more_link }}<a href="{{ show_more_link }}">{{ /if }}
+    {{ if title }} <h2 class="font-display text-4xl lg:text-7xl text-center"> {{ title }}</h2>{{ /if}}
+    {{ if show_more_link }}</a>{{ /if }}
+    {{ if text }}<div class="mt-4 max-w-prose mx-auto mb-4 lg:text-xl border-l-6 border-amber-800 pl-4"> {{ text }}</div>{{ /if}}
+  </article>
+  {{ /if }}
+
+
+  {{ if entries or selected_collection }}
+
+  <div class="
+    {{# Mobile layout classes #}}
+    {{ if (layout_type_mobile ?? 'grid') == 'scroll' }}flex gap-2 flex-nowrap overflow-y-scroll snap-x relative{{ else }}grid {{ columns_mobile ?? 'grid-cols-1' }} gap-2{{ /if }}
+    {{# Desktop layout classes #}}
+    {{ if (layout_type_desktop ?? 'grid') == 'scroll' }}lg:flex lg:gap-2 lg:flex-nowrap lg:overflow-y-scroll lg:snap-x lg:relative lg:px-4{{ else }}lg:grid {{ columns ?? 'lg:grid-cols-3' }} lg:gap-4{{ /if }}
+    ">
+
+    {{# hand picket Entries #}}
+    {{ if entries}}
+    {{ entries | scope('entries') }}
+    {{ partial src="{ card_partial ?? site:card_partial ?? 'cards/card'}" card_width_mobile="{card_width_mobile}" card_width_desktop="{card_width_desktop}" }}
+    {{ /entries }}
     {{ /if }}
 
+    {{# Collection #}}
+    {{ if selected_collection }}
+    {{ collection from="{ selected_collection | join('|') }"
+      taxonomy:category="{ selected_category | pluck:slug | join('|') ?? false }"
+      taxonomy:tags="{ selected_tag | pluck:slug | join('|') ?? false }"
+      paginate="{ number_of_entries ?? 10 }"
+      sort="{sorting ?? 'date'}:{direction ?? 'desc'}"
+      as="paginated_entries"
+    }}
 
-    {{ if entries or selected_collection }}
-
-    <div class="
-        {{# Mobile layout classes #}}
-        {{ if (layout_type_mobile ?? 'grid') == 'scroll' }}flex gap-2 flex-nowrap overflow-y-scroll snap-x relative{{ else }}grid {{ columns_mobile ?? 'grid-cols-1' }} gap-2{{ /if }}
-        {{# Desktop layout classes #}}
-        {{ if (layout_type_desktop ?? 'grid') == 'scroll' }}lg:flex lg:gap-2 lg:flex-nowrap lg:overflow-y-scroll lg:snap-x lg:relative lg:px-4{{ else }}lg:grid {{ columns ?? 'lg:grid-cols-3' }} lg:gap-4{{ /if }}
-      ">
-
-      {{# hand picket Entries #}}
-      {{ if entries}}
-      {{ entries | scope('entries') }}
-      {{ partial src="{ card_partial ?? site:card_partial ?? 'cards/card'}" card_width_mobile="{card_width_mobile}" card_width_desktop="{card_width_desktop}" }}
-      {{ /entries }}
-      {{ /if }}
-
-      {{# Collection #}}
-      {{ if selected_collection }}
-      {{ collection from="{ selected_collection | join('|') }"
-            taxonomy:category="{ selected_category | pluck:slug | join('|') ?? false }"
-            taxonomy:tags="{ selected_tag | pluck:slug | join('|') ?? false }"
-            paginate="{ number_of_entries ?? 10 }"
-            sort="{sorting ?? 'date'}:{direction ?? 'desc'}"
-            as="paginated_entries"
-      }}
-
-      {{ paginated_entries }}
-      {{ partial src="{ card_partial ?? site:card_partial ?? 'cards/card'}" card_width_mobile="{card_width_mobile}" card_width_desktop="{card_width_desktop ?? 'lg:w-full'}" }}
-      {{ /paginated_entries }}
+    {{ paginated_entries }}
+    {{ partial src="{ card_partial ?? site:card_partial ?? 'cards/card'}" card_width_mobile="{card_width_mobile}" card_width_desktop="{card_width_desktop ?? 'lg:w-full'}" }}
+    {{ /paginated_entries }}
 
 
-      {{# Pagination #}}
-      {{ if paginate.total_pages > 1 }}
-      <div class="col-span-full justify-center items-center gap-4 mt-4
-        {{# Hide on mobile if disabled #}}
-        {{ if show_pagination }}flex{{ else }}hidden{{ /if }}
-        {{# Hide on desktop if disabled, or show if enabled #}}
-        {{ if show_pagination_desktop }}lg:flex{{ else }}lg:hidden{{ /if }}">
+    {{# Pagination #}}
+    {{ if paginate.total_pages > 1 }}
+    <div class="col-span-full justify-center items-center gap-4 mt-4
+    {{# Hide on mobile if disabled #}}
+    {{ if show_pagination }}flex{{ else }}hidden{{ /if }}
+    {{# Hide on desktop if disabled, or show if enabled #}}
+    {{ if show_pagination_desktop }}lg:flex{{ else }}lg:hidden{{ /if }}">
 
-        {{ paginate }}
-        <a href="{{ prev_page }}" class="p-2 {{ if !prev_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-left" class="size-4 " }} </a>
-        <div class="text-sm">
-          {{ current_page }} : {{ total_pages }}
-        </div>
-        <a href="{{ next_page }}" class="p-2 {{ if !next_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-right" class="size-4 " }}</a>
-        {{ /paginate }}
-      </div>
-      {{ /if }}
-      {{ /collection }}
-      {{ /if }}
-
+    {{ paginate }}
+    <a href="{{ prev_page }}" class="p-2 {{ if !prev_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-left" class="size-4 " }} </a>
+    <div class="text-sm">
+      {{ current_page }} : {{ total_pages }}
     </div>
-
-    {{# Show More Link (Simplified) #}}
-    {{ if show_more_link }}
-    <div class="mt-4 lg:mt-8 text-center">
-      <a href="{{ show_more_link }}" class="inline-flex gap-4 items-center">
-        <span>{{ show_more_link_text ?? 'Show More' }}</span>
-        {{ svg src="arrow-right" class="size-4 fill-pink-900" }}
-      </a>
+    <a href="{{ next_page }}" class="p-2 {{ if !next_page }}pointer-events-none opacity-50{{ /if }}">{{ svg src="arrow-right" class="size-4 " }}</a>
+    {{ /paginate }}
     </div>
     {{ /if }}
+    {{ /collection }}
+    {{ /if }}
 
-    {{/if}}
+  </div>
+
+  {{# Show More Link (Simplified) #}}
+  {{ if show_more_link }}
+  <div class="mt-4 lg:mt-8 text-center">
+    <a href="{{ show_more_link }}" class="inline-flex gap-4 items-center">
+    <span>{{ show_more_link_text ?? 'Show More' }}</span>
+    {{ svg src="arrow-right" class="size-4 fill-pink-900" }}
+    </a>
+  </div>
+  {{ /if }}
+
+  {{/if}}
   </div>
 </section>

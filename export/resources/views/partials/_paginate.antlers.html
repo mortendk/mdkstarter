@@ -1,4 +1,4 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/_paginate.antlers.html -->{{ /if }}\n<div class="flex justify-center gap-4 items-center">
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/_paginate.antlers.html -->{{ /if }}
   {{ paginate }}
 
   {{ if prev_page }}
@@ -7,7 +7,7 @@
   {{/if}}
 
   <div class="text-sm">
-    {{ current_page }} / {{ total_pages }} ( {{ total_items }} )
+  {{ current_page }} / {{ total_pages }} ( {{ total_items }} )
   </div>
 
 

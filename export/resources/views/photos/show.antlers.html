@@ -1,35 +1,35 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/photos/show.antlers.html -->{{ /if }}\n<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-    <header class="mb-16 text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-xs font-bold uppercase tracking-widest mb-4">
-            Photo Group
-        </div>
-        <h1 class="text-5xl lg:text-7xl font-black text-gray-900 mb-6">
-            {{ title }}
-        </h1>
-        {{ if content_markdown }}
-            <div class="prose prose-xl mx-auto text-gray-500 leading-relaxed">
-                {{ content_markdown }}
-            </div>
-        {{ /if }}
-    </header>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {{ collection:gallery taxonomy:photos="{slug}" sort="date:desc" paginate="12" as="items" }}
-            {{ if no_results }}
-                <div class="col-span-full text-center py-20 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
-                    <p class="text-gray-400 text-xl font-medium">No galleries found in this group.</p>
-                </div>
-            {{ /if }}
-
-            {{ items }}
-                {{ partial:cards/card }}
-            {{ /items }}
-
-            {{ if paginate.total_pages > 1 }}
-                <div class="col-span-full mt-16">
-                    {{ partial:_paginate }}
-                </div>
-            {{ /if }}
-        {{ /collection:gallery }}
+{{ if config:app:debug is true }}<!-- 👋 resources/views/photos/show.antlers.html -->{{ /if }}
+  <header class="mb-16 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-xs font-bold uppercase tracking-widest mb-4">
+      Photo Group
     </div>
+    <h1 class="text-5xl lg:text-7xl font-black text-gray-900 mb-6">
+      {{ title }}
+    </h1>
+    {{ if content_markdown }}
+      <div class="prose prose-xl mx-auto text-gray-500 leading-relaxed">
+        {{ content_markdown }}
+      </div>
+    {{ /if }}
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    {{ collection:gallery taxonomy:photos="{slug}" sort="date:desc" paginate="12" as="items" }}
+      {{ if no_results }}
+        <div class="col-span-full text-center py-20 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
+          <p class="text-gray-400 text-xl font-medium">No galleries found in this group.</p>
+        </div>
+      {{ /if }}
+
+      {{ items }}
+        {{ partial:cards/card }}
+      {{ /items }}
+
+      {{ if paginate.total_pages > 1 }}
+        <div class="col-span-full mt-16">
+          {{ partial:_paginate }}
+        </div>
+      {{ /if }}
+    {{ /collection:gallery }}
+  </div>
 </div>

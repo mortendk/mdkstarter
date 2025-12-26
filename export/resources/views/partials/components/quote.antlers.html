@@ -1,27 +1,27 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/quote.antlers.html -->{{ /if }}\n<article class="p-5 bg-slate-50 pagewidth border-t  border-slate-200">
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/quote.antlers.html -->{{ /if }}
 
-    <div class="prose-xl max-w-prose mx-auto font-bold">
-        citat:
+  <div class="prose-xl max-w-prose mx-auto font-bold">
+    citat:
+  </div>
+
+  <div class="prose-xl max-w-prose mx-auto">
+    {{ text }}
+  </div>
+
+  <div class="flex flex-col items-center">
+
+    <div class="size-32 rounded-full overflow-hidden bg-slate-300 text-slate-800 flex items-center justify-center">
+      {{ if image }}
+      <img src="{{ glide :src="image" w="100" h="100" fit="crop_focal" }} " alt="{{ image:alt }}" class="w-full h-full object-cover" loading="lazy" />
+      {{ /if}}
     </div>
 
-    <div class="prose-xl max-w-prose mx-auto">
-        {{ text }}
+    <div class="font-bold">
+      {{ name }}
     </div>
-
-    <div class="flex flex-col items-center">
-
-        <div class="size-32 rounded-full overflow-hidden bg-slate-300 text-slate-800 flex items-center justify-center">
-            {{ if image }}
-            <img src="{{ glide :src="image" w="100" h="100" fit="crop_focal" }} " alt="{{ image:alt }}" class="w-full h-full object-cover" loading="lazy" />
-            {{ /if}}
-        </div>
-
-        <div class="font-bold">
-            {{ name }}
-        </div>
-        <div class="">
-            {{ position }}
-        </div>
+    <div class="">
+      {{ position }}
     </div>
+  </div>
 
 </article>

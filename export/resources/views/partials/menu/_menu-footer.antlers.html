@@ -1,21 +1,21 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/menu/_menu-footer.antlers.html -->{{ /if }}\n{{# https://statamic.dev/tips/recursive-nav-examples #}}
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/menu/_menu-footer.antlers.html -->{{ /if }}
 <nav class="flex w-full" aria-label="Main Menu">
   <div class="flex flex-col lg:flex-row justify-between w-full gap-8">
 
-    {{ nav handle="footer" }}
+  {{ nav handle="footer" }}
 
-    {{ if depth == 1 }}
-    <div class="w-full">
-      <h3 class="font-bold text-xl mb-2">{{ title }}</h3>
-      {{ if children }}
-      <ul>{{ *recursive children* }}</ul>
-      {{ /if }}
-    </div>
-    {{ elseif depth == 2 }}
-    <li class="">
-      <a href="{{ url }}" class="underline underline-offset-4 hover:underline-offset-1">{{ title }}</a>
-    </li>
+  {{ if depth == 1 }}
+  <div class="w-full">
+    <h3 class="font-bold text-xl mb-2">{{ title }}</h3>
+    {{ if children }}
+    <ul>{{ *recursive children* }}</ul>
     {{ /if }}
-    {{ /nav }}
+  </div>
+  {{ elseif depth == 2 }}
+  <li class="">
+    <a href="{{ url }}" class="underline underline-offset-4 hover:underline-offset-1">{{ title }}</a>
+  </li>
+  {{ /if }}
+  {{ /nav }}
   </div>
 </nav>

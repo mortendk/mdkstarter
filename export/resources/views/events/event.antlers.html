@@ -1,49 +1,49 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/events/event.antlers.html -->{{ /if }}\n
+{{ if config:app:debug is true }}<!-- 👋 resources/views/events/event.antlers.html -->{{ /if }}
 <article class="pagewidth py-12">
   <header class="mb-8">
-    <h1 class="text-4xl font-bold mb-4">{{ title }}</h1>
+  <h1 class="text-4xl font-bold mb-4">{{ title }}</h1>
 
-    <div class="text-gray-600 text-lg">
-      {{ event_start format="F j, Y H:i" }}
-      {{ if event_end }}
-      - {{ event_end format="F j, Y H:i" }}
-      {{ /if }}
-    </div>
+  <div class="text-gray-600 text-lg">
+    {{ event_start format="F j, Y H:i" }}
+    {{ if event_end }}
+    - {{ event_end format="F j, Y H:i" }}
+    {{ /if }}
+  </div>
   </header>
 
   {{ if primary_image }}
   <div class="mb-8">
-    {{ responsive_image:primary_image class="w-full h-auto rounded-lg shadow-lg" }}
+  {{ responsive_image:primary_image class="w-full h-auto rounded-lg shadow-lg" }}
   </div>
   {{ /if }}
 
   <div class="prose max-w-none mb-12">
-    {{ if teaser }}
-    <p class="lead text-xl text-gray-600 italic mb-8">{{ teaser }}</p>
-    {{ /if }}
+  {{ if teaser }}
+  <p class="lead text-xl text-gray-600 italic mb-8">{{ teaser }}</p>
+  {{ /if }}
 
-    {{ blocks }}
-    {{ partial src="components/{type}" }}
-    {{ /blocks }}
+  {{ blocks }}
+  {{ partial src="components/{type}" }}
+  {{ /blocks }}
 
-    {{ bard }}
-    {{ partial src="components/{type}" }}
-    {{ /bard }}
+  {{ bard }}
+  {{ partial src="components/{type}" }}
+  {{ /bard }}
   </div>
 
   {{ if tags || calendar }}
   <footer class="border-t pt-8">
-    {{ if calendar }}
-    {{ calendar }}
-    {{ partial:taxonomy/calendar }}
-    {{ /calendar }}
-    {{ /if }}
+  {{ if calendar }}
+  {{ calendar }}
+  {{ partial:taxonomy/calendar }}
+  {{ /calendar }}
+  {{ /if }}
 
-    {{ if tags }}
-    {{ tags }}
-    {{ partial:taxonomy/tag }}
-    {{ /tags }}
-    {{ /if }}
+  {{ if tags }}
+  {{ tags }}
+  {{ partial:taxonomy/tag }}
+  {{ /tags }}
+  {{ /if }}
 
   </footer>
   {{ /if }}
@@ -52,14 +52,14 @@
   {{ if related_events }}
 
   <section class="border-t pt-12 mt-12">
-    <h2 class="text-3xl font-bold mb-8">Related Events</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {{ related_events }}
-      {{ partial:cards/card-event-small }}
+  <h2 class="text-3xl font-bold mb-8">Related Events</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {{ related_events }}
+    {{ partial:cards/card-event-small }}
 
 
-      {{ /related_events }}
-    </div>
+    {{ /related_events }}
+  </div>
   </section>
   {{ /if }}
   {{ /collection:events }}

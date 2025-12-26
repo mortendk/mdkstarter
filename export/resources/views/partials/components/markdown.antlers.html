@@ -1,11 +1,11 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/markdown.antlers.html -->{{ /if }}\n<section class="{{ section_width ?? 'pagewidth' }} {{ style:color_themes[color_theme] ?? '' }}  pb-4 lg:py-8">
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/markdown.antlers.html -->{{ /if }}
   <div class="pagewidth">
 
-    {{ if markdown }}
-    <article class="wysiwyg mt-8">
-      {{ markdown }}
-    </article>
-    {{ /if}}
+  {{ if markdown }}
+  <article class="wysiwyg mt-8">
+    {{ markdown }}
+  </article>
+  {{ /if}}
 
   </div>
 </section>

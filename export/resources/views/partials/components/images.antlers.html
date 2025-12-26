@@ -1,25 +1,25 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/images.antlers.html -->{{ /if }}\n<section class="{{ section_width ?? 'pagewidth' }} {{ style:color_themes[color_theme] ?? '' }}  {{ section_height ?? '' }} {{ section_height_lg ?? '' }}  py-4 lg:py-4">
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/images.antlers.html -->{{ /if }}
   <div class="pagewidth">
 
 
-    {{ if title or text }}
-    <article class="text-center max-w-prose mx-auto pb-4">
-      {{ if title }}
-      <h2 class="text-3xl lg:text-7xl font-display"> {{ title }}</h2>
-      {{ /if }}
-      {{ if text }}
-      <div class="text-base max-w-prose mt-4"> {{ text }}</div>
-      {{ /if }}
-    </article>
+  {{ if title or text }}
+  <article class="text-center max-w-prose mx-auto pb-4">
+    {{ if title }}
+    <h2 class="text-3xl lg:text-7xl font-display"> {{ title }}</h2>
     {{ /if }}
+    {{ if text }}
+    <div class="text-base max-w-prose mt-4"> {{ text }}</div>
+    {{ /if }}
+  </article>
+  {{ /if }}
 
-    {{ if layout == "grid" }}
-    {{ partial:components/images/grid }}
-    {{ elseif layout == "flow" }}
-    {{ partial:components/images/overflow }}
-    {{ elseif layout == "gallery" }}
-    {{ partial:components/images/gallery }}
-    {{ /if }}
+  {{ if layout == "grid" }}
+  {{ partial:components/images/grid }}
+  {{ elseif layout == "flow" }}
+  {{ partial:components/images/overflow }}
+  {{ elseif layout == "gallery" }}
+  {{ partial:components/images/gallery }}
+  {{ /if }}
 
   </div>
 </section>

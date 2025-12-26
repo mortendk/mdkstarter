@@ -1,11 +1,11 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/images/grid.antlers.html -->{{ /if }}\n<div class="container mx-auto mt-8">
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/images/grid.antlers.html -->{{ /if }}
   <div class="columns-2 md:columns-3">
 
-    {{ images}}
-    <div class="rounded-lg overflow-hidden relative p-2">
-      <img src="{{ glide :src="url" w="600" fit="crop_focal" }} " alt="{{ url:alt }}" class="w-full h-full object-cover" loading="lazy" />
-    </div>
-    {{ /images }}
+  {{ images}}
+  <div class="rounded-lg overflow-hidden relative p-2">
+    <img src="{{ glide :src="url" w="600" fit="crop_focal" }} " alt="{{ url:alt }}" class="w-full h-full object-cover" loading="lazy" />
+  </div>
+  {{ /images }}
 
   </div>
 </div>

@@ -1,4 +1,4 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/articles/article.antlers.html -->{{ /if }}\n
+{{ if config:app:debug is true }}<!-- 👋 resources/views/articles/article.antlers.html -->{{ /if }}
 
 <article class="pagewidth text-amber-950 mt-8 ">
 
@@ -62,12 +62,12 @@
 </article>
 
 {{ collection:articles
-    limit="3"
-    id:isnt="{id}"
-    sort="date:desc"
-    :taxonomy:tags="tags ? (tags | pluck:slug | join('|')) : null"
-    :taxonomy:category="!tags && category ? (category | pluck:slug | join('|')) : null"
-    as="related_articles"
+  limit="3"
+  id:isnt="{id}"
+  sort="date:desc"
+  :taxonomy:tags="tags ? (tags | pluck:slug | join('|')) : null"
+  :taxonomy:category="!tags && category ? (category | pluck:slug | join('|')) : null"
+  as="related_articles"
 }}
 {{ if related_articles }}
 <section class="pagewidth border-t pt-12 mt-12">

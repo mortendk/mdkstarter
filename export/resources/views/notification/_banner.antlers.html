@@ -1,4 +1,4 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/notification/_banner.antlers.html -->{{ /if }}\n{{ collection:notifications limit="1" sort="date:desc" as="notifs" }}
+{{ if config:app:debug is true }}<!-- 👋 resources/views/notification/_banner.antlers.html -->{{ /if }}
 {{ notifs }}
 {{ $bg = 'bg-blue-600' }}
 {{ if level == 'alert' }}
@@ -12,34 +12,34 @@
 
 <div class="{{ $bg }} transition-colors duration-200">
   <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between flex-wrap">
-      <div class="w-0 flex-1 flex items-center">
-        <span class="flex p-2 rounded-lg bg-black/10 text-white">
-          {{ if icon == 'info-circle' }}
-          {{ svg src="info-circle" class="h-6 w-6" }}
-          {{ elseif icon == 'exclamation-triangle' }}
-          {{ svg src="exclamation-triangle" class="h-6 w-6" }}
-          {{ elseif icon == 'fire' }}
-          {{ svg src="fire" class="h-6 w-6" }}
-          {{ elseif icon == 'bullhorn' }}
-          {{ svg src="bullhorn" class="h-6 w-6" }}
-          {{ else }}
-          {{ svg src="info-circle" class="h-6 w-6" }}
-          {{ /if }}
-        </span>
-        <p class="ml-3 font-bold text-white truncate">
-          <span class="md:hidden"> {{ title }} </span>
-          <span class="hidden md:inline"> {{ title }} </span>
-        </p>
-      </div>
-
-      <div class="order-3 mt-2 shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
-        <a href="{{ $action_link }}"
-          class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-gray-900 bg-white hover:bg-gray-50 transition-colors">
-          Learn more
-        </a>
-      </div>
+  <div class="flex items-center justify-between flex-wrap">
+    <div class="w-0 flex-1 flex items-center">
+    <span class="flex p-2 rounded-lg bg-black/10 text-white">
+      {{ if icon == 'info-circle' }}
+      {{ svg src="info-circle" class="h-6 w-6" }}
+      {{ elseif icon == 'exclamation-triangle' }}
+      {{ svg src="exclamation-triangle" class="h-6 w-6" }}
+      {{ elseif icon == 'fire' }}
+      {{ svg src="fire" class="h-6 w-6" }}
+      {{ elseif icon == 'bullhorn' }}
+      {{ svg src="bullhorn" class="h-6 w-6" }}
+      {{ else }}
+      {{ svg src="info-circle" class="h-6 w-6" }}
+      {{ /if }}
+    </span>
+    <p class="ml-3 font-bold text-white truncate">
+      <span class="md:hidden"> {{ title }} </span>
+      <span class="hidden md:inline"> {{ title }} </span>
+    </p>
     </div>
+
+    <div class="order-3 mt-2 shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
+    <a href="{{ $action_link }}"
+      class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-gray-900 bg-white hover:bg-gray-50 transition-colors">
+      Learn more
+    </a>
+    </div>
+  </div>
   </div>
 </div>
 {{ /notifs }}
