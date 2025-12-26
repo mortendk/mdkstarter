@@ -1,4 +1,4 @@
-title: Category
+title: Photo
 tabs:
   main:
     display: Main
@@ -20,6 +20,7 @@ tabs:
     display: Card
     sections:
       -
+        display: 'New Section'
         fields:
           -
             import: card
@@ -27,6 +28,7 @@ tabs:
     display: SEO
     sections:
       -
+        display: 'New Section'
         fields:
           -
             import: seo
@@ -57,4 +59,4 @@ tabs:
               type: template
               display: Template
               localizable: true
-              folder: category
+              folder: photos

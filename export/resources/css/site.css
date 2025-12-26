@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @source "../views";
@@ -5,70 +12,57 @@
 
 /* sets the theme */
 @theme {
-    --font-display: "mountains", "serif";
-    --font-sans: "Inter", "sans-serif";
+  --font-display: "Playfair Display", "serif";
+  --font-title: "Montserrat", "sans-serif";
+  --font-sans: "Domine", "sans";
+  --font-body: "Inter", "sans-serif";
+  --font-mono: "Fira Code", "sans-serif";
 
-    --color-tone-50: oklch(0.984 0.003 247.858);
-    --color-tone-100: oklch(0.968 0.007 247.896);
-    --color-tone-200: oklch(0.929 0.013 255.508);
-    --color-tone-300: oklch(0.869 0.022 252.894);
-    --color-tone-400: oklch(0.704 0.04 256.788);
-    --color-tone-500: oklch(0.554 0.046 257.417);
-    --color-tone-600: oklch(0.446 0.043 257.281);
-    --color-tone-700: oklch(0.372 0.044 257.287);
-    --color-tone-800: oklch(0.279 0.041 260.031);
-    --color-tone-900: oklch(0.208 0.042 265.755);
-    --color-tone-950: oklch(0.129 0.042 264.695);
+  --color-tone-50: oklch(0.984 0.003 247.858);
+  --color-tone-100: oklch(0.968 0.007 247.896);
+  --color-tone-200: oklch(0.929 0.013 255.508);
+  --color-tone-300: oklch(0.869 0.022 252.894);
+  --color-tone-400: oklch(0.704 0.04 256.788);
+  --color-tone-500: oklch(0.554 0.046 257.417);
+  --color-tone-600: oklch(0.446 0.043 257.281);
+  --color-tone-700: oklch(0.372 0.044 257.287);
+  --color-tone-800: oklch(0.279 0.041 260.031);
+  --color-tone-900: oklch(0.208 0.042 265.755);
+  --color-tone-950: oklch(0.129 0.042 264.695);
 
-    --color-background: ;
-    --color-on-background: ;
+  --color-background: ;
+  --color-on-background: ;
 
-    --surface: ;
-    --on-surface: ;
+  --surface: ;
+  --on-surface: ;
 
-    --primary: oklch(0.704 0.04 256.788);
-    --on-primary: ;
-    --primary-alt: ;
-    --on-primary-alt: ;
+  --primary: oklch(0.704 0.04 256.788);
+  --on-primary: ;
+  --primary-alt: ;
+  --on-primary-alt: ;
 
-    --secondary: ;
-    --on-secondary: ;
-    --secondary-alt: ;
-    --on-secondary-alt: ;
+  --secondary: ;
+  --on-secondary: ;
+  --secondary-alt: ;
+  --on-secondary-alt: ;
 
-    --tetiary: ;
-    --on-tetiary: ;
-    --tetiary-alt: ;
-    --on-tetiary-alt: ;
+  --tetiary: ;
+  --on-tetiary: ;
+  --tetiary-alt: ;
+  --on-tetiary-alt: ;
 
-    --action: ;
-}
-
-/* Fonts */
-@font-face {
-    font-family: mountains;
-    font-style: normal;
-    font-display: swap;
-    src: url("/resources/fonts/Mountains_of_Christmas/MountainsofChristmas-Regular.ttf")
-        format("woff");
-}
-@font-face {
-    font-family: inter;
-    font-style: normal;
-    font-display: swap;
-    src: url("/resources/fonts/Mountains_of_Christmas/MountainsofChristmas-Regular.ttf")
-        format("woff");
+  --action: ;
 }
 
 /* fix for  */
 [x-cloak] {
-    display: none;
+  display: none;
 }
 
 /* basic page width */
 
 .pagewidth {
-    @apply mx-auto
+  @apply mx-auto
     w-full
     px-2
     lg:max-w-screen-xl
@@ -78,69 +72,76 @@
 }
 
 .center-center {
-    @apply flex items-center justify-center;
+  @apply flex items-center justify-center;
 }
 
 .sr-tab {
-    @apply focus:border-red-500 focus:border focus:border-dashed focus:outline-none;
+  @apply focus:border-red-500 focus:border focus:border-dashed focus:outline-none;
 }
 /* scrollbar fix */
 .scrollbar::-webkit-scrollbar {
-    @apply h-2 w-2;
+  @apply h-2 w-2;
 }
 .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-slate-400 dark:bg-slate-900;
+  @apply bg-slate-400 dark:bg-slate-900;
 }
 .scrollbar::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 /* WYSIWYG */
 .wysiwyg {
-    @apply max-w-4xl text-xl;
+  @apply max-w-4xl text-xl;
 }
 .wysiwyg p {
-    @apply pb-8;
+  @apply pb-8;
 }
 .wysiwyg h1 {
-    @apply font-display text-5xl lg:text-8xl text-amber-800 mb-4 break-words;
+  @apply font-title font-bold text-5xl lg:text-8xl text-amber-800 mb-4 break-words;
 }
 .wysiwyg h2 {
-    @apply text-4xl text-amber-800 mb-4;
+  @apply font-title font-bold text-4xl text-amber-800 mb-4;
 }
 .wysiwyg h3 {
-    @apply text-3xl text-amber-800 mb-4;
+  @apply font-title font-bold text-3xl text-amber-800 mb-4;
+}
+.wysiwyg h4 {
+  @apply font-title font-bold text-3xl text-amber-800 mb-4;
+}
+.wysiwyg h5 {
+  @apply font-title font-bold text-3xl text-amber-800 mb-4;
+}
+.wysiwyg h6 {
+  @apply font-title font-bold text-3xl text-amber-800 mb-4;
 }
 .wysiwyg ul li {
-    @apply list-disc pl-4 pb-4;
+  @apply list-disc pl-4 pb-4;
 }
 
 .wysiwyg a {
-    @apply text-pink-800 border-b border-dashed hover:text-amber-300;
+  @apply text-pink-800 border-b border-dashed hover:text-amber-300;
 }
 
 .wysiwyg td p {
-    @apply p-0 m-0;
+  @apply p-0 m-0;
 }
 
 .wysiwyg img {
-    @apply py-4;
+  @apply py-4;
 }
 .wysiwyg table {
-    @apply p-4 bg-amber-50 text-amber-800;
+  @apply p-4 bg-amber-50 text-amber-800;
 }
 
-.wysiwyg code {
-    @apply font-mono bg-slate-900 text-green-300;
-}
+.wysiwyg code,
 .wysiwyg pre {
-    @apply font-mono bg-slate-800 text-green-300 p-2;
+  @apply font-mono bg-slate-800 text-green-300 p-2 text-base;
 }
 
 /* markdown */
 .table-of-contents {
-    @apply bg-red-300 text-red-800;
+  @apply bg-red-300 text-red-800;
 }
 .heading-permalink {
-    @apply text-sm;
+  @apply text-sm;
 }

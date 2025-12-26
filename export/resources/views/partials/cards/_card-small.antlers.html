@@ -1,0 +1,19 @@
+<article
+  class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 p-4 h-full group {{ card_width_mobile }} {{ card_width_desktop }} shrink-0 snap-center">
+  <a href="{{ url }}" class="flex flex-col h-full justify-center">
+    <div class="flex flex-wrap gap-2 text-[10px] uppercase tracking-wider font-bold mb-1">
+      {{ category }}
+      <span class="text-primary-600">{{ title }}</span>
+      {{ /category }}
+      {{ tags }}
+      <span class="text-amber-600">#{{ title }}</span>
+      {{ /tags }}
+    </div>
+    <time class="text-xs font-bold text-primary-600 uppercase tracking-wider mb-1">
+      {{ date format="F j, Y H:i" }}
+    </time>
+    <h3 class="text-base font-bold text-gray-900 leading-tight group-hover:text-primary-600 transition-colors">
+      {{ title }}
+    </h3>
+  </a>
+</article>

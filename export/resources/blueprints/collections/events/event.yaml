@@ -36,6 +36,9 @@ tabs:
               display: 'End Date & Time'
               width: 50
               inline: true
+              validate:
+                - sometimes
+                - 'after:event_start'
           -
             import: teaser
           -

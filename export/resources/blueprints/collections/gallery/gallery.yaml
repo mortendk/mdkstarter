@@ -19,16 +19,13 @@ tabs:
               container: images
               type: assets
               display: images
-              instructions: 'Images are put in a seperate folder'
+              instructions: 'Gallery images'
           -
             import: content_markdown
-      -
-        display: 'New Section'
   card:
     display: Card
     sections:
       -
-        display: 'New Section'
         fields:
           -
             import: card
@@ -36,7 +33,6 @@ tabs:
     display: SEO
     sections:
       -
-        display: 'New Section'
         fields:
           -
             import: seo
@@ -45,6 +41,15 @@ tabs:
     sections:
       -
         fields:
+          -
+            handle: photos
+            field:
+              type: terms
+              taxonomies:
+                - photos
+              display: 'Photo Group'
+              max_items: 1
+              mode: select
           -
             import: primary_image
           -

@@ -7,3 +7,5 @@ preview_targets:
     refresh: true
 template: calendar/show
 layout: layout
+# Taxonomy Index Template
+template_index: calendar/index

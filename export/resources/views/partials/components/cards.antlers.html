@@ -5,15 +5,10 @@
 
     {{ if title or text }}
     <article class="mb-4 lg:mb-8">
-      {{ if show_more_link }}
-      <a href="{{ show_more_link }}">
-        {{ /if }}
-        {{ if title }} <h2 class=" font-display text-4xl lg:text-7xl text-center"> {{ title }}</h2>{{ /if}}
-        {{ if show_more_link }}
-      </a>
-      {{ /if }}
-
-      {{ if text }}<div class="mt-4 max-w-prose mx-auto text-amber-100 mb-4 lg:text-xl border-l-4 border-amber-800 pl-4"> {{ text }}</div>{{ /if}}
+      {{ if show_more_link }}<a href="{{ show_more_link }}">{{ /if }}
+        {{ if title }} <h2 class="font-display text-4xl lg:text-7xl text-center"> {{ title }}</h2>{{ /if}}
+        {{ if show_more_link }}</a>{{ /if }}
+      {{ if text }}<div class="mt-4 max-w-prose mx-auto mb-4 lg:text-xl border-l-6 border-amber-800 pl-4"> {{ text }}</div>{{ /if}}
     </article>
     {{ /if }}
 

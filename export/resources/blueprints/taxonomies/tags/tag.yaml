@@ -12,13 +12,18 @@ tabs:
               required: true
               validate:
                 - required
+          -
+            import: primary_image
+          -
+            handle: icon
+            field:
+              type: icon
+              display: icon
   sidebar:
     display: Sidebar
     sections:
       -
         fields:
-          -
-            import: primary_image
           -
             handle: slug
             field:
@@ -41,3 +46,4 @@ tabs:
               type: template
               display: Template
               localizable: true
+              folder: tags

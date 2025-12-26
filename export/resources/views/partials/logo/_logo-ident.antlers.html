@@ -2,7 +2,10 @@
 <a href="/" class="shrink-0 block">
   <img src="{{ glide :src="brand:ident" w="50" h="50" fit="crop_focal" }}" alt="{{ brand:name }}">
   <h1 class="sr-only">{{ site:name }}</h1>
-  {{ else }}
+</a>
+{{ else }}
+<a href="/" class="shrink-0 block">
+
   <h1 class="text-nowrap font-bold text-2xl f">{{ brand:name }}</h1>
 </a>
 {{ /if }}

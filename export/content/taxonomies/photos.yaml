@@ -1,0 +1,9 @@
+title: Photos
+route: '/photos/{slug}'
+preview_targets:
+  -
+    label: Term
+    url: '{permalink}'
+    refresh: true
+template: photos/show
+layout: layout

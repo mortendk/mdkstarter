@@ -1,0 +1,26 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/list/list_tax_calendar.antlers.html -->{{ /if }}
+
+{{#
+    Example usage:
+    {{ partial:list/list_tax_calendar card_type="card" }}
+    {{ partial:list/list_tax_calendar only_upcoming="true" }}
+#}}
+
+{{ taxonomy:calendar sort="title:asc" as="terms" }}
+{{ if terms }}
+<div class="{{ grid_classes ?? 'grid grid-cols-1 md:grid-cols-3 gap-8' }}">
+  {{ terms }}
+    {{ $show_term = true }}
+    
+    {{ if only_upcoming }}
+        {{# Check if this specific calendar group has any future events #}}
+        {{ $show_term = (collection:events taxonomy:calendar="{slug}" event_start:gte="{now}" count="true") > 0 }}
+    {{ /if }}
+
+    {{ if $show_term }}
+        {{ partial src="cards/{card_type ?? 'card'}" }}
+    {{ /if }}
+  {{ /terms }}
+</div>
+{{ /if }}
+{{ /taxonomy:calendar }}

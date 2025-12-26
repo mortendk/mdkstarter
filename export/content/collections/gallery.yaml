@@ -1,8 +1,9 @@
 title: Gallery
-template: default
+template: gallery/gallery
 layout: layout
 taxonomies:
   - tags
+  - photos
 revisions: false
 route: 'gallery/{slug}'
 date: true

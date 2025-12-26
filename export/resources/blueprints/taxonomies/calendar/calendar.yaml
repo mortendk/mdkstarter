@@ -1,4 +1,4 @@
-title: Category
+title: Calendar
 tabs:
   main:
     display: Main
@@ -36,14 +36,6 @@ tabs:
       -
         fields:
           -
-            handle: author
-            field:
-              type: users
-              display: Author
-              default: current
-              localizable: true
-              max_items: 1
-          -
             handle: slug
             field:
               type: slug
@@ -54,7 +46,8 @@ tabs:
           -
             handle: template
             field:
+              folder: calendar
               type: template
-              display: Template
-              localizable: true
-              folder: category
+              display: template
+      -
+        display: 'New Section'
