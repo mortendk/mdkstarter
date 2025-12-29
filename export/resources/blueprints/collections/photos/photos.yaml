@@ -51,6 +51,14 @@ tabs:
               max_items: 1
               mode: select
           -
+            handle: category
+            field:
+              type: terms
+              taxonomies:
+                - category
+              display: Category
+              mode: select
+          -
             import: primary_image
           -
             handle: tags

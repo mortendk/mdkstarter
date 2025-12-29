@@ -5,7 +5,8 @@ revisions: false
 taxonomies:
   - tags
   - calendar
-route: 'calendar/{{calendar}}/{{ event_start format="Y-m-d" }}/{{slug}}'
+  - category
+route: 'calendar/{{calendar}}/{{ event_start format="d-m-Y" }}/{{slug}}'
 date: true
 sort_dir: asc
 date_behavior:

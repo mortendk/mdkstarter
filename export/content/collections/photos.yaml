@@ -4,6 +4,7 @@ layout: layout
 taxonomies:
   - tags
   - photo
+  - category
 revisions: false
 route: "/photo/{photo}/{slug}"
 date: true

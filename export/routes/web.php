@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 // Taxonomy Indices
 Route::statamic('/calendar', 'calendar/index');
-Route::statamic('/calendar/{calendar_group}/{url_date}', 'calendar/daily');
 Route::statamic('/category', 'category/index');
+Route::statamic('/calendar/{calendar_group}/{url_date}', 'calendar/daily');
+
 Route::statamic('/photo', 'photo/index');
 Route::statamic('/photo/{slug}', 'photo/term');
 Route::statamic('/video', 'videos/index');

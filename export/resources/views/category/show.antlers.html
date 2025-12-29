@@ -18,11 +18,13 @@
     {{ /if }}
 
     {{ items }}
-    {{ if blueprint == "event" }}
-    {{ partial:cards/card-event }}
-    {{ else }}
-    {{ partial:cards/card }}
-    {{ /if }}
+      {{ if blueprint == "event" }}
+        {{ partial:cards/card-event }}
+      {{ elseif blueprint == "video" }}
+        {{ partial:cards/card-video }}
+      {{ else }}
+        {{ partial:cards/card }}
+      {{ /if }}
     {{ /items }}
 
     {{ if paginate.total_pages > 1 }}

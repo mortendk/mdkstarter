@@ -4,6 +4,7 @@ layout: layout
 taxonomies:
   - tags
   - video
+  - category
 revisions: false
 route: '/video/{video}/{slug}'
 date: true

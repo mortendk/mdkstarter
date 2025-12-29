@@ -74,6 +74,14 @@ tabs:
               validate:
                 - required
           -
+            handle: category
+            field:
+              type: terms
+              taxonomies:
+                - category
+              display: Category
+              mode: select
+          -
             import: primary_image
           -
             handle: tags

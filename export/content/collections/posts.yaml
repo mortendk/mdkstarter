@@ -2,17 +2,16 @@ title: Posts
 template: posts/post
 layout: layout
 taxonomies:
-  1: category
-  2: tags
+  - category
+  - tags
 revisions: false
-route: '{category}/{slug}'
+route: "/post/{day}-{month}-{year}/{slug}"
 date: true
 sort_dir: asc
 date_behavior:
   past: public
   future: private
 preview_targets:
-  -
-    label: Entry
-    url: '{permalink}'
+  - label: Entry
+    url: "{permalink}"
     refresh: true

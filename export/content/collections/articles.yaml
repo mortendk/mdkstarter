@@ -2,10 +2,10 @@ title: Articles
 template: articles/article
 layout: layout
 taxonomies:
-  1: category
-  2: tags
+  - category
+  - tags
 revisions: false
-route: "artikler/{category}/{slug}"
+route: '/articles/{slug}'
 date: true
 sort_dir: asc
 date_behavior:

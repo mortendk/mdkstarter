@@ -19,7 +19,7 @@ blocks:
       - posts
       - articles
       - events
-      - gallery
+      - photos
       - pages
     show_pagination: false
     layout_type: grid
@@ -28,14 +28,12 @@ blocks:
     show_pagination_desktop: false
     show_pagination_mobile: false
     number_of_entries: 10
-    title: 'All content'
-    text: 'why is there not'
 opengraph:
   og_type: website
 seo_index: true
 seo_follow: true
 updated_by: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
-updated_at: 1766752439
+updated_at: 1766792699
 title_card: Frontpage
 image_card: nika-benedictova-juiltreaok8-unsplash.jpg
 teaser_card: 'this is the card for the frontpage'
