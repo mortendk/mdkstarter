@@ -1,5 +1,5 @@
 title: Events
-template: events/event
+template: calendar/event
 layout: layout
 revisions: false
 taxonomies:

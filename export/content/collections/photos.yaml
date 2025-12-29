@@ -1,18 +1,17 @@
-title: Videos
-template: videos/show
+title: Photos
+template: photos/show
 layout: layout
 taxonomies:
   - tags
-  - video
+  - photo
 revisions: false
-route: '/video/{video}/{slug}'
+route: "/photo/{photo}/{slug}"
 date: true
-sort_dir: desc
+sort_dir: asc
 date_behavior:
   past: public
   future: private
 preview_targets:
-  -
-    label: Entry
-    url: '{permalink}'
+  - label: Entry
+    url: "{permalink}"
     refresh: true

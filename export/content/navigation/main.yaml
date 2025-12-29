@@ -2,4 +2,6 @@ title: Main
 collections:
   - pages
   - articles
+  - events
 max_depth: 1
+root: true

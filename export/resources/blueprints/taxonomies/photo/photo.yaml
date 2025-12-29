@@ -1,0 +1,62 @@
+title: Photo
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            import: primary_image
+          -
+            import: content_markdown
+  card:
+    display: Card
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: card
+  seo:
+    display: SEO
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: seo
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: author
+            field:
+              type: users
+              display: Author
+              default: current
+              localizable: true
+              max_items: 1
+          -
+            handle: slug
+            field:
+              type: slug
+              required: true
+              validate:
+                - required
+                - 'max:200'
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+              folder: photos

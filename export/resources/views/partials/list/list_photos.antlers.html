@@ -1,0 +1,26 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/list/list_photos.antlers.html -->{{ /if }}
+
+
+{{#
+  Example usage:
+  {{ partial:list/list_photos card_type="card" }}
+  {{ partial:list/list_photos tags="portraits|travel" limit="6" }}
+  {{ partial:list/list_photos grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+#}}
+
+{{ collection:photos
+    :taxonomy:tags="tags"
+    :taxonomy:photo="photo"
+    limit="{limit}"
+    as="items"
+}}
+
+{{ if items }}
+<div class="{{ grid_classes ?? 'grid grid-cols-1 md:grid-cols-3 gap-8' }}">
+  {{ items }}
+  {{ partial src="cards/{card_type ?? 'card'}" }}
+  {{ /items }}
+</div>
+{{ /if }}
+
+{{ /collection:photos }}

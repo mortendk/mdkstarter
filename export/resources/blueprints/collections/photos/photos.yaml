@@ -1,4 +1,4 @@
-title: Video
+title: Photos
 tabs:
   main:
     display: Main
@@ -13,40 +13,13 @@ tabs:
               validate:
                 - required
           -
-            handle: video_type
+            handle: images
             field:
-              options:
-                youtube: YouTube/Vimeo
-                selfhosted: 'Self Hosted'
-              default: youtube
-              type: button_group
-              display: 'Video Type'
-          -
-            handle: video_url
-            field:
-              type: video
-              display: 'Video URL'
-              instructions: 'Paste the YouTube or Vimeo URL here.'
-              if:
-                video_type: 'equals youtube'
-          -
-            handle: is_live
-            field:
-              type: toggle
-              display: 'Live Feed'
-              instructions: 'Enable if this is a live stream (uses nocookie domain).'
-              default: false
-              width: 50
-          -
-            handle: video_file
-            field:
+              mode: grid
               container: images
               type: assets
-              max_items: 1
-              display: 'Video File'
-              instructions: 'Upload an mp4 file.'
-              if:
-                video_type: 'equals selfhosted'
+              display: images
+              instructions: 'Gallery images'
           -
             import: content_markdown
   card:
@@ -69,16 +42,16 @@ tabs:
       -
         fields:
           -
-            handle: video
+            handle: photo
             field:
               type: terms
               taxonomies:
-                - video
-              display: Video
-              mode: select
+                - photo
+              display: 'Photo Group'
               max_items: 1
-              validate:
-                - required
+              mode: select
+          -
+            import: primary_image
           -
             handle: tags
             field:
@@ -88,19 +61,33 @@ tabs:
               display: Tags
               mode: select
           -
-            import: primary_image
-          -
             handle: date
             field:
               type: date
               required: true
               default: now
-              display: Date
               validate:
                 - required
+              time_enabled: true
+              inline: true
           -
             handle: slug
             field:
               type: slug
               localizable: true
               validate: 'max:200'
+          -
+            handle: author
+            field:
+              type: users
+              display: Author
+              default: current
+              localizable: true
+              max_items: 1
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+              folder: photos

@@ -1,0 +1,33 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/videos/term.antlers.html -->{{ /if }}
+{{#
+  Video Category Page (Taxonomy Term)
+  Lists all videos belonging to this category.
+#}}
+
+{{ taxonomy:video slug:is="{slug}" }}
+<section class="pagewidth">
+
+  <h1 class="text-7xl font-display mb-8">
+    {{ title }}
+  </h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    {{# 
+      Fetch videos where the 'video' taxonomy contains this term's slug. 
+      'sort="date:desc"' puts newest videos first.
+    #}}
+    {{ collection:videos taxonomy:video="{slug}" sort="date:desc" as="items" }}
+
+      {{ items }}
+        {{ partial:cards/card-video }}
+      {{ /items }}
+
+      {{ if no_results }}
+        <p class="text-gray-500 text-xl col-span-full">No videos found in this category.</p>
+      {{ /if }}
+
+    {{ /collection:videos }}
+  </div>
+
+</section>
+{{ /taxonomy:video }}

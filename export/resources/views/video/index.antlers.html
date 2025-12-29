@@ -1,0 +1,9 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/videos/index.antlers.html -->{{ /if }}
+{{# Overview of all video categories /video page #}}
+<section class="pagewidth">
+
+  <h1 class="font-display text-7xl my-8">Video</h1>
+
+  {{ partial:list/list_tax_video card_type="card" grid_classes="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" }}
+
+</section>

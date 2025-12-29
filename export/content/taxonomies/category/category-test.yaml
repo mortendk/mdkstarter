@@ -1,0 +1,11 @@
+title: 'category test'
+author: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
+updated_by: 8caaa812-4aca-4174-ac33-6e2dfa2a6d94
+updated_at: 1767047894
+blueprint: category
+markdown: 'lorem ...'
+opengraph:
+  og_type: article
+seo_index: true
+seo_follow: true
+primary_image: ian-fajardo-jyg-bmemote-unsplash.jpg

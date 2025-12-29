@@ -16,7 +16,7 @@ fields:
               icon: media-webcam-video
               fields:
                 -
-                  import: video_block
+                  import: video
             files:
               display: Files
               icon: file-zip

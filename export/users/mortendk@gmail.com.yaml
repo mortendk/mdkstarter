@@ -28,6 +28,13 @@ preferences:
         - calendar
         - tags
         - status
+    videos:
+      columns:
+        - title
+        - video
+        - date
+        - slug
+        - status
   taxonomies:
     event_type:
       columns:

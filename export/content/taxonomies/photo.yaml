@@ -1,0 +1,10 @@
+title: Photo
+route: '/photo/{slug}'
+preview_targets:
+  -
+    label: Term
+    url: '{permalink}'
+    refresh: true
+template: photos/term
+layout: layout
+blueprint: photo

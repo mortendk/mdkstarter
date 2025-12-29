@@ -19,7 +19,7 @@ fields:
           key: flow
           value: null
         -
-          key: gallery
+          key: photos
           value: null
       default: grid
       type: select

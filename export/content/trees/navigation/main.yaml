@@ -12,3 +12,7 @@ tree:
   -
     id: 0e200889-5485-480e-83d0-d87f3c91fd78
     entry: a374091d-0397-49c4-851d-abeea7c5ce01
+  -
+    id: 526c7ff0-e7a5-4b82-b92c-7a7b6491cc99
+    title: Photos
+    url: photos
