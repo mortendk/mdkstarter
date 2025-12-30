@@ -1,4 +1,4 @@
-title: Photo
+title: Video
 tabs:
   main:
     display: Main
@@ -38,6 +38,12 @@ tabs:
       -
         fields:
           -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+          -
             handle: author
             field:
               type: users
@@ -53,10 +59,3 @@ tabs:
               validate:
                 - required
                 - 'max:200'
-          -
-            handle: template
-            field:
-              type: template
-              display: Template
-              localizable: true
-              folder: photos

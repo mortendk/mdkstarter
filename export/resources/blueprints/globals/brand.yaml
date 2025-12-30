@@ -60,6 +60,7 @@ tabs:
               container: images
               type: assets
               display: 'Open Graph Image'
+              instructions: 'Recommended size: 1200 x 630 px.'
               width: 33
               mode: grid
               show_filename: false
@@ -88,6 +89,7 @@ tabs:
               container: images
               type: assets
               display: 'icon svg'
+              instructions: 'Scalable vector graphic (SVG).'
               width: 33
               mode: grid
               show_set_alt: false
@@ -103,6 +105,7 @@ tabs:
               container: images
               type: assets
               display: 'apple touch icon'
+              instructions: 'Size: 180 x 180 px.'
               width: 33
               show_filename: false
               show_set_alt: false
@@ -114,6 +117,7 @@ tabs:
               container: images
               type: assets
               display: 'Icon Ico'
+              instructions: 'Size: 32 x 32 px.'
               width: 33
               show_set_alt: false
               validate:
