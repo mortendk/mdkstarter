@@ -12,12 +12,11 @@ preferences:
     posts:
       columns:
         - title
-        - date
-        - slug
-        - author
         - category
         - tags
+        - date
         - status
+        - author
       after_save: continue_editing
     events:
       columns:
@@ -34,6 +33,13 @@ preferences:
         - video
         - date
         - slug
+        - status
+    notifications:
+      columns:
+        - title
+        - date
+        - level
+        - icon
         - status
   taxonomies:
     event_type:

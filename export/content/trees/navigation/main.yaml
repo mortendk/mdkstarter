@@ -4,15 +4,8 @@ tree:
     entry: home
     title: Home
   -
-    id: 8ac8da03-a8be-4186-b425-f8eb738b6ba4
-    entry: calendar-page-id
-  -
     id: 785a934d-dc51-47b5-92d0-73aef231e738
     entry: c157588d-31d6-46b1-a469-acf1f03c20c9
   -
     id: 0e200889-5485-480e-83d0-d87f3c91fd78
     entry: a374091d-0397-49c4-851d-abeea7c5ce01
-  -
-    id: 526c7ff0-e7a5-4b82-b92c-7a7b6491cc99
-    title: Photos
-    url: photos

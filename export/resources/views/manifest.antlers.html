@@ -1,0 +1,23 @@
+{
+  "name": "{{ brand:name ?? config:app:name }}",
+  "short_name": "{{ brand:name ?? config:app:name }}",
+  "description": "{{ brand:opengraph_description | strip_tags }}",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "{{ brand:browser_color ?? '#ffffff' }}",
+  "icons": [
+    {{ if brand:apple_touch_icon }}
+    {
+      "src": "{{ glide :src="brand:apple_touch_icon" w="192" h="192" fit="crop" }}",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "{{ glide :src="brand:apple_touch_icon" w="512" h="512" fit="crop" }}",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+    {{ /if }}
+  ]
+}

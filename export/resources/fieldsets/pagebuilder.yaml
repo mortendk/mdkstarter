@@ -44,12 +44,12 @@ fields:
               icon: text-formatting-paragraph
               fields:
                 - import: markdown_section
-            images:
-              display: Images
-              instructions: "image gallery"
+            photos:
+              display: Photos
+              instructions: "Image gallery and listing"
               icon: media-image-picture-gallery
               fields:
-                - import: images
+                - import: photos
             hero:
               display: Hero
               icon: align-object-top

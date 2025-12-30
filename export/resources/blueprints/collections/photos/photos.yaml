@@ -13,13 +13,15 @@ tabs:
               validate:
                 - required
           -
+            import: primary_image
+          -
             handle: images
             field:
               mode: grid
               container: images
               type: assets
               display: images
-              instructions: 'Gallery images'
+              instructions: 'Photos for this album'
               dynamic: slug
           -
             import: content_markdown
@@ -59,8 +61,6 @@ tabs:
                 - category
               display: Category
               mode: select
-          -
-            import: primary_image
           -
             handle: tags
             field:
