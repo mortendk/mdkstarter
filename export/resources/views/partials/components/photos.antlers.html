@@ -1,27 +1,45 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/photos.antlers.html -->{{ /if }}
 
-<section class="{{ section_width ?? 'pagewidth' }} {{ style:color_themes[color_theme] ?? '' }}  {{ section_height ?? '' }} {{ section_height_lg ?? '' }}  py-4 lg:py-4">
-  <div class="pagewidth">
+<section class="{{ style:color_themes[color_theme] ?? '' }} py-8 lg:py-12">
+  <div class="{{ section_width ?? 'pagewidth' }}">
 
-
-  {{ if title or text }}
-  <article class="text-center max-w-prose mx-auto pb-4">
-    {{ if title }}
-    <h2 class="text-3xl lg:text-7xl font-display"> {{ title }}</h2>
+    {{ if title or text }}
+    <article class="text-center max-w-prose mx-auto pb-8">
+      {{ if title }}
+      <h2 class="text-3xl lg:text-7xl font-display"> {{ title }}</h2>
+      {{ /if }}
+      {{ if text }}
+      <div class="text-lg max-w-prose mt-4"> {{ text }}</div>
+      {{ /if }}
+    </article>
     {{ /if }}
-    {{ if text }}
-    <div class="text-base max-w-prose mt-4"> {{ text }}</div>
-    {{ /if }}
-  </article>
-  {{ /if }}
 
-  {{ if layout == "grid" }}
-  {{ partial:components/images/grid }}
-  {{ elseif layout == "flow" }}
-  {{ partial:components/images/overflow }}
-  {{ elseif layout == "photos" }}
-  {{ partial:components/images/photos }}
-  {{ /if }}
+    {{# Define the image set based on source #}}
+    {{ if source_type == 'entry' && photo_entry }}
+        {{ photo_entry }}
+            {{ $active_images = images }}
+            {{ $active_layout = photo_layout }}
+        {{ /photo_entry }}
+    {{ else }}
+        {{ $active_images = images }}
+        {{ $active_layout = photo_layout }}
+    {{ /if }}
+
+    {{# Render the selected layout using the active images #}}
+    {{ if $active_images }}
+        <div class="w-full">
+            {{ if $active_layout == "grid" }}
+                {{ partial:components/images/grid :images="$active_images" }}
+            {{ elseif $active_layout == "flow" }}
+                {{ partial:components/images/overflow :images="$active_images" }}
+            {{ elseif $active_layout == "gallery" }}
+                {{ partial:components/images/gallery :images="$active_images" }}
+            {{ else }}
+                {{# Fallback #}}
+                {{ partial:components/images/grid :images="$active_images" }}
+            {{ /if }}
+        </div>
+    {{ /if }}
 
   </div>
 </section>

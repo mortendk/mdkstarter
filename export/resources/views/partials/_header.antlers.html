@@ -9,11 +9,17 @@
   <div class="hidden lg:flex items-center gap-8 lg:w-full ">
     {{ partial:logo/logo-ident }}
     {{ partial:menu/menu }}
+    <div class="ml-auto">
+      {{ partial:dark_mode_toggle }}
+    </div>
   </div>
 
   {{# mobile #}}
-  <div class="flex lg:hidden items-center justify-center w-full">
+  <div class="flex lg:hidden items-center justify-center w-full relative">
     <a href="/" class="font-display text-3xl text-center">{{ brand:name }}</a>
+    <div class="absolute right-12">
+      {{ partial:dark_mode_toggle }}
+    </div>
   </div>
 
   {{# mobilr mrnu toggle #}}

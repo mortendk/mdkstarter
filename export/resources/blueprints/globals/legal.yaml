@@ -1,0 +1,39 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: enable_cookie_banner
+            field:
+              type: toggle
+              display: 'Enable Cookie Banner'
+              instructions: 'If disabled, the banner won''t show and consent-only scripts won''t load.'
+              default: true
+          -
+            handle: cookie_banner_text
+            field:
+              type: textarea
+              display: 'Cookie Banner Text'
+              instructions: 'Briefly explain why you use cookies.'
+              default: 'We use cookies to enhance your browsing experience and analyze our traffic.'
+          -
+            handle: privacy_policy_url
+            field:
+              type: text
+              display: 'Privacy Policy URL'
+              instructions: 'Link to your privacy policy page.'
+              default: '/privacy-policy'
+          -
+            handle: consent_scripts
+            field:
+              type: textarea
+              display: 'Consent-only Scripts (Header)'
+              instructions: 'These scripts (like Google Analytics) will ONLY load if the user clicks "Accept".'
+          -
+            handle: consent_scripts_footer
+            field:
+              type: textarea
+              display: 'Consent-only Scripts (Footer)'
+              instructions: 'Same as above, but for the bottom of the page.'

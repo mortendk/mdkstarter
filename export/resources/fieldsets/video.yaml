@@ -70,11 +70,4 @@ fields:
         source_type: 'equals manual'
         video_type: 'equals selfhosted'
   -
-    handle: section_width
-    field:
-      type: select
-      options:
-        pagewidth: 'Page Width'
-        fullwidth: 'Full Width'
-      default: pagewidth
-      display: 'Section Width'
+    import: layout_section

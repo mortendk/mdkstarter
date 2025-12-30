@@ -1,8 +1,26 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/articles/article.antlers.html -->{{ /if }}
+{{ if config:app:debug is true }}<!-- 👋 resources/views/articles/show.antlers.html -->{{ /if }}
 
+<article class="pagewidth text-amber-950 mt-8" 
+         x-data="{ 
+            tocHtml: '',
+            init() {
+                this.$nextTick(() => {
+                    const originalToc = this.$refs.content.querySelector('.table-of-contents');
+                    if (originalToc) {
+                        // 1. Clone the TOC
+                        const clone = originalToc.cloneNode(true);
+                        
+                        // 2. Strip inner HTML tags from all links (like <code>)
+                        clone.querySelectorAll('a').forEach(link => {
+                            link.textContent = link.textContent; // This strips tags
+                        });
 
-
-<article class="pagewidth text-amber-950 mt-8 ">
+                        // 3. Set the clean HTML to our sidebar
+                        this.tocHtml = clone.outerHTML;
+                    }
+                });
+            }
+         }">
 
   <h1 class="text-7xl lg:text-8xl font-display text-balance break-all pb-12">{{ title }}</h1>
 
@@ -18,12 +36,26 @@
   </div>
   {{ /if }}
 
+  <div class="flex flex-col lg:flex-row gap-12 mt-12">
+    
+    {{# Sidebar for TOC (displayed only if tocHtml is not empty) #}}
+    <template x-if="tocHtml">
+      <aside class="lg:w-1/4 shrink-0 order-2 lg:order-1">
+        <nav class="sticky top-24 p-6 bg-amber-50 rounded-2xl border border-amber-100">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-amber-900/50 mb-4">Table of Contents</h2>
+          <div class="prose prose-sm prose-amber toc-sidebar" x-html="tocHtml">
+          </div>
+        </nav>
+      </aside>
+    </template>
 
-  {{ if markdown_advanced }}
-  <div class="wysiwyg max-w-prose mx-auto">
-  {{ markdown_advanced }}
+    <div class="flex-grow order-1 lg:order-2">
+      <div class="wysiwyg max-w-none" x-ref="content">
+        {{# The TOC is rendered inside here but hidden by CSS #}}
+        {{ markdown_advanced }}
+      </div>
+    </div>
   </div>
-  {{ /if}}
 
   {{ blocks }}
   {{ partial src="components/{type}" }}
@@ -68,7 +100,7 @@
   id:isnt="{id}"
   sort="date:desc"
   :taxonomy:tags="tags ? (tags | pluck:slug | join('|')) : null"
-  :taxonomy:category="!tags && category ? (category | pluck:slug | join('|')) : null"
+  :taxonomy:category="(!tags && category) ? category:slug : null"
   as="related_articles"
 }}
 {{ if related_articles }}

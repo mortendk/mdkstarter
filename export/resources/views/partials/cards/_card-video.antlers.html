@@ -6,8 +6,8 @@
     {{ if primary_image }}
         <img src="{{ glide :src="primary_image" w="800" h="500" fit="crop_focal" }}" alt="{{ title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
     {{# 2. YouTube Thumbnail Fallback #}}
-    {{ elseif video_type == 'youtube' && video_url:id }}
-        <img src="https://img.youtube.com/vi/{{ video_url:id }}/hqdefault.jpg" alt="{{ title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+    {{ elseif video_type == 'youtube' && video_url }}
+        <img src="https://img.youtube.com/vi/{{ video_url | video_id }}/hqdefault.jpg" alt="{{ title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
     {{# 3. Placeholder #}}
     {{ else }}
         <div class="w-full h-full bg-gray-900 flex items-center justify-center text-white/20">

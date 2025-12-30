@@ -1,0 +1,7 @@
+title: Legal
+data:
+  enable_cookie_banner: true
+  cookie_banner_text: 'We use cookies to improve your experience and analyze traffic. You can choose to accept all cookies or only essential ones.'
+  privacy_policy_url: '/privacy-policy'
+  consent_scripts: '<script>console.log("✅ HEADER: Cookie Consent Active - Script Loaded");</script>'
+  consent_scripts_footer: '<script>console.log("✅ FOOTER: Cookie Consent Active - Script Loaded");</script>'

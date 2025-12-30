@@ -31,7 +31,7 @@ fields:
   -
     import: buttons
   -
-    handle: layout
+    handle: block_layout
     field:
       type: group
       fields:

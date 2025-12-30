@@ -18,9 +18,41 @@
     {{ settings:header_scipts }}
     {{ vite src="resources/js/site.js|resources/css/site.css" }}
 
+    <script>
+        if (localStorage.getItem('dark_mode') === 'true' || (!('dark_mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    {{# Conditional Consent Scripts (Header) #}}
+    {{ if legal:enable_cookie_banner }}
+    <template id="consent-scripts-header">
+        {{ legal:consent_scripts }}
+    </template>
+    <script>
+        if (localStorage.getItem('cookie_consent') === 'accepted') {
+            window.addEventListener('DOMContentLoaded', () => {
+                const template = document.getElementById('consent-scripts-header');
+                if (template) {
+                    const content = template.content.cloneNode(true);
+                    Array.from(content.querySelectorAll('script')).forEach(oldScript => {
+                        const newScript = document.createElement('script');
+                        Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                        newScript.innerHTML = oldScript.innerHTML;
+                        document.head.appendChild(newScript);
+                    });
+                }
+            });
+        }
+    </script>
+    {{ /if }}
   </head>
 
-  <body class="flex flex-col h-screen bg-linear-to-r from-amber-100 to-white text-amber-800" x-data="{ openmenu: false }" :class="openmenu ? 'overflow-y-hidden' : ''">
+  <body class="flex flex-col h-screen bg-linear-to-r from-amber-100 to-white text-amber-800" x-data="{ openmenu: false, consent: localStorage.getItem('cookie_consent') }" :class="openmenu ? 'overflow-y-hidden' : ''">
+
+  {{ partial:cookie_consent }}
 
     {{ partial:notifications/banner }}
 
@@ -31,6 +63,29 @@
     </main>
 
     {{ partial:footer }}
+
+    {{# Conditional Consent Scripts (Footer) #}}
+    {{ if legal:enable_cookie_banner }}
+    <template id="consent-scripts-footer">
+        {{ legal:consent_scripts_footer }}
+    </template>
+    <script>
+        if (localStorage.getItem('cookie_consent') === 'accepted') {
+            window.addEventListener('DOMContentLoaded', () => {
+                const template = document.getElementById('consent-scripts-footer');
+                if (template) {
+                    const content = template.content.cloneNode(true);
+                    Array.from(content.querySelectorAll('script')).forEach(oldScript => {
+                        const newScript = document.createElement('script');
+                        Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                        newScript.innerHTML = oldScript.innerHTML;
+                        document.body.appendChild(newScript);
+                    });
+                }
+            });
+        }
+    </script>
+    {{ /if }}
 
     {{ settings:footer_script }}
   </body>

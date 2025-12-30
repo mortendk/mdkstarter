@@ -1,32 +1,6 @@
 title: Photos
 fields:
   -
-    handle: images
-    field:
-      mode: grid
-      container: images
-      type: assets
-      display: Images
-      folder: images
-  -
-    handle: layout
-    field:
-      options:
-        -
-          key: grid
-          value: null
-        -
-          key: flow
-          value: null
-        -
-          key: photos
-          value: null
-      default: grid
-      type: select
-      display: 'Images Layout'
-      width: 50
-      instructions: 'Select a layout for the images'
-  -
     handle: title
     field:
       type: text
@@ -41,6 +15,51 @@ fields:
       type: markdown
       display: text
   -
-    import: layout_section
+    handle: source_type
+    field:
+      options:
+        entry: 'Pick from Collection'
+        manual: 'Manual Images'
+      default: manual
+      type: button_group
+      display: 'Source Type'
   -
-    import: color_scheme
+    handle: photo_entry
+    field:
+      type: entries
+      collections:
+        - photos
+      max_items: 1
+      display: 'Select Photo Album'
+      if:
+        source_type: 'equals entry'
+  -
+    handle: images
+    field:
+      mode: grid
+      container: images
+      type: assets
+      display: Images
+      folder: images
+      if:
+        source_type: 'equals manual'
+  -
+    handle: photo_layout
+    field:
+      options:
+        -
+          key: grid
+          value: null
+        -
+          key: flow
+          value: null
+        -
+          key: gallery
+          value: null
+      default: grid
+      type: select
+      display: 'Images Layout'
+      width: 50
+      instructions: 'Select a layout for the images'
+  -
+    import: layout_section

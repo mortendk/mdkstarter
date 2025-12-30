@@ -138,10 +138,25 @@
   @apply font-mono bg-slate-800 text-green-300 p-2 text-base;
 }
 
-/* markdown */
-.table-of-contents {
-  @apply bg-red-300 text-red-800;
+/* Hide TOC inside the main content area, we show it in the sidebar via JS */
+.wysiwyg .table-of-contents {
+  @apply hidden;
 }
+
+/* table of contents sidebar */
+.toc-sidebar ul {
+  @apply list-none pl-0 space-y-2;
+}
+.toc-sidebar li {
+  @apply pl-0 pb-0;
+}
+.toc-sidebar a {
+  @apply text-amber-900/70 hover:text-amber-600 border-none transition-colors no-underline text-sm font-medium block py-1;
+}
+.toc-sidebar ul ul {
+  @apply pl-4 mt-2 border-l border-amber-200;
+}
+
 .heading-permalink {
-  @apply text-sm;
+  @apply text-sm ml-2 text-amber-200 hover:text-amber-500 no-underline border-none transition-colors;
 }

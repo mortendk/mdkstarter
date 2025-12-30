@@ -46,11 +46,23 @@
     </div>
   </nav>
 
-  {{ if footer:copyright }}
-  <div class="text-sm text-center mt-8">{{ footer:copyright }}</div>
-  {{ /if }}
+    {{ if footer:copyright }}
 
-  {{ if footer:text }}
+    <div class="text-sm text-center mt-8">{{ footer:copyright }}</div>
+
+    {{ /if }}
+
+  
+
+    <div class="mt-4">
+
+      {{ partial:cookie_reset }}
+
+    </div>
+
+  
+
+    {{ if footer:text }}
   <div class="pagewidth prose-white">{{ footer:text }}</div>
   {{ /if }}
 

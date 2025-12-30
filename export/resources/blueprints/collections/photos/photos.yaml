@@ -24,6 +24,17 @@ tabs:
               instructions: 'Photos for this album'
               dynamic: slug
           -
+            handle: photo_layout
+            field:
+              options:
+                grid: Grid
+                flow: Flow
+                gallery: Gallery
+              default: grid
+              type: button_group
+              display: Layout
+              instructions: 'Select the layout for the images'
+          -
             import: content_markdown
   card:
     display: Card

@@ -1,4 +1,4 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/posts/post.antlers.html -->{{ /if }}
+{{ if config:app:debug is true }}<!-- 👋 resources/views/posts/show.antlers.html -->{{ /if }}
 
 
 
@@ -67,3 +67,23 @@
   </aside>
 
 </article>
+
+{{ collection:posts
+  limit="3"
+  id:isnt="{id}"
+  sort="date:desc"
+  :taxonomy:tags="tags ? (tags | pluck:slug | join('|')) : null"
+  :taxonomy:category="(!tags && category) ? category:slug : null"
+  as="related_posts"
+}}
+{{ if related_posts }}
+<section class="pagewidth border-t pt-12 mt-12">
+  <h2 class="text-3xl font-bold mb-8">Related Posts</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {{ related_posts }}
+  {{ partial:cards/card }}
+  {{ /related_posts }}
+  </div>
+</section>
+{{ /if }}
+{{ /collection:posts }}

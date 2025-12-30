@@ -3,6 +3,11 @@
 <article class="py-12 lg:py-20">
   <header class="pagewidth mb-12 text-center">
     <h1 class="text-4xl lg:text-6xl font-black text-gray-900 mb-6">{{ title }}</h1>
+    {{ if teaser }}
+    <div class="prose prose-xl mx-auto text-gray-500 leading-relaxed mb-8">
+      {{ teaser }}
+    </div>
+    {{ /if }}
     {{ if content_markdown }}
     <div class="prose prose-xl mx-auto text-gray-500 leading-relaxed">
       {{ content_markdown }}
@@ -12,24 +17,27 @@
 
   {{ if images }}
   <div class="pagewidth">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
-      {{ images }}
-      <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 aspect-square">
-        <img src="{{ glide :src="id" w="800" h="800" fit="crop_focal" }}" alt="{{ alt }}" class="w-full h-full object-cover" loading="lazy" />
-      </div>
-      {{ /images }}
-    </div>
+    {{ if photo_layout == "grid" }}
+    {{ partial:components/images/grid :images="images" }}
+    {{ elseif photo_layout == "flow" }}
+    {{ partial:components/images/overflow :images="images" }}
+    {{ elseif photo_layout == "gallery" }}
+    {{ partial:components/images/gallery :images="images" }}
+    {{ else }}
+    {{# Default to Grid if no layout is selected #}}
+    {{ partial:components/images/grid :images="images" }}
+    {{ /if }}
   </div>
   {{ /if }}
 
   <footer class="pagewidth mt-12 pt-8 border-t border-gray-200">
     <div class="flex flex-wrap gap-4 items-center justify-between">
-      {{ if photos }}
+      {{ if photo }}
       <div class="flex items-center gap-2">
         <span class="text-gray-400 font-bold text-xs uppercase tracking-widest">Group:</span>
-        {{ photos }}
-        {{ partial:taxonomy/photos }}
-        {{ /photos }}
+        {{ photo }}
+        <a href="{{ url }}" class="text-primary-600 font-bold hover:text-primary-700 underline underline-offset-4">{{ title }}</a>
+        {{ /photo }}
       </div>
       {{ /if }}
 
