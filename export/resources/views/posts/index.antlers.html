@@ -1,0 +1,22 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/posts/index.antlers.html -->{{ /if }}
+
+<div class="pagewidth py-12 lg:py-20">
+  <header class="mb-16 text-center">
+    <h1 class="text-5xl lg:text-7xl font-black text-gray-900 mb-6">Posts</h1>
+    <p class="text-xl text-gray-500 max-w-3xl mx-auto">Latest updates and news.</p>
+  </header>
+
+  {{ collection:posts sort="date:desc" paginate="12" as="items" }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ items }}
+        {{ partial:cards/card }}
+      {{ /items }}
+    </div>
+
+    {{ if paginate.total_pages > 1 }}
+      <div class="mt-16">
+        {{ partial:_paginate }}
+      </div>
+    {{ /if }}
+  {{ /collection:posts }}
+</div>

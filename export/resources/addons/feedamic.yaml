@@ -1,83 +1,81 @@
-feeds:
-  -
-    sites: all
-    sites_specific: {  }
-    sites_specific_spacer: null
-    title: Feed
-    handle: feed
-    description: 'RSS & Atom feed'
-    routes:
-      atom: /feed/atom
-      atom_view: null
-      rss: /feed
-      rss_view: null
-    collections:
-      - articles
-      - posts
-    taxonomies: {  }
-    show: all
-    show_limit: null
-    advanced: false
-    mappings:
-      title_mode: default
-      title: {  }
-      title_spacer: null
-      summary_mode: default
-      summary: {  }
-      summary_spacer: null
-      content_mode: default
-      content: {  }
-      content_spacer: null
-      image_mode: default
-      image: {  }
-      image_spacer: null
-      image_dimensions_mode: default
-      image_dimensions_spacer: null
-      image_width: null
-      image_height: null
-      author_mode: default
-      author_type: entry
-      author_type_spacer: null
-      author_field: null
-      author_name_spacer_1: null
-      author_name_spacer_2: null
-      author_name: entry
-      author_email: entry
-    copyright_mode: default
-    copyright_spacer: null
-    copyright: null
-    author_fallback_mode: default
-    author_fallback_spacer: null
-    author_fallback_name: null
-    author_fallback_email: null
-    scope: null
-    scope_spacer: null
-    entry_model: MityDigital\Feedamic\Models\FeedamicEntry
-    author_model: MityDigital\Feedamic\Models\FeedamicAuthor
-    alt_url: null
-    bypass_route_checking: false
-    _id: mjsbi22c
-    type: feed
-    enabled: true
 default_title:
   - title
 default_summary:
   - teaser
 default_content:
   - markdown
+  - markdown_advanced
 default_image_enabled: true
 default_image:
-  - image_default
-default_image_width: 1280
-default_image_height: 720
-default_author_fallback_name: mdk
-default_author_fallback_email: null
+  - primary_image
 default_author_enabled: true
 default_author_type: users
-default_author_type_spacer: null
 default_author_field: author
-default_author_name: name
-default_author_email: null
-default_copyright: null
-default_entry_model: MityDigital\Feedamic\Models\FeedamicEntry
-default_author_model: MityDigital\Feedamic\Models\FeedamicAuthor
+feeds:
+  - type: feed
+    handle: all
+    sites: all
+    title: 'All Content'
+    description: 'Latest news, articles, events, photos and videos'
+    routes:
+      rss: /feed
+    collections:
+      - posts
+      - articles
+      - events
+      - photos
+      - videos
+    show: all
+    advanced: false
+  - type: feed
+    handle: posts
+    sites: all
+    title: 'Posts Feed'
+    description: 'Latest posts from our site'
+    routes:
+      rss: /feedamic
+    collections:
+      - posts
+    show: all
+    advanced: false
+  - type: feed
+    handle: photos
+    sites: all
+    title: 'Photos Feed'
+    description: 'Latest photo albums'
+    routes:
+      rss: /feed/photos
+    collections:
+      - photos
+    show: all
+    advanced: true
+    mappings:
+      title_mode: default
+      summary_mode: default
+      content_mode: default
+      image_mode: custom
+      image:
+        - images
+      author_mode: default
+  - type: feed
+    handle: videos
+    sites: all
+    title: 'Videos Feed'
+    description: 'Latest videos'
+    routes:
+      rss: /feed/videos
+    collections:
+      - videos
+    show: all
+    advanced: false
+  - type: feed
+    handle: events
+    sites: all
+    title: 'Events Feed'
+    description: 'Upcoming events'
+    routes:
+      rss: /feed/events
+    collections:
+      - events
+    show: all
+    advanced: false

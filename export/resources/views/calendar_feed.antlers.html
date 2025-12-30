@@ -1,20 +1,17 @@
-{{ if config:app:debug is true }}<!-- 👋 resources/views/calendar_feed.antlers.html -->{{ /if }}
-
-BEGIN:VCALENDAR
+{{ if config:app:debug is true }}<!-- 👋 resources/views/calendar_feed.antlers.html -->{{ /if }}BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Your Website//NONSGML Events//EN
+PRODID:-//{{ brand:name ?? 'Statamic' }}//NONSGML Events//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:My Website Events
+X-WR-CALNAME:{{ brand:name ?? 'Statamic' }} Events
 {{ collection:events }}
 BEGIN:VEVENT
-UID:{{ id }}@yourwebsite.com
-DTSTAMP:{{ date format="Ymd\THis\Z" }}
-DTSTART:{{ event_start_date format="Ymd\THis\Z" }}
-DTEND:{{ event_end_date format="Ymd\THis\Z" }}
+UID:{{ id }}@{{ config:app:url | explode('//') | last }}
+DTSTAMP:{{ now format="Ymd\THis\Z" }}
+DTSTART:{{ event_start format="Ymd\THis\Z" }}
+{{ if event_end }}DTEND:{{ event_end format="Ymd\THis\Z" }}{{ /if }}
 SUMMARY:{{ title }}
-DESCRIPTION:{{ summary | strip_tags }}
-LOCATION:{{ location }}
+DESCRIPTION:{{ teaser | strip_tags }}
 URL:{{ permalink }}
 END:VEVENT
 {{ /collection:events }}

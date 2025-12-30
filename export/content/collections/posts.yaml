@@ -1,5 +1,5 @@
 title: Posts
-template: posts/post
+template: posts/show
 layout: layout
 taxonomies:
   - category

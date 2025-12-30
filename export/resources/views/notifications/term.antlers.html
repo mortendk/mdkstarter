@@ -1,0 +1,28 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/notifications/term.antlers.html -->{{ /if }}
+
+{{ taxonomy:notification slug:is="{slug}" }}
+<div class="pagewidth py-12 lg:py-20">
+  <header class="mb-16 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-xs font-bold uppercase tracking-widest mb-4">
+      Notification Type
+    </div>
+    <h1 class="text-5xl lg:text-7xl font-black text-gray-900 mb-6">
+      {{ title }}
+    </h1>
+  </header>
+
+  {{ collection:notifications taxonomy:notification="{slug}" sort="date:desc" paginate="12" as="items" }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ items }}
+        {{ partial:cards/card }}
+      {{ /items }}
+    </div>
+
+    {{ if paginate.total_pages > 1 }}
+      <div class="mt-16">
+        {{ partial:_paginate }}
+      </div>
+    {{ /if }}
+  {{ /collection:notifications }}
+</div>
+{{ /taxonomy:notification }}

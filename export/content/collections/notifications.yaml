@@ -1,8 +1,11 @@
 title: Notifications
 revisions: false
-route: "/notification/{slug}"
-template: notification/notification
+route: "/notifications/{slug}"
+template: notifications/show
 layout: layout
+taxonomies:
+  - tags
+  - notification
 date: true
 sort_dir: desc
 date_behavior:

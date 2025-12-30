@@ -2,3 +2,8 @@ title: 'Footer Content'
 data:
   text: 'lorem ...'
   copyright: copy
+  show_feed_all: true
+  show_feed_posts: true
+  show_feed_photos: true
+  show_feed_videos: true
+  show_feed_events: true

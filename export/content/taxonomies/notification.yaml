@@ -1,0 +1,9 @@
+title: Notification
+route: '/notifications/type/{slug}'
+preview_targets:
+  -
+    label: Term
+    url: '{permalink}'
+    refresh: true
+template: notifications/term
+layout: layout

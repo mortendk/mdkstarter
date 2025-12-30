@@ -1,0 +1,84 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/articles/article.antlers.html -->{{ /if }}
+
+
+
+<article class="pagewidth text-amber-950 mt-8 ">
+
+  <h1 class="text-7xl lg:text-8xl font-display text-balance break-all pb-12">{{ title }}</h1>
+
+  {{ if teaser }}
+  <div class="font-manchet text-3xl lg:text-5xl mx-auto mb-4 text-amber-800 font-serif max-w-3xl">
+  {{ teaser }}
+  </div>
+  {{ /if}}
+
+  {{ if primary_image }}
+  <div class="pb-4 drop-shadow-lg">
+  <img src="{{ glide :src="primary_image" w="1200" fit="crop_focal" }}" alt="{{ primary_image:alt }}" class="w-full h-full object-cover" loading="eager" />
+  </div>
+  {{ /if }}
+
+
+  {{ if markdown_advanced }}
+  <div class="wysiwyg max-w-prose mx-auto">
+  {{ markdown_advanced }}
+  </div>
+  {{ /if}}
+
+  {{ blocks }}
+  {{ partial src="components/{type}" }}
+  {{ /blocks }}
+
+  <footer class="mt-12 pt-8 border-t border-amber-100">
+  {{ if tags }}
+  <div class="flex flex-wrap gap-2 mb-4">
+    {{ tags }}
+    {{ partial:taxonomy/tag }}
+    {{ /tags }}
+  </div>
+  {{ /if }}
+
+  {{ if category }}
+  <div class="max-w-prose flex flex-wrap gap-2">
+    {{ category }}
+    {{ partial:taxonomy/category }}
+    {{ /category }}
+  </div>
+  {{ /if }}
+  </footer>
+
+  <aside class="flex flex-row gap-2 max-w-prose bg-amber-400 mt-8 p-4 rounded-lg">
+  <time datetime="{{ date format='Y-m-d' }}">
+    {{ date iso_format="D MMMM YYYY" }}
+    {{ date format="H:i" }}
+  </time>
+
+  {{ if author }}
+  af
+  {{ author }}
+  <div class="font-bold">{{ name }}</div>
+  {{ /author }}
+  {{ /if }}
+  </aside>
+
+</article>
+
+{{ collection:articles
+  limit="3"
+  id:isnt="{id}"
+  sort="date:desc"
+  :taxonomy:tags="tags ? (tags | pluck:slug | join('|')) : null"
+  :taxonomy:category="!tags && category ? (category | pluck:slug | join('|')) : null"
+  as="related_articles"
+}}
+{{ if related_articles }}
+<section class="pagewidth border-t pt-12 mt-12">
+  <h2 class="text-3xl font-bold mb-8">Related Articles</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {{ related_articles }}
+  {{ partial:cards/card }}
+  {{ /related_articles }}
+  </div>
+</section>
+{{ /if }}
+{{ /collection:articles }}
