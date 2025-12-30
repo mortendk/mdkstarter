@@ -124,5 +124,11 @@ tabs:
                 - 'mimes:ico'
               folder: site
               restrict: true
+          -
+            handle: browser_color
+            field:
+              type: color
+              display: 'Browser Color'
+              width: 33
       -
         display: 'New Section'

@@ -9,68 +9,103 @@ tabs:
             field:
               type: text
               display: Bluesky
+              instructions: 'Full profile URL (e.g., https://bsky.app/profile/username)'
+              width: 50
           -
-            handle: github
+            handle: x_twitter
             field:
               type: text
-              display: Github
-          -
-            handle: discord
-            field:
-              type: text
-              display: discord
-          -
-            handle: mastodon
-            field:
-              type: text
-              display: mastodon
-          -
-            handle: youtube
-            field:
-              type: text
-              display: youtube
-          -
-            handle: instagram
-            field:
-              type: text
-              display: instagram
-          -
-            handle: facebook
-            field:
-              type: text
-              display: facebook
+              display: 'X (Twitter)'
+              instructions: 'Full profile URL (e.g., https://x.com/username)'
+              width: 50
           -
             handle: threads
             field:
               type: text
-              display: threads
+              display: Threads
+              instructions: 'Full profile URL (e.g., https://www.threads.net/@username)'
+              width: 50
+          -
+            handle: mastodon
+            field:
+              type: text
+              display: Mastodon
+              instructions: 'Full profile URL (e.g., https://mastodon.social/@username)'
+              width: 50
+          -
+            handle: instagram
+            field:
+              type: text
+              display: Instagram
+              instructions: 'Full profile URL (e.g., https://www.instagram.com/username)'
+              width: 50
+          -
+            handle: facebook
+            field:
+              type: text
+              display: Facebook
+              instructions: 'Full profile URL (e.g., https://www.facebook.com/username)'
+              width: 50
           -
             handle: linkedin
             field:
               type: text
-              display: linkedin
-          -
-            handle: twitch
-            field:
-              type: text
-              display: twitch
+              display: LinkedIn
+              instructions: 'Full profile URL (e.g., https://www.linkedin.com/in/username)'
+              width: 50
           -
             handle: tiktok
             field:
               type: text
-              display: tiktok
+              display: TikTok
+              instructions: 'Full profile URL (e.g., https://www.tiktok.com/@username)'
+              width: 50
+          -
+            handle: youtube
+            field:
+              type: text
+              display: YouTube
+              instructions: 'Full channel URL (e.g., https://www.youtube.com/@channelname)'
+              width: 50
+          -
+            handle: twitch
+            field:
+              type: text
+              display: Twitch
+              instructions: 'Full channel URL (e.g., https://www.twitch.tv/username)'
+              width: 50
+          -
+            handle: discord
+            field:
+              type: text
+              display: Discord
+              instructions: 'Full invite link or profile URL'
+              width: 50
+          -
+            handle: github
+            field:
+              type: text
+              display: GitHub
+              instructions: 'Full profile URL (e.g., https://github.com/username)'
+              width: 50
+          -
+            handle: pinterest
+            field:
+              type: text
+              display: Pinterest
+              instructions: 'Full profile URL (e.g., https://www.pinterest.com/username)'
+              width: 50
           -
             handle: soundcloud
             field:
               type: text
-              display: soundcloud
+              display: SoundCloud
+              instructions: 'Full profile URL (e.g., https://soundcloud.com/username)'
+              width: 50
           -
             handle: bandcamp
             field:
               type: text
-              display: bandcamp
-  new_tab:
-    display: 'New Tab'
-    sections:
-      -
-        display: 'New Section'
+              display: Bandcamp
+              instructions: 'Full profile URL (e.g., https://username.bandcamp.com)'
+              width: 50

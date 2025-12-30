@@ -1,3 +1,4 @@
+title: 'Header & Footer Scripts'
 tabs:
   main:
     display: Main
@@ -8,47 +9,10 @@ tabs:
             handle: header_scipts
             field:
               type: textarea
-              display: 'Header scipts'
+              display: 'Header Scripts'
               instructions: 'Insert data into the Header'
           -
             handle: footer_script
             field:
               type: textarea
-              display: 'Footer script'
-          -
-            handle: site_verification
-            field:
-              type: group
-              display: 'site verification'
-              instructions: 'Website verifications'
-              fields:
-                -
-                  handle: google_verification
-                  field:
-                    type: text
-                    display: 'Google Verification'
-                -
-                  handle: github_verification
-                  field:
-                    type: text
-                    display: 'Github verification'
-                -
-                  handle: mastodon_verification
-                  field:
-                    type: text
-                    display: 'Mastodon Verification'
-                -
-                  handle: pinterest_verification
-                  field:
-                    type: text
-                    display: 'Pinterest Verification'
-                -
-                  handle: verification
-                  field:
-                    type: textarea
-                    display: verification
-          -
-            handle: browser_color
-            field:
-              type: color
-              display: 'Browser Color'
+              display: 'Footer Scripts'

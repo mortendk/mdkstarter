@@ -27,14 +27,3 @@
 <meta property="og:image:height" content="630" />
 
 {{/if }}
-
-<meta name="theme-color" content="{{ settings:browser_color }}">
-
-{{# <link rel="manifest" href="/manifest.webmanifest"> #}}
-
-{{ if brand:icon_ico }}
-<link rel="icon" href="/{{ brand:icon_ico }}" sizes="32x32">{{ /if }}
-{{ if brand:icon_svg }}
-<link rel="icon" href="/{{ brand:icon_svg }}" type="image/svg+xml">{{ /if }}
-{{ if brand:apple_touch_icon }}
-<link rel="apple-touch-icon" href="/{{ brand:apple_touch_icon }}">{{ /if }}

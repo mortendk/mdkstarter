@@ -8,19 +8,47 @@ tabs:
             handle: google_site_verification
             field:
               type: text
-              display: google
+              display: 'Google Site Verification'
+              instructions: 'Get your code from [Google Search Console](https://search.google.com/search-console).'
+              width: 50
           -
-            handle: mastodon_verification
+            handle: bing_site_verification
             field:
               type: text
-              display: Mastodon
+              display: 'Bing Site Verification'
+              instructions: 'Get your code from [Bing Webmaster Tools](https://www.bing.com/webmasters).'
+              width: 50
           -
-            handle: github_verification
+            handle: facebook_domain_verification
             field:
               type: text
-              display: 'github verification'
+              display: 'Facebook Domain Verification'
+              instructions: 'Get your code from [Facebook Business Settings](https://business.facebook.com/settings/domains).'
+              width: 50
           -
             handle: pinterest_verification
             field:
               type: text
-              display: 'Pinterest verification'
+              display: 'Pinterest Verification'
+              instructions: 'Get your code from [Pinterest Settings](https://www.pinterest.com/settings/claim).'
+              width: 50
+          -
+            handle: mastodon_verification
+            field:
+              type: text
+              display: 'Mastodon Verification'
+              instructions: 'Enter your full Mastodon profile URL (e.g., https://mastodon.social/@username). This adds a rel="me" link.'
+              width: 50
+          -
+            handle: github_verification
+            field:
+              type: text
+              display: 'GitHub Verification'
+              instructions: 'Enter your full GitHub profile URL (e.g., https://github.com/username). This adds a rel="me" link.'
+              width: 50
+          -
+            handle: additional_verifications
+            field:
+              type: textarea
+              display: 'Additional Verifications'
+              instructions: 'Paste any other verification meta tags or scripts here.'

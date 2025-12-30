@@ -20,6 +20,7 @@ tabs:
               type: assets
               display: images
               instructions: 'Gallery images'
+              dynamic: slug
           -
             import: content_markdown
   card:

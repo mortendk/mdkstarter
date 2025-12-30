@@ -83,7 +83,17 @@ return [
     ],
     [
       'type' => 'collection_count',
-      'collection' => 'gallery',
+      'collection' => 'photos',
+      'width' => '25'
+    ],
+    [
+      'type' => 'collection_count',
+      'collection' => 'videos',
+      'width' => '25'
+    ],
+    [
+      'type' => 'collection_count',
+      'collection' => 'notifications',
       'width' => '25'
     ],
     [
