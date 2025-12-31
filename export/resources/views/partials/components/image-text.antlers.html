@@ -1,0 +1,37 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/image-text.antlers.html -->{{ /if }}
+
+{{# color theme is define ind congtent/globals/style.yml #}}
+
+<section class="{{ section_width ?? 'pagewidth' }} {{ style:color_themes[color_theme] ?? '' }}  {{ section_height ?? '' }} {{ section_height_lg ?? '' }}  pb-4 lg:py-4">
+  <div class="pagewidth">
+
+  <article class="flex h-full {{ if block_layout:image_placement }}  flex-col  lg:flex-row-reverse {{else }} flex-col lg:flex-row {{/if}}">
+
+    <div class="aspect-3/2 w-full lg:w-1/2">
+    {{ if image }}
+    <img src="{{ glide :src="image" w="800" h="800" fit="crop_focal" }} " alt="{{ image:alt }}" class="object-cover w-full h-full">
+    {{ /if }}
+    </div>
+
+    <article class="aspect-video flex flex-col {{ block_layout:horizontal }} {{ block_layout:vertical }} w-full lg:w-1/2 p-4">
+
+    <h2 class="font-display lg:text-5xl font-bold text-amber-100">
+      {{ title }}
+    </h2>
+
+    <div class="prose-xl text-amber-100 mb-8  line-clamp-3 max-w-lg">
+      {{ text }}
+    </div>
+
+    <div class="flex flex-row gap-4">
+      {{ cta }}
+      {{ partial:buttons/button }}
+      {{ /cta}}
+    </div>
+
+    </article>
+
+  </article>
+
+  </div>
+</section>

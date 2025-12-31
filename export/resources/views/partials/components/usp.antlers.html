@@ -1,0 +1,39 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/usp.antlers.html -->{{ /if }}
+
+<section class="{{ style:color_themes[color_theme] ?? '' }} py-8 lg:py-12">
+  <div class="{{ section_width ?? 'pagewidth' }}">
+    {{ if title or markdown_small }}
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      {{ if title }}<h2 class="text-3xl lg:text-7xl font-display mb-4">{{ title }}</h2>{{ /if }}
+      {{ if markdown_small }}<div class="text-lg">{{ markdown_small }}</div>{{ /if }}
+    </div>
+    {{ /if }}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ usp_items }}
+      <div class="flex flex-col items-center text-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+        {{ if icon }}
+        <div class="size-16 mb-6">
+          {{ svg :src="icon" class="w-full h-full" }}
+        </div>
+        {{ /if }}
+        
+        <h3 class="text-xl font-bold mb-3">{{ title }}</h3>
+        
+        {{ if markdown_small }}
+        <div class="mb-6 opacity-80">
+          {{ markdown_small }}
+        </div>
+        {{ /if }}
+
+        {{ if link }}
+        <a href="{{ link }}" class="mt-auto text-sm font-bold underline underline-offset-4 hover:opacity-70 transition-opacity inline-flex items-center gap-1">
+          Learn More
+          <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        {{ /if }}
+      </div>
+      {{ /usp_items }}
+    </div>
+  </div>
+</section>

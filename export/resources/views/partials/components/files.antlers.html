@@ -9,13 +9,13 @@
 <section class="{{ section_width ?? 'pagewidth' }} {{ style:color_themes[color_theme] ?? '' }} py-4 lg:py-8">
   <div class="pagewidth">
 
-  {{ if title or text }}
+  {{ if title or markdown_small }}
   <article class="text-center max-w-prose mx-auto pb-4">
     {{ if title }}
     <h2 class="text-5xl lg:text-7xl font-display"> {{ title }}</h2>
     {{ /if }}
-    {{ if text }}
-    <div class="text-base max-w-prose mt-4"> {{ text }}</div>
+    {{ if markdown_small }}
+    <div class="text-base max-w-prose mt-4"> {{ markdown_small }}</div>
     {{ /if }}
   </article>
   {{ /if }}

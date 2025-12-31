@@ -1,0 +1,26 @@
+title: Quote
+fields:
+  -
+    import: ui.markdown-small
+    handle: markdown_small
+  -
+    handle: image
+    field:
+      container: images
+      type: assets
+      display: Image
+      max_files: 1
+      mode: grid
+      folder: images
+  -
+    handle: name
+    field:
+      type: text
+      display: Name
+  -
+    handle: position
+    field:
+      type: text
+      display: Position
+  -
+    import: layout.section

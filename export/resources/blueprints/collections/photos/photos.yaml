@@ -13,7 +13,7 @@ tabs:
               validate:
                 - required
           -
-            import: primary_image
+            import: ui.primary-image
           -
             handle: images
             field:
@@ -35,21 +35,21 @@ tabs:
               display: Layout
               instructions: 'Select the layout for the images'
           -
-            import: content_markdown
+            import: ui.content-markdown
   card:
     display: Card
     sections:
       -
         fields:
           -
-            import: card
+            import: ui.card
   seo:
     display: SEO
     sections:
       -
         fields:
           -
-            import: seo
+            import: meta.seo
   sidebar:
     display: Sidebar
     sections:

@@ -3,13 +3,10 @@
 <section class="{{ style:color_themes[color_theme] ?? '' }} py-8 lg:py-12">
   <div class="{{ section_width ?? 'pagewidth' }}">
 
-
-
-
     {{ if title or text }}
     <article class="text-center max-w-prose mx-auto pb-8">
       {{ if title }}
-      <h2 class="text-3xl lg:text-7xl font-display"> {{ title }}</h2>
+      <h2 class="text-3xl lg:text-5xl font-bold mb-6 text-gray-900">{{ title }}</h2>
       {{ /if }}
       {{ if text }}
       <div class="text-lg max-w-prose mt-4"> {{ text }}</div>
@@ -17,61 +14,46 @@
     </article>
     {{ /if }}
 
+    <div class="rounded-3xl overflow-hidden shadow-xl bg-black aspect-video mb-8">
+        
+        {{# 1. Handle Selection from Entry #}}
+        {{ if source_type == 'entry' && video_entry }}
+            {{ video_entry }}
+                {{ if video_type == 'youtube' }}
+                    <iframe src="{{ video_url | embed_url }}{{ if is_live }}?autoplay=1&mute=1{{ /if }}" 
+                            class="w-full h-full" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                    </iframe>
+                {{ else }}
+                    <video controls class="w-full h-full">
+                        <source src="{{ video_file:url }}" type="video/mp4">
+                    </video>
+                {{ /if }}
+            {{ /video_entry }}
 
-    <div class="rounded-3xl overflow-hidden shadow-xl bg-black aspect-video mb-8" x-data="{ playing: false }">
-
-      {{# 1. Handle Selection from Entry #}}
-      {{ if source_type == 'entry' && video_entry }}
-      {{ video_entry }}
-      {{ if video_type == 'youtube' }}
-      <div class="w-full h-full relative group cursor-pointer" x-show="!playing" @click="playing = true">
-        <img src="https://img.youtube.com/vi/{{ video_url | video_id }}/maxresdefault.jpg" class="w-full h-full object-cover" alt="{{ title }}">
-        <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
-          <div class="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-            <svg class="w-10 h-10 text-primary-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <template x-if="playing">
-        <iframe src="{{ video_url | embed_url }}?autoplay=1&mute=1" class="w-full h-full" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </template>
-      {{ else }}
-      <video controls class="w-full h-full">
-        <source src="{{ video_file:url }}" type="video/mp4">
-      </video>
-      {{ /if }}
-      {{ /video_entry }}
-
-      {{# 2. Handle Manual Input #}}
-      {{ else }}
-      {{ if video_type == 'youtube' && video_url }}
-      <div class="w-full h-full relative group cursor-pointer" x-show="!playing" @click="playing = true">
-        <img src="https://img.youtube.com/vi/{{ video_url | video_id }}/maxresdefault.jpg" class="w-full h-full object-cover" alt="{{ title }}">
-        <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
-          <div class="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-            <svg class="w-10 h-10 text-primary-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <template x-if="playing">
-        <iframe src="{{ video_url | embed_url }}?autoplay=1" class="w-full h-full" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </template>
-      {{ elseif video_type == 'selfhosted' && video_file }}
-      <video controls class="w-full h-full">
-        <source src="{{ video_file:url }}" type="video/mp4">
-      </video>
-      {{ /if }}
-      {{ /if }}
+        {{# 2. Handle Manual Input #}}
+        {{ else }}
+            {{ if video_type == 'youtube' && video_url }}
+                <iframe src="{{ video_url | embed_url }}" 
+                        class="w-full h-full" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                </iframe>
+            {{ elseif video_type == 'selfhosted' && video_file }}
+                <video controls class="w-full h-full">
+                    <source src="{{ video_file:url }}" type="video/mp4">
+                </video>
+            {{ /if }}
+        {{ /if }}
     </div>
 
     {{ if content_markdown }}
-    <div class="prose prose-lg lg:prose-xl max-w-none">
-      {{ content_markdown }}
-    </div>
+        <div class="prose prose-lg lg:prose-xl max-w-none">
+            {{ content_markdown }}
+        </div>
     {{ /if }}
   </div>
 </section>

@@ -1,0 +1,39 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/list/list-event.antlers.html -->{{ /if }}
+
+
+{{#
+  Example usage:
+  {{ partial:list/list-event card_type="card-event" }}
+  {{ partial:list/list-event tags="tech|design" }}
+  {{ partial:list/list-event calendar="music-festivals" limit="6" }}
+  {{ partial:list/list-event grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+  {{ partial:list/list-event show_past="true" }}
+#}}
+
+{{ $filter_tags = tags ? ((tags | is_string) ? tags : (tags | pluck:slug | join('|'))) : null }}
+{{ $filter_calendar = calendar ? ((calendar | is_string) ? calendar : (calendar | pluck:slug | join('|'))) : null }}
+
+{{# Robust date filtering #}}
+{{ $now = now | format('Y-m-d H:i') }}
+
+{{ collection:events
+  sort="event_start:asc"
+  :taxonomy:tags="$filter_tags"
+  :taxonomy:calendar="$filter_calendar"
+  limit="{ limit ?? 3 }"
+}}
+  {{ if no_results }}
+    {{# No entries found at all #}}
+  {{ else }}
+    <div class="{{ grid_classes ?? 'grid grid-cols-1 md:grid-cols-3 gap-8' }}">
+      {{# Direct loop #}}
+      {{# Determine when the event effectively starts and ends #}}
+      {{ $e_start = event_start | format('Y-m-d H:i') }}
+      {{ $e_end   = (event_end ?? event_start) | format('Y-m-d 23:59') }}
+
+      {{ if (show_past == 'true') || ($e_end >= $now) }}
+        {{ partial src="cards/{card_type ?? 'card-event-small'}" }}
+      {{ /if }}
+    </div>
+  {{ /if }}
+{{ /collection:events }}

@@ -13,7 +13,10 @@ tabs:
               validate:
                 - required
           -
-            import: content_markdown
+            import: ui.markdown-small
+            handle: markdown_small
+          -
+            import: ui.content-markdown
   card:
     display: Card
     sections:
@@ -22,7 +25,7 @@ tabs:
         instructions: 'Preview for cards'
         fields:
           -
-            import: card
+            import: ui.card
   seo:
     display: SEO
     sections:
@@ -30,7 +33,7 @@ tabs:
         display: 'Seo Settings'
         fields:
           -
-            import: seo
+            import: meta.seo
   sidebar:
     display: Sidebar
     sections:
@@ -38,7 +41,7 @@ tabs:
         display: Meta
         fields:
           -
-            import: primary_image
+            import: ui.primary-image
           -
             handle: category
             field:

@@ -7,53 +7,53 @@
   {{# 1. Events #}}
   <section>
     <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Upcoming Events (list_event)</h2>
-    {{ partial:list/list_event  card_type="card-event"  }}
+    {{ partial:list/list-event  card_type="card-event"  }}
   </section>
 
   {{# 2. Articles #}}
   <section>
     <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Latest Articles (list_article)</h2>
-    {{ partial:list/list_article limit="3" card_type="card" }}
+    {{ partial:list/list-article limit="3" card_type="card" }}
   </section>
 
   {{# 3. Posts #}}
   <section>
     <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Recent Posts (list_post)</h2>
-    {{ partial:list/list_post limit="3" card_type="card" }}
+    {{ partial:list/list-post limit="3" card_type="card" }}
   </section>
 
   {{# 4. Photos #}}
   <section>
     <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Photo Galleries (list_photos)</h2>
-    {{ partial:list/list_photos limit="3" card_type="card" }}
+    {{ partial:list/list-photos limit="3" card_type="card" }}
   </section>
 
   {{# 4b. Videos #}}
   <section>
     <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Videos (list_video)</h2>
-    {{ partial:list/list_video limit="3" card_type="card-video" }}
+    {{ partial:list/list-video limit="3" card_type="card-video" }}
   </section>
   {{# 5. Categories #}}
   <section>
     <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Categories (list_category)</h2>
-    {{ partial:list/list_tax_category card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+    {{ partial:list/list-tax-category card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
   </section>
 
   {{# 6. Calendar Groups #}}
   <section>
     <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Calendar Groups (list_calendar)</h2>
-    {{ partial:list/list_tax_calendar card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+    {{ partial:list/list-tax-calendar card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
   </section>
 
   {{# 7. Photos Groups #}}
   <section>
     <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Photo Groups (list_photo)</h2>
-    {{ partial:list/list_tax_photo card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
+    {{ partial:list/list-tax-photo card_type="card" grid_classes="grid grid-cols-2 lg:grid-cols-4 gap-4" }}
   </section>
 
   {{# 8. Tags #}}
   <section>
     <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">All Tags (list_tags)</h2>
-    {{ partial:list/list_tax_tags }}
+    {{ partial:list/list-tax-tags }}
   </section>
 </section>

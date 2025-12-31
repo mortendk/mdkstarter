@@ -1,0 +1,18 @@
+title: Files
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    import: ui.markdown-small
+  -
+    handle: files
+    field:
+      container: images
+      folder: files
+      type: assets
+      display: Files
+  -
+    import: layout.section

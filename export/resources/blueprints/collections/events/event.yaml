@@ -40,23 +40,24 @@ tabs:
                 - sometimes
                 - 'after:event_start'
           -
-            import: teaser
+            import: ui.markdown-small
+            handle: markdown_small
           -
-            import: content_markdown
+            import: ui.content-markdown
   card:
     display: Card
     sections:
       -
         fields:
           -
-            import: card
+            import: ui.card
   seo:
     display: SEO
     sections:
       -
         fields:
           -
-            import: seo
+            import: meta.seo
   sidebar:
     display: Sidebar
     sections:
@@ -82,7 +83,7 @@ tabs:
               display: Category
               mode: select
           -
-            import: primary_image
+            import: ui.primary-image
           -
             handle: tags
             field:

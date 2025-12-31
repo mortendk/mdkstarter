@@ -1,0 +1,24 @@
+title: 'Content (Markdown)'
+fields:
+  -
+    handle: markdown
+    field:
+      container: images
+      buttons:
+        - bold
+        - italic
+        - asset
+        - link
+        - quote
+        - strikethrough
+        - unorderedlist
+        - orderedlist
+        - table
+        - image
+        - code
+        - codeblock
+      automatic_links: true
+      type: markdown
+      display: 'Content (markdown)'
+      folder: images
+      escape_markup: true

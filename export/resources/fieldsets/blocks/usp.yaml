@@ -1,0 +1,37 @@
+title: USP
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+                  import: ui.markdown-small
+  -
+    handle: usp_items
+    field:
+      type: replicator
+      display: 'USP Items'
+      sets:
+        usp:
+          display: 'USP Item'
+          fields:
+            -
+              handle: title
+              field:
+                type: text
+                display: Title
+            -
+              handle: icon
+              field:
+                type: icon
+                display: Icon
+            -
+              handle: link
+              field:
+                type: link
+                display: Link
+            -
+                            import: ui.markdown-small
+  -
+    import: layout.section

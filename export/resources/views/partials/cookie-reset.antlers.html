@@ -1,0 +1,10 @@
+<div x-data="{
+    resetConsent() {
+        localStorage.removeItem('cookie_consent');
+        window.location.reload();
+    }
+}" class="text-xs text-white/50 hover:text-white transition-colors">
+    <button @click="resetConsent()" class="underline decoration-dotted cursor-pointer">
+        Reset Cookie Preferences
+    </button>
+</div>

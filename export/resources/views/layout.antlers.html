@@ -11,11 +11,11 @@
     {{ if brand:browser_color }}
     <meta name="theme-color" content="{{ brand:browser_color }}">
     {{ /if }}
-    {{ partial:head/seo }}
-    {{ partial:head/verification }}
-    {{ partial:head/icon }}
+    {{ partial:meta/seo }}
+    {{ partial:meta/verification }}
+    {{ partial:meta/icon }}
     {{ feedamic }}
-    {{ settings:header_scipts }}
+    {{ scripts:header_scripts }}
     {{ vite src="resources/js/site.js|resources/css/site.css" }}
 
     <script>
@@ -52,7 +52,7 @@
 
   <body class="flex flex-col h-screen bg-linear-to-r from-amber-100 to-white text-amber-800" x-data="{ openmenu: false, consent: localStorage.getItem('cookie_consent') }" :class="openmenu ? 'overflow-y-hidden' : ''">
 
-  {{ partial:cookie_consent }}
+  {{ partial:cookie-consent }}
 
     {{ partial:notifications/banner }}
 
@@ -87,7 +87,7 @@
     </script>
     {{ /if }}
 
-    {{ settings:footer_script }}
+    {{ scripts:footer_scripts }}
   </body>
 
 </html>

@@ -1,0 +1,24 @@
+title: 'Header & Footer Scripts'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: header_scripts
+            field:
+              input_type: text
+              antlers: false
+              display: 'Header Scripts'
+              type: textarea
+              icon: textarea
+              listable: hidden
+              instructions: 'Add scripts to the head section.'
+              validate:
+                - nullable
+          -
+            handle: footer_scripts
+            field:
+              type: textarea
+              display: 'Footer Scripts'

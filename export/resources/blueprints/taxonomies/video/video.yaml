@@ -13,9 +13,9 @@ tabs:
               validate:
                 - required
           -
-            import: primary_image
+            import: ui.primary-image
           -
-            import: content_markdown
+            import: ui.content-markdown
   card:
     display: Card
     sections:
@@ -23,7 +23,7 @@ tabs:
         display: 'New Section'
         fields:
           -
-            import: card
+            import: ui.card
   seo:
     display: SEO
     sections:
@@ -31,7 +31,7 @@ tabs:
         display: 'New Section'
         fields:
           -
-            import: seo
+            import: meta.seo
   sidebar:
     display: Sidebar
     sections:

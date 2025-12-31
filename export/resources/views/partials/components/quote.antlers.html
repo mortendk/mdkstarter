@@ -1,29 +1,28 @@
 {{ if config:app:debug is true }}<!-- 👋 resources/views/partials/components/quote.antlers.html -->{{ /if }}
 
-<article class="p-5 bg-slate-50 pagewidth border-t  border-slate-200">
+<section class="{{ style:color_themes[color_theme] ?? '' }} py-8 lg:py-12">
+  <article class="{{ section_width ?? 'pagewidth' }} flex flex-col items-center">
 
-  <div class="prose-xl max-w-prose mx-auto font-bold">
-    citat:
-  </div>
+    <div class="prose prose-xl lg:prose-2xl text-center font-bold italic mb-8 max-w-4xl mx-auto">
+      &ldquo;{{ markdown_small | strip_tags }}&rdquo;
+    </div>
 
-  <div class="prose-xl max-w-prose mx-auto">
-    {{ text }}
-  </div>
-
-  <div class="flex flex-col items-center">
-
-    <div class="size-32 rounded-full overflow-hidden bg-slate-300 text-slate-800 flex items-center justify-center">
+    <div class="flex flex-col items-center">
       {{ if image }}
-      <img src="{{ glide :src="image" w="100" h="100" fit="crop_focal" }} " alt="{{ image:alt }}" class="w-full h-full object-cover" loading="lazy" />
-      {{ /if}}
+      <div class="size-24 lg:size-32 rounded-full overflow-hidden mb-4 shadow-lg ring-4 ring-white/10">
+        <img src="{{ glide :src="image" w="200" h="200" fit="crop_focal" }} " alt="{{ name }}" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+      {{ /if }}
+
+      <div class="font-bold text-xl uppercase tracking-wider">
+        {{ name }}
+      </div>
+      {{ if position }}
+      <div class="text-sm opacity-60">
+        {{ position }}
+      </div>
+      {{ /if }}
     </div>
 
-    <div class="font-bold">
-      {{ name }}
-    </div>
-    <div class="">
-      {{ position }}
-    </div>
-  </div>
-
-</article>
+  </article>
+</section>

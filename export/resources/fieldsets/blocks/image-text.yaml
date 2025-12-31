@@ -1,0 +1,54 @@
+title: 'Image & Text'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: image
+    field:
+      container: images
+      type: assets
+      display: image
+      width: 33
+      max_files: 1
+      mode: grid
+      folder: images
+  -
+    handle: text
+    field:
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+      type: markdown
+      display: text
+      width: 66
+  -
+    import: ui.buttons
+  -
+    handle: block_layout
+    field:
+      type: group
+      fields:
+        -
+          handle: image_placement_text_alignment
+          field:
+            type: section
+            display: 'Image placement & Text Alignment'
+            instructions: 'Image & Text Layout'
+        -
+          handle: image_placement
+          field:
+            type: toggle
+            display: 'Image Placement'
+            inline_label: Left
+            inline_label_when_true: Right
+        -
+          import: layout.alignment
+  -
+    import: layout.section

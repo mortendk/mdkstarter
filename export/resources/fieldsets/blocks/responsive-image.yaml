@@ -1,0 +1,18 @@
+title: 'Responsive image'
+fields:
+  -
+    handle: image
+    field:
+      breakpoints:
+        - lg
+      container: images
+      folder: images
+      type: responsive
+      display: image
+  -
+    handle: link
+    field:
+      type: link
+      display: link
+  -
+    import: layout.section

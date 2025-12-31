@@ -1,0 +1,21 @@
+title: 'Card Style Selector'
+fields:
+  -
+    handle: card_partial
+    field:
+      type: select
+      display: 'Card Style'
+      options:
+        -
+          key: cards/card
+          value: Default
+        -
+          key: cards/card-small
+          value: 'Card Small'
+        -
+          key: cards/card-event
+          value: Event
+        -
+          key: cards/card-event-small
+          value: 'Event Small'
+      default: cards/card

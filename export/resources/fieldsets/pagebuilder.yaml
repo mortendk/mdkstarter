@@ -16,56 +16,56 @@ fields:
               icon: media-webcam-video
               fields:
                 -
-                  import: video
+                  import: blocks.video
             files:
               display: Files
               icon: file-zip
               fields:
-                - import: files
+                - import: blocks.files
             cards:
               display: Cards
               instructions: "Listing of content in card format"
               icon: layout-three-columns
               fields:
-                - import: cards
-            image_text:
+                - import: blocks.cards
+            image-text:
               display: "Image & Text"
               icon: align-right
               fields:
-                - import: image_text
-            responsive_image:
+                - import: blocks.image-text
+            responsive-image:
               display: "Responsive image"
               icon: media-image-picture-orientation
               fields:
-                - import: responsive_image
+                - import: blocks.responsive-image
             markdown:
               display: Text
               instructions: "Uses Markdown"
               icon: text-formatting-paragraph
               fields:
-                - import: markdown_section
+                - import: blocks.markdown
             photos:
               display: Photos
               instructions: "Image gallery and listing"
               icon: media-image-picture-gallery
               fields:
-                - import: photos
+                - import: blocks.photos
             hero:
               display: Hero
               icon: align-object-top
               fields:
-                - import: hero
-            hero_box:
+                - import: blocks.hero
+            hero-box:
               display: "hero box"
               fields:
-                - import: hero_box
+                - import: blocks.hero-box
             usp:
               display: USP
               icon: dashboard-layout
               fields:
-                - import: usp
+                - import: blocks.usp
             calendar:
               display: Calendar
               icon: calendar-date
               fields:
-                - import: calendar
+                - import: blocks.calendar

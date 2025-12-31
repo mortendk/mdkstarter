@@ -1,0 +1,11 @@
+title: 'Small Markdown'
+fields:
+  -
+    handle: markdown_small
+    field:
+      buttons:
+        - bold
+        - italic
+        - link
+      type: markdown
+      display: Text

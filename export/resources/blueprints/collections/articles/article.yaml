@@ -13,9 +13,10 @@ tabs:
               validate:
                 - required
           -
-            import: teaser
+            import: ui.markdown-small
+            handle: markdown_small
           -
-            import: content_markdown_advanced
+            import: ui.content-markdown-advanced
           -
             import: pagebuilder
   card:
@@ -26,7 +27,7 @@ tabs:
         instructions: 'Preview for cards'
         fields:
           -
-            import: card
+            import: ui.card
   seo:
     display: SEO
     sections:
@@ -34,7 +35,7 @@ tabs:
         display: 'Seo Settings'
         fields:
           -
-            import: seo
+            import: meta.seo
   settings:
     display: Settings
     sections:
@@ -69,7 +70,7 @@ tabs:
         display: Meta
         fields:
           -
-            import: primary_image
+            import: ui.primary-image
           -
             handle: category
             field:

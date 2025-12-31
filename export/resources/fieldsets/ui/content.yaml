@@ -1,0 +1,102 @@
+title: 'Content Wysiwyg'
+fields:
+  -
+    handle: bard
+    field:
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - strikethrough
+        - small
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - superscript
+        - subscript
+        - anchor
+        - table
+        - image
+        - code
+        - codeblock
+        - horizontalrule
+      reading_time: true
+      word_count: true
+      remove_empty_nodes: true
+      type: bard
+      display: Content
+      instructions: 'Content Long format user the + to add in blocks'
+      container: images
+      allow_source: false
+      always_show_set_button: true
+      sets:
+        video:
+          display: Video
+          icon: media-webcam-video
+          fields:
+            -
+              import: blocks.video
+        files:
+          display: Files
+          icon: file-zip
+          fields:
+            -
+              import: blocks.files
+        cards:
+          display: Cards
+          instructions: 'Listing of content in card format'
+          icon: layout-three-columns
+          fields:
+            -
+              import: blocks.cards
+        image-text:
+          display: 'Image & Text'
+          icon: align-right
+          fields:
+            -
+              import: blocks.image-text
+        responsive-image:
+          display: 'Responsive image'
+          icon: media-image-picture-orientation
+          fields:
+            -
+              import: blocks.responsive-image
+        markdown:
+          display: Text
+          instructions: 'Uses Markdown'
+          icon: text-formatting-paragraph
+          fields:
+            -
+              import: blocks.markdown
+        photos:
+          display: Photos
+          instructions: 'Image gallery and listing'
+          icon: media-image-picture-gallery
+          fields:
+            -
+              import: blocks.photos
+        hero:
+          display: Hero
+          icon: align-object-top
+          fields:
+            -
+              import: blocks.hero
+        hero-box:
+          display: 'hero box'
+          fields:
+            -
+              import: blocks.hero-box
+        usp:
+          display: USP
+          icon: dashboard-layout
+          fields:
+            -
+              import: blocks.usp
+        calendar:
+          display: Calendar
+          icon: calendar-date
+          fields:
+            -
+              import: blocks.calendar

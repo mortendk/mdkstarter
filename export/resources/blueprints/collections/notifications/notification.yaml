@@ -43,7 +43,7 @@ tabs:
               display: 'Custom Action Link'
               instructions: 'Optional: Overrides the default link to this notification page.'
           -
-            import: content_markdown
+            import: ui.content-markdown
   sidebar:
     display: Sidebar
     sections:

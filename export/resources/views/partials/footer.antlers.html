@@ -1,0 +1,69 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/_footer.antlers.html -->{{ /if }}
+
+<footer class="bg-linear-to-b from-red-900 to-red-950 text-white py-8 flex flex-col items-center justify-center">
+
+  {{ if brand:logo }}
+  <div class="w-32 lg:w-64">
+    <img src="{{ glide :src="brand:logo" }}" alt="{{ brand:name }}" class="w-full h-full object-cover">
+  </div>
+  {{ /if }}
+
+
+  <nav class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-8 w-full my-8 fill-white">
+    {{ partial:social }}
+
+    <div class="flex flex-wrap items-center gap-4 text-sm font-bold uppercase tracking-wider">
+      {{ if footer:show_feed_all }}
+      <a href="/feed" class="flex items-center gap-2 hover:text-orange-400 transition-colors">
+        {{ svg src="rss" class="size-5 fill-current" }}
+        All Content
+      </a>
+      {{ /if }}
+      {{ if footer:show_feed_posts }}
+      <a href="/feedamic" class="flex items-center gap-2 hover:text-orange-400 transition-colors">
+        {{ svg src="rss" class="size-5 fill-current" }}
+        Posts
+      </a>
+      {{ /if }}
+      {{ if footer:show_feed_photos }}
+      <a href="/feed/photos" class="flex items-center gap-2 hover:text-orange-400 transition-colors">
+        {{ svg src="rss" class="size-5 fill-current" }}
+        Photos
+      </a>
+      {{ /if }}
+      {{ if footer:show_feed_videos }}
+      <a href="/feed/videos" class="flex items-center gap-2 hover:text-orange-400 transition-colors">
+        {{ svg src="rss" class="size-5 fill-current" }}
+        Videos
+      </a>
+      {{ /if }}
+      {{ if footer:show_feed_events }}
+      <a href="/feed/events" class="flex items-center gap-2 hover:text-orange-400 transition-colors">
+        {{ svg src="rss" class="size-5 fill-current" }}
+        Events
+      </a>
+      {{ /if }}
+    </div>
+  </nav>
+
+    {{ if footer:copyright }}
+
+    <div class="text-sm text-center mt-8">{{ footer:copyright }}</div>
+
+    {{ /if }}
+
+  
+
+    <div class="mt-4">
+
+      {{ partial:cookie-reset }}
+
+    </div>
+
+  
+
+    {{ if footer:text }}
+  <div class="pagewidth prose-white">{{ footer:text }}</div>
+  {{ /if }}
+
+</footer>

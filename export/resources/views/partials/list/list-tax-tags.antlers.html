@@ -1,0 +1,17 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/list/list-tax-tags.antlers.html -->{{ /if }}
+
+
+{{#
+  Example usage:
+  {{ partial:list/list-tax-tags }}
+  {{ partial:list/list-tax-tags grid_classes="flex flex-wrap gap-2" }}
+#}}
+{{ taxonomy:tags sort="title:asc" as="terms" }}
+{{ if terms }}
+<div class="{{ grid_classes ?? 'flex flex-wrap gap-3' }}">
+  {{ terms }}
+  {{ partial:taxonomy/tag }}
+  {{ /terms }}
+</div>
+{{ /if }}
+{{ /taxonomy:tags }}

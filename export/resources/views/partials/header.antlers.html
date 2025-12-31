@@ -1,0 +1,40 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/header.antlers.html -->{{ /if }}
+
+<header class="fixed lg:relative flex lg:items-center gap-4 w-full gh z-50 shadow-md bg-linear-to-r from-pink-950 to-pink-700 text-amber-100">
+
+  <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
+
+  <div class="flex flex-row h-16 lg:h-20 items-center lg:justify-between pagewidth">
+
+  <div class="hidden lg:flex items-center gap-8 lg:w-full ">
+    {{ partial:brand/logo-ident }}
+    {{ partial:navigation/menu }}
+    <div class="ml-auto">
+      {{ partial:dark-mode-toggle }}
+    </div>
+  </div>
+
+  {{# mobile #}}
+  <div class="flex lg:hidden items-center justify-center w-full relative">
+    <a href="/" class="font-display text-3xl text-center">{{ brand:name }}</a>
+    <div class="absolute right-12">
+      {{ partial:dark-mode-toggle }}
+    </div>
+  </div>
+
+  {{# mobilr mrnu toggle #}}
+  <button @click="openmenu = !openmenu" class="block md:hidden focus:outline-none size-10  cursor-pointer" type="button" aria-label="toggle mobile menu">
+
+    <span x-show="! openmenu">
+    {{ svg src="menu" class="size-6 fill-violet-900" }}
+    </span>
+    <span x-show="openmenu">
+    {{ svg src="close" class="size-6 fill-violet-800" }}
+    </span>
+
+  </button>
+
+  </div>
+
+  {{ partial:navigation/menu-mobile }}
+</header>

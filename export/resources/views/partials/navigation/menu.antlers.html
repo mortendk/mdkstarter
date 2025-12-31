@@ -1,0 +1,25 @@
+{{ if config:app:debug is true }}<!-- 👋 resources/views/partials/menu/_menu.antlers.html -->{{ /if }}
+
+<div class="hidden lg:flex h-full w-full justify-between items-center">
+
+  <nav class="flex gap-8 h-full" aria-label="Main Menu">
+  {{ nav:main include_home="false" }}
+
+  <a href="{{ url }}"
+    class="text-2xl font-sans border-b-2 flex items-center text-pink-50 hover:text-pink-200 hover:border-pink-200 transition-all duration-300 {{ if is_current || is_parent }} text-pink-200 border-pink-200 {{ else }} text-pink-200  border-transparent {{ /if }}">
+    {{ title }}
+  </a>
+
+  {{ /nav:main  }}
+  </nav>
+
+  {{#
+  <form action="/search/" class="h-full flex items-center ">
+  <div class="bg-white flex flex-row gap-2 items-center px-2 border border-slate-300 rounded-md ">
+    <label for="search">{{ svg src="telescope" class="size-4" }}</label>
+  <input type="seach" id="search" name="q" placeholder="" class="p-1 bg-white">
+</div>
+
+</form> #}}
+
+</div>

@@ -1,0 +1,29 @@
+title: 'Content Markdown Advanced'
+fields:
+  -
+    handle: show_toc
+    field:
+      type: toggle
+      display: 'Show Table of Contents'
+      instructions: 'Enable to show a sticky navigation sidebar for headings.'
+      default: false
+  -
+    handle: markdown_advanced
+    field:
+      container: images
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+        - table
+        - strikethrough
+        - code
+        - codeblock
+      automatic_links: true
+      heading_anchors: true
+      table_of_contents: true
+      type: markdown
+      display: 'Markdown Advanced'
